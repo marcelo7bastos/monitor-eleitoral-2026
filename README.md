@@ -12,6 +12,10 @@ MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma 
 - [Identidade visual do dashboard — proposta v1.0](docs/IDENTIDADE_VISUAL.md)
 - [Diagnóstico Python do Acre](scripts/teste_t2_acre.py)
 
+## Protótipo visual (dados inteiramente fictícios)
+- [Dashboard HTML — versão 2](site/prototipo-simulacao.html): linha do tempo de 17h a 00h, extensão após meia-noite, percentuais simulados e placar à direita.
+- Não está publicado em GitHub Pages nem conectado à API do TSE. Para testar, baixar o HTML e abrir no navegador.
+
 ## Execução local
 Requer Python 3.9+; sem dependências externas para o diagnóstico inicial.
 
