@@ -25,3 +25,6 @@ Alterações de escopo ou de método devem ser registradas aqui com data, motivo
 - D-015: usuário aceitou a metodologia da planilha. Preservar fórmulas e alterar apenas o rótulo L para PRESENTES ESTIMADOS no modelo, sem modificar o XLSX original.
 - D-016: aceitar um conjunto nacional somente com 28 abrangências válidas. Falha parcial preserva o conjunto anterior; estado de desatualização é gravado separadamente.
 - D-017: Actions somente manual; persistir dados e logs por artefatos por até 90 dias e serializar execuções. Não habilitar cron ou Pages nesta entrega.
+
+## Composição do dashboard — 25/10/2026
+- D-018: colaboradores Marcelo Cabreira Bastos e Ernesto Galindo apresentados na barra lateral acima do modo demonstração. Apenas links profissionais do Marcelo (incluindo ORCID 0009-0002-4215-3446); não incluir e-mail ou telefone de Ernesto. Mensagem de responsabilidade: “Este não é um sistema oficial do TSE”.
