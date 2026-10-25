@@ -121,3 +121,7 @@ Exibido no cabeçalho da coluna "Nossa estimativa" do placar, ao lado do selo de
 Regra: margem = (1 − piso da faixa) × δ. Usar o piso da faixa dá o pior caso dentro dela e evita que o número oscile a cada coleta. Estimativa parcial do Brasil (nem todas as UFs com dados): "Sem margem". Sem estimativa ou sem cobertura: o selo não aparece.
 
 Limites: δ é uma suposição explícita (quanto o restante a apurar pode divergir do já apurado), não um valor medido; não é intervalo de confiança estatístico; a fração por seções ignora que elas têm eleitorados diferentes; não corrige o viés da fórmula da planilha. A calibração de δ e das faixas com o histórico de coletas fica para depois da apuração (issue #21).
+
+## 9. Apuração por região (produção)
+
+Na "Visão por região", um círculo antes do nome de cada região mostra o percentual de seções totalizadas: soma das seções totalizadas das UFs da região ÷ soma do total de seções delas (mesma base da cobertura). O anel preenche proporcionalmente; abaixo de 1% aparece "<1%" e "100%" só quando todas as seções estão totalizadas. Uma legenda "Apuração" acima das barras explica o círculo, e o texto alternativo e a dica trazem a contagem ("637 de 15.890 seções totalizadas (4%)"). Exibição apenas: percentuais, estimativas e coleta não mudam. O Exterior usa a cobertura de ZZ.

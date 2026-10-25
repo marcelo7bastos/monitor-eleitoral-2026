@@ -70,3 +70,19 @@ test('placar renderiza com e sem dados e inclui o selo de margem quando há esti
  const v={lula:'48.3',flavio:'51.7',votos_lula:1,votos_flavio:2,cobertura:62,estimativa:{lula:'48.9',flavio:'51.1',votos_lula:1,votos_flavio:2}};
  assert.match(placar(v),/margem-btn moderada/);
 });
+test('apuração por região soma as UFs, não arredonda para 100% antes da hora e avisa dado ausente',()=>{
+ const {coberturaGrupo,seloRegiao}=require('../site/dashboard.js');
+ const v={AC:{totalizadas:100,secoes:1000},AP:{totalizadas:'50',secoes:'500'},AM:{totalizadas:0,secoes:1500}};
+ const r=coberturaGrupo(['AC','AP','AM'],v);
+ assert.equal(r.st,150);assert.equal(r.ts,3000);assert.equal(r.p,5);assert.equal(r.rotulo,'5%');assert.equal(r.incompleto,false);
+ assert.equal(coberturaGrupo(['AC'],{AC:{totalizadas:1,secoes:1000}}).rotulo,'<1%');
+ assert.equal(coberturaGrupo(['AC'],{AC:{totalizadas:0,secoes:1000}}).rotulo,'0%');
+ assert.equal(coberturaGrupo(['AC'],{AC:{totalizadas:999,secoes:1000}}).rotulo,'99%');
+ assert.equal(coberturaGrupo(['AC'],{AC:{totalizadas:1000,secoes:1000}}).rotulo,'100%');
+ const falta=coberturaGrupo(['AC','SE'],{AC:{totalizadas:500,secoes:1000}});
+ assert.equal(falta.rotulo,'50%');assert.equal(falta.incompleto,true);
+ assert.equal(coberturaGrupo(['SE'],{}).p,null);assert.equal(coberturaGrupo(['SE'],undefined).rotulo,'—');
+ assert.match(seloRegiao('Norte',['AC'],{AC:{totalizadas:20,secoes:100}}),/<b>20%<\/b>/);
+ assert.match(seloRegiao('Norte',['AC'],{AC:{totalizadas:20,secoes:100}}),/--p:20\.00/);
+ assert.match(seloRegiao('Norte',['SE'],{}),/reg-cob vazio/);
+});
