@@ -44,7 +44,7 @@ def compilar(conjunto):
     br={'uf':'BR'}
     for campo in ('aptos','comparecimento','abstencao','secoes','totalizadas','validos','concorrentes'):
         br[campo]=sum(v[campo] for v in vistas.values())
-    br['apurado']=br['concorrentes']>0 and all(v['apurado'] or v['totalizadas']==0 for v in vistas.values())
+    br['apurado']=br['concorrentes']>0 and all(v['apurado'] or v['concorrentes']==0 for v in vistas.values())
     br['cobertura']=Decimal(br['totalizadas'])*100/br['secoes'] if br['secoes'] else None
     for nome in ('lula','flavio'):
         br['votos_'+nome]=sum(v['votos_'+nome] or 0 for v in vistas.values()) if br['apurado'] else None
