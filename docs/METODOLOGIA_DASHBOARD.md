@@ -100,8 +100,8 @@ A escala vertical se ajusta aos valores da série e **não começa obrigatoriame
 
 A metodologia fictícia será substituída/adequada conforme contrato de dados oficial, fórmulas homologadas do Excel e testes do Projeto Master. Em especial, no mundo real os votos válidos e eleitorado apto não podem ser tratados como fixos no processo de apuração sem evidência compatível.
 
-## 7. Contatos
+## 7. Autoria e projeto pessoal
 
-A seção "Sobre o projeto e contatos" da página mostra referências verificadas para o autor e um contato institucional de Ernesto Galindo. O identificador ORCID de Marcelo ainda precisa de confirmação e por isso não aponta para um perfil não verificado.
+A seção "Sobre o projeto e autoria" apresenta links profissionais públicos do autor. O identificador ORCID ainda precisa de confirmação e não aponta para perfil não verificado.
 
-**Neutralidade:** MDA fornece referência de estilo e listagem de contato profissional, mas o dashboard é independente; a menção não implica endosso.
+**Independência:** este é um projeto pessoal. O MDA é apenas referência visual e não participa da elaboração, não endossa e não mantém este protótipo.
