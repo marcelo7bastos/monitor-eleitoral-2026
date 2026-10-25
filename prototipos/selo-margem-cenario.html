@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Protótipo · Selo de margem de cenário</title>
+<style>
+:root{--green-900:#173f30;--green-800:#194e37;--green-700:#246b45;--green-100:#e8f3eb;--bg:#f5f7f6;--surface:#fff;--ink:#192c26;--ink-2:#4c6259;--quiet:#7b8c83;--border:#e0e9e3;--shadow:0 5px 22px rgba(24,58,42,.035);--radius:13px;
+--ok-bg:#e8f3eb;--ok-fg:#1d5c3a;--mid-bg:#eef3f6;--mid-fg:#2f4757;--wide-bg:#fff9eb;--wide-fg:#835e24;--wide-bd:#ecd7a8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Rawline,"Segoe UI",Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.45;font-size:14px}
+button,input,select{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #e0ac45;outline-offset:3px}
+.faixa-proto{background:#fff0ee;border-bottom:1px solid #f0c5bf;color:#8a2b1e;text-align:center;padding:9px 16px;font-size:12px;font-weight:800;letter-spacing:.4px}
+.wrap{max-width:980px;margin:0 auto;padding:26px clamp(16px,3vw,32px) 48px;display:grid;gap:22px}
+h1{font-size:20px;margin:0 0 4px;letter-spacing:-.3px}.lead{margin:0;color:var(--ink-2);font-size:13px;max-width:70ch}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.eyebrow{margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--green-700)}
+h2{margin:0;font-size:18px;letter-spacing:-.2px}
+.dl-meta{font-size:12px;color:var(--ink-2);margin:6px 0 16px}.dl-meta b{color:var(--ink)}
+.dl-duelo{container-type:inline-size;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:11px;overflow:hidden}
+.dl-cel{padding:10px 14px;min-width:0}.dl-est{border-left:1px solid var(--border);background:#fbfcfb}
+.dl-cab{padding-top:16px;padding-bottom:6px}.dl-base{padding-bottom:16px}
+.dl-titulo{font-weight:800;font-size:14px;line-height:1.25}.dl-sub{font-size:12px;color:var(--ink-2);line-height:1.35}
+.selos{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px;align-items:center}
+.dl-selo{display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.dl-selo.oficial{background:var(--green-100);color:var(--green-700)}
+.dl-selo.parcial{background:#fff9eb;color:#835e24;border:1px solid #ecd7a8}
+.dl-cand{border-left:4px solid #D71E2C;padding:2px 0 2px 10px;height:100%}.dl-cand.flavio{border-color:#59656D}
+.dl-nome{font-weight:700;font-size:12px;color:var(--ink-2)}
+.dl-pct{display:block;font-size:clamp(26px,8.4cqi,44px);font-weight:800;letter-spacing:-1px;line-height:1.05;font-variant-numeric:tabular-nums}
+.dl-cand.lula .dl-pct{color:#D71E2C}.dl-cand.flavio .dl-pct{color:#59656D}
+.dl-qtd{font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.dl-delta{display:inline-block;margin:3px 0 2px;font-size:11px;font-weight:800;padding:1px 7px;border-radius:6px;font-variant-numeric:tabular-nums;background:#f1f3f4;color:#3c464d}
+.dl-delta.vazio{visibility:hidden}
+.dl-barra{display:flex;height:9px;border-radius:6px;overflow:hidden;background:#edf1ee;margin-top:4px}.dl-barra span{background:#D71E2C}.dl-barra i{background:#59656D}
+.dl-base p{font-size:12px;color:var(--ink-2);margin:0}.dl-base b{color:var(--ink)}
+.inline-note{font-size:12px;color:var(--ink-2);margin:12px 0 0}
+/* ===== NOVO: selo de margem de cenário ===== */
+.margem-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;border-radius:999px;padding:3px 9px 3px 8px;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.margem-btn .num{font-size:12px}.margem-btn .rot{font-weight:700;opacity:.85}
+.margem-btn svg{width:12px;height:12px;flex-shrink:0}
+.margem-btn.estreita{background:var(--ok-bg);color:var(--ok-fg);border-color:#cfe5d6}
+.margem-btn.moderada{background:var(--mid-bg);color:var(--mid-fg);border-color:#d6e1e8}
+.margem-btn.ampla{background:var(--wide-bg);color:var(--wide-fg);border-color:var(--wide-bd)}
+.margem-btn.completa{background:var(--ok-bg);color:var(--ok-fg);border-color:#cfe5d6}
+.margem-btn.indisp{background:#f1f3f4;color:#50615a;border-color:#dfe5e1}
+dialog.det{border:1px solid var(--border);border-radius:13px;box-shadow:0 18px 50px rgba(24,58,42,.22);padding:20px 20px 16px;width:min(400px,calc(100vw - 32px));font-size:13px;color:var(--ink-2)}
+dialog.det::backdrop{background:rgba(16,54,41,.35)}
+dialog.det h3{margin:0 0 8px;font-size:16px;color:var(--ink)}
+dialog.det p{margin:0 0 10px}
+dialog.det dl{margin:10px 0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px}dialog.det dt{font-weight:700;color:var(--ink)}dialog.det dd{margin:0;font-variant-numeric:tabular-nums}
+dialog.det .aviso{margin:12px 0 0;padding:9px 11px;border-radius:8px;background:#fff9eb;color:#704d16;border:1px solid #ecd7a8}
+dialog.det .fechar{margin-top:14px;border:1px solid var(--border);background:#fff;border-radius:9px;padding:8px 14px;font-weight:700;color:var(--ink)}
+/* ===== controles do protótipo (não fazem parte do site) ===== */
+.ctrl{display:grid;gap:14px}
+.ctrl h2{font-size:15px}
+.linha{display:grid;grid-template-columns:150px 1fr auto;gap:12px;align-items:center}
+.linha label{font-weight:700;font-size:13px}
+.linha output{font-variant-numeric:tabular-nums;font-weight:800;min-width:54px;text-align:right}
+input[type=range]{width:100%;accent-color:var(--green-700)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--border);background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12px;color:var(--ink-2)}
+.chip[aria-pressed=true]{background:var(--green-800);border-color:var(--green-800);color:#fff}
+.legenda{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.legenda div{border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:12px;background:#fff}
+.legenda b{display:block;margin-bottom:5px}
+.notas{margin:0;padding-left:18px;color:var(--ink-2);font-size:12px}.notas li{margin:4px 0}
+@media(max-width:560px){.linha{grid-template-columns:1fr auto}.linha label{grid-column:1/-1}}
+@media(max-width:420px){.dl-cel{padding:9px}.dl-cand{padding-left:8px}.dl-est .margem-btn .rot{display:none}}
+</style>
+</head>
+<body>
+<div class="faixa-proto">PROTÓTIPO · DADOS INTEIRAMENTE FICTÍCIOS · NÃO PUBLICADO · issue #21</div>
+<main class="wrap">
+ <div>
+  <h1>Selo de margem de cenário</h1>
+  <p class="lead">Como o selo apareceria acima da estimativa no placar “Oficial × nossa estimativa”. Use os controles abaixo para ver os estados conforme a apuração avança. Os números do placar são inventados só para este teste.</p>
+ </div>
+
+ <section class="panel" aria-labelledby="placar-titulo">
+  <p class="eyebrow">Brasil · 2º turno (exemplo)</p>
+  <h2 id="placar-titulo">Oficial × nossa estimativa</h2>
+  <p class="dl-meta" id="meta"></p>
+  <div class="dl-duelo" id="placar" role="table" aria-label="Resultado oficial e estimativa lado a lado"></div>
+  <p class="inline-note">Sem declaração de vencedor. A estimativa não é resultado oficial.</p>
+ </section>
+
+ <dialog class="det" id="det" aria-labelledby="det-t"></dialog>
+
+ <section class="panel ctrl" aria-labelledby="ctrl-t">
+  <h2 id="ctrl-t">Controles do protótipo</h2>
+  <div class="linha"><label for="f">Seções apuradas</label><input id="f" type="range" min="0" max="100" step="1" value="62"><output id="f-out" for="f"></output></div>
+  <div class="chips" role="group" aria-label="Atalhos de apuração" id="atalhos"></div>
+  <div class="linha"><label id="d-l">Cenário do restante (δ)</label>
+   <div class="chips" role="group" aria-labelledby="d-l" id="deltas"></div><span></span></div>
+ </section>
+
+ <section class="panel" aria-labelledby="leg-t">
+  <h2 id="leg-t" style="font-size:15px;margin-bottom:12px">Estados do selo</h2>
+  <div class="legenda">
+   <div><span class="margem-btn ampla"><span class="num">± 4,6 p.p.</span><span class="rot">faixa ampla</span></span><p>Margem de 3 p.p. ou mais. Cor âmbar, como o selo “Parcial”.</p></div>
+   <div><span class="margem-btn moderada"><span class="num">± 1,9 p.p.</span><span class="rot">moderada</span></span><p>Entre 1 e 3 p.p.</p></div>
+   <div><span class="margem-btn estreita"><span class="num">± 0,4 p.p.</span><span class="rot">estreita</span></span><p>Menos de 1 p.p.</p></div>
+   <div><span class="margem-btn completa"><span class="num">Apuração completa</span></span><p>100% das seções: nada a projetar. Não mostra “± 0,0”.</p></div>
+  </div>
+ </section>
+
+ <section class="panel" aria-labelledby="not-t">
+  <h2 id="not-t" style="font-size:15px;margin-bottom:8px">Pontos para decidir</h2>
+  <ul class="notas">
+   <li><b>Nome:</b> “margem de cenário” em vez de “margem de confiança”, porque o método não tem cobertura estatística medida.</li>
+   <li><b>Posição:</b> aqui o selo fica no cabeçalho da coluna “Nossa estimativa”, ao lado do selo de estado. Alternativa: um selo acima de cada percentual.</li>
+   <li><b>δ:</b> 5 ou 10 p.p. são suposições explícitas, não resultados. O site precisaria escolher um padrão e mostrar qual.</li>
+   <li><b>Limite do método:</b> não corrige o viés da fórmula da planilha (presentes sem descontar brancos e nulos). O detalhe do selo avisa isso.</li>
+   <li><b>Fração apurada:</b> aqui usa seções totalizadas ÷ total, uma aproximação.</li>
+  </ul>
+ </section>
+</main>
+
+<script>
+(function(){
+ // Dados FICTÍCIOS: percentuais oficiais sobre votos a concorrentes, só para o teste visual.
+ var OFICIAL={lula:48.3,flavio:51.7,votos_lula:41230000,votos_flavio:44110000};
+ var EST={lula:48.9,flavio:51.1,votos_lula:42010000,votos_flavio:43950000};
+ var TOTAL_SECOES=472000;
+ var f=62, delta=5;
+ var $=function(id){return document.getElementById(id)};
+ var fmt1=function(x){return x.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})};
+ var fmt2=function(x){return x.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})};
+ var fmtN=function(x){return Math.round(x).toLocaleString('pt-BR')};
+
+ // Margem de cenário = (1 − f) × δ, arredondada PARA CIMA com uma casa.
+ function margem(fp,d){var m=(1-fp/100)*d;return Math.ceil(m*10-1e-9)/10}
+ function estado(fp,m){if(fp>=100)return 'completa';if(m>=3)return 'ampla';if(m>=1)return 'moderada';return 'estreita'}
+ var ROT={ampla:'faixa ampla',moderada:'moderada',estreita:'estreita'};
+
+ function selo(){
+  var fp=f, m=margem(fp,delta), est=estado(fp,m);
+  if(est==='completa')return {cls:'completa',html:'<span class="num">Apuração completa</span>',m:0,est:est};
+  return {cls:est,html:'<span class="num">± '+fmt1(m)+' p.p.</span><span class="rot">'+ROT[est]+'</span>',m:m,est:est};
+ }
+ function limites(p,fp){var a=p*fp/100, b=a+(100-fp);return [a,b]}
+
+ function desenhar(){
+  var s=selo(), fr=f/100;
+  var secoes=Math.round(TOTAL_SECOES*fr);
+  $('meta').innerHTML='Coleta válida <b>25/10 · 19:02</b> · Totalização TSE <b>'+fmtN(secoes)+' de '+fmtN(TOTAL_SECOES)+' seções</b> ('+fmt1(f)+'%)';
+  var parcial=f<100?'<span class="dl-selo parcial" title="Seções totalizadas: '+fmt1(f)+'%">Parcial · '+fmt1(f)+'%</span>':'';
+  var lim=function(p){var l=limites(p,f);return fmt1(l[0])+'% a '+fmt1(l[1])+'%'};
+  var det=
+    '<h3 id="det-t">'+(s.est==='completa'?'Apuração completa':'Margem de cenário')+'</h3>'+
+    (s.est==='completa'
+      ?'<p>Todas as seções foram totalizadas: não há restante a projetar, então não mostramos margem. A estimativa ainda pode diferir do oficial pelo método da planilha.</p>'
+      :'<p>Falta apurar <b>'+fmt1(100-f)+'%</b> das seções. Supondo que o restante vote até <b>'+delta+' p.p.</b> diferente do já apurado, o percentual final muda no máximo <b>'+fmt1(s.m)+' p.p.</b></p>'+
+       '<dl><dt>Cálculo</dt><dd>(1 − '+fmt2(fr)+') × '+delta+' = '+fmt2((1-fr)*delta)+' p.p.</dd>'+
+       '<dt>Limite absoluto, Lula</dt><dd>'+lim(OFICIAL.lula)+'</dd>'+
+       '<dt>Limite absoluto, Flávio</dt><dd>'+lim(OFICIAL.flavio)+'</dd></dl>'+
+       '<p>O limite absoluto vale mesmo se o restante fosse todo de um lado só: é largo, mas sempre verdadeiro.</p>')+
+    '<p class="aviso">Não é intervalo de confiança estatístico e não corrige o viés da fórmula da planilha (presentes, sem descontar brancos e nulos).</p>'+
+    '<form method="dialog"><button class="fechar" autofocus>Fechar</button></form>';
+  $('det').innerHTML=det;
+  var seloMargem='<button type="button" class="margem-btn '+s.cls+'" id="margem-btn" aria-haspopup="dialog" title="Ver como é calculada">'+s.html+
+   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="M8 7.2v4M8 4.9v.1" stroke-linecap="round"/></svg></button>';
+
+  var cel=function(est,html,extra){return '<div class="dl-cel'+(est?' dl-est':'')+(extra||'')+'" role="'+(extra===' dl-cab'?'columnheader':'cell')+'">'+html+'</div>'};
+  var h=cel(false,'<div class="dl-titulo">Resultado oficial</div><div class="dl-sub">TSE · votos apurados</div><div class="selos"><span class="dl-selo oficial">Fonte: TSE</span></div>',' dl-cab')+
+        cel(true,'<div class="dl-titulo">Nossa estimativa</div><div class="dl-sub">Modelo da planilha</div><div class="selos">'+parcial+seloMargem+'</div>',' dl-cab');
+  [['lula','Lula'],['flavio','Flávio Bolsonaro']].forEach(function(c){
+   var n=c[0],r=c[1],d=EST[n]-OFICIAL[n];
+   h+=cel(false,'<div class="dl-cand '+n+'"><div class="dl-nome">'+r+'</div><span class="dl-pct">'+fmt2(OFICIAL[n])+'%</span><span class="dl-delta vazio" aria-hidden="true">0</span><div class="dl-qtd">'+fmtN(OFICIAL['votos_'+n])+' votos oficiais</div></div>');
+   h+=cel(true,'<div class="dl-cand '+n+'"><div class="dl-nome">'+r+'</div><span class="dl-pct">'+fmt2(EST[n])+'%</span><span class="dl-delta" title="Estimativa − oficial">'+(d>0?'+':'')+fmt2(d).replace('-','−')+' p.p.</span><div class="dl-qtd">'+fmtN(EST['votos_'+n])+' votos estimados</div></div>');
+  });
+  var barra=function(x){return '<div class="dl-barra" role="img" aria-label="Lula '+fmt2(x.lula)+'%; Flávio '+fmt2(x.flavio)+'%"><span style="width:'+x.lula+'%"></span><i style="width:'+x.flavio+'%"></i></div>'};
+  h+=cel(false,barra(OFICIAL))+cel(true,barra(EST));
+  h+=cel(false,'<p>Base: <b>votos a concorrentes</b></p>',' dl-base')+cel(true,'<p>Base: <b>presentes estimados</b></p>',' dl-base');
+  $('placar').innerHTML=h;
+  $('f-out').textContent=fmt1(f)+'%';
+  ligarPop();
+ }
+
+ function ligarPop(){
+  var b=$('margem-btn'),d=$('det');
+  b.addEventListener('click',function(){d.showModal()});
+ }
+ $('det').addEventListener('click',function(e){if(e.target===this)this.close()}); // clique fora fecha
+
+ // controles
+ var at=$('atalhos');
+ [[8,'8% · começo'],[35,'35%'],[62,'62%'],[85,'85%'],[96,'96%'],[100,'100% · completa']].forEach(function(a){
+  var bt=document.createElement('button');bt.type='button';bt.className='chip';bt.textContent=a[1];bt.dataset.v=a[0];
+  bt.addEventListener('click',function(){f=a[0];$('f').value=f;marcar();desenhar()});at.appendChild(bt)});
+ var dl=$('deltas');
+ [5,10].forEach(function(d){var bt=document.createElement('button');bt.type='button';bt.className='chip';bt.textContent='δ = '+d+' p.p.';bt.dataset.d=d;
+  bt.addEventListener('click',function(){delta=d;marcar();desenhar()});dl.appendChild(bt)});
+ function marcar(){
+  [].forEach.call(at.children,function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.v)===f))});
+  [].forEach.call(dl.children,function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.d)===delta))});
+ }
+ $('f').addEventListener('input',function(e){f=Number(e.target.value);marcar();desenhar()});
+ marcar();desenhar();
+})();
+</script>
+</body>
+</html>
