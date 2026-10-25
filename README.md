@@ -2,6 +2,8 @@
 
 **Projeto pessoal independente.** A referência visual ao MDA não implica participação ou endosso institucional. Contatos profissionais de terceiros não integram este site.
 
+**Colaboradores:** Marcelo Cabreira Bastos (desenvolvimento e análise) e Ernesto Galindo (colaborador). Dados de perfil e ORCID publicados apenas para Marcelo, sem e-mail ou telefone de Ernesto.
+
 MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma planilha de estimativa eleitoral em Python, geração de CSV e futura publicação de HTML no GitHub Pages.
 
 **Estado:** coleta de 27 UFs + exterior, cálculos da planilha e logs implementados. Workflow manual validado em duas execuções reais, com histórico preservado. A homologação geral e o painel permanecem pendentes.
