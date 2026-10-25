@@ -22,7 +22,7 @@ const DELTA_CENARIO=10; // suposição explícita (p.p.): quanto o restante a ap
 const METODOS={
  validos:['Votos válidos','Quantidade = v.vv','Fonte: TSE. Quantidade oficial inteira; Brasil soma os votos válidos das 27 UFs e exterior. Sem totalização, não interpretar zero como resultado eleitoral.'],
  liderancas:['UFs à frente','Contagem das UFs em que o percentual selecionado é maior','Exclui exterior, empates e abrangências sem apuração/estimativa disponível. Usa a medida selecionada; não declara eleição ou vitória.'],
- regiao:['Percentuais regionais','Oficial: 100 × soma(votos do candidato) / soma(votos a concorrentes)\nModelo: 100 × soma(quantidades estimadas do candidato) / soma(presentes estimados)','Agrupa as UFs de cada região, com exterior separado. Não utiliza média simples; duas casas na apresentação. Se alguma UF não tiver estimativa, a região do modelo fica indisponível. Mesmas limitações dos indicadores de origem.'],
+ regiao:['Percentuais regionais','Oficial: 100 × soma(votos do candidato) / soma(votos a concorrentes)\nModelo: 100 × soma(quantidades estimadas do candidato) / soma(presentes estimados)','Agrupa as UFs de cada região, com exterior separado. O círculo antes do nome mostra a apuração da região: soma das seções totalizadas ÷ soma do total de seções das UFs (não é estimativa de preferência; 100% só quando todas estão totalizadas). Não utiliza média simples; duas casas na apresentação. Se alguma UF não tiver estimativa, a região do modelo fica indisponível. Mesmas limitações dos indicadores de origem.'],
  oficial:['Percentual oficial','100 × votos do candidato ÷ votos a concorrentes (v.vvc)','Fonte: TSE, cand.pvapn. Brasil: soma dos votos / soma dos concorrentes das 27 UFs + ZZ. Duas casas apenas na apresentação. Não inclui brancos/nulos no denominador; sem apuração, o percentual fica indisponível.'],
  modelo:['Estimativas do modelo','I = comparecimento / (comparecimento + abstenção)\nL = aptos × I\nJ = L × fração de Lula\nK = L × fração de Flávio\nBrasil: M = soma(J)/soma(L); N = soma(K)/soma(L)','Metodologia da planilha aceita pelo usuário, preservada no Python. L significa PRESENTES ESTIMADOS, sem descontar brancos/nulos. Frações usam cand.pvapn / 100. Quantidades estimadas sem arredondamento intermediário; o placar as exibe como inteiros e a planilha .xlsx traz o valor completo. Extrapola a participação observada para o eleitorado; não é previsão probabilística nem resultado oficial. Brasil parcial: enquanto alguma abrangência não tem dados, M e N somam J, K e L só das UFs com estimativa calculada e informam N de 28; o valor muda conforme novas UFs entram e não equivale a M30/N30 da planilha.'],
  participacao:['Eleitorado e participação','Aptos = e.te; comparecimento = e.c; abstenção = e.a','Quantidades oficiais inteiras. Brasil soma as 27 UFs + exterior. Em apuração parcial, comparecimento e abstenção ainda não abrangem todo o eleitorado; zeros sem totalização não são resultado eleitoral.'],
@@ -31,7 +31,7 @@ const METODOS={
  diferenca:['Diferença entre candidatos','Diferença em p.p. = |% Lula − % Flávio|\nDiferença em quantidade = |votos Lula − votos Flávio|','Usa exclusivamente a medida selecionada: oficial ou estimativa. Duas casas para p.p. e estimativas; votos oficiais inteiros. Não declara vencedor e não expressa margem de erro.'],
  historico:['Histórico de coletas reais','Cada ponto = uma coleta completa validada de 28 abrangências em que algum arquivo do TSE mudou\nEscala padrão de 30% a 70%; amplia em passos de 10 p.p. quando algum ponto sai da faixa\nLinha cheia = percentual oficial; tracejada = estimativa do modelo\nEixo de referência: 25/10/2026 17h até 26/10 00h; extensão automática depois disso','Eixo usa horário da coleta em Brasília. Horário da fonte permanece nos metadados; consultas repetidas podem registrar o mesmo valor real. Nenhuma interpolação ou preenchimento fictício. Sem apuração ou antes do início de referência, não há ponto para plotar. Os registros anteriores são preservados no JSON histórico.']
 };
-if(typeof module!=='undefined')module.exports={numero,format,pct,pontos,periodo,status,parcial,delta,pp,escala,margemCenario,seloMargem,placar,DELTA_CENARIO};
+if(typeof module!=='undefined')module.exports={numero,format,pct,pontos,periodo,status,parcial,delta,pp,escala,margemCenario,seloMargem,placar,coberturaGrupo,seloRegiao,DELTA_CENARIO};
 if(typeof document==='undefined')return;
 let erroRede='',payload=null,publicado=null,requestId=0,sortKey='uf',sortAsc=true,ultimaInfo=null;
 const $=id=>document.getElementById(id);
@@ -48,6 +48,19 @@ function margemCenario(cobertura,estimativaParcial=false){
  const piso=c>=75?75:c>=50?50:25,estado=c>=75?'estreita':c>=50?'moderada':'ampla';
  const margem=Math.ceil((1-piso/100)*DELTA_CENARIO*10-1e-9)/10;
  return {estado,piso,margem,rotulo:'± '+format(margem,1)+' p.p.',faixa:{estreita:'estreita',moderada:'moderada',ampla:'faixa ampla'}[estado]};
+}
+function coberturaGrupo(ufs,vistas){
+ let st=0,ts=0,incompleto=false;
+ for(const uf of ufs){const a=numero(vistas?.[uf]?.totalizadas),b=numero(vistas?.[uf]?.secoes);if(a===null||b===null){incompleto=true;continue;}st+=Number(a);ts+=Number(b);}
+ if(!ts)return {st,ts,p:null,rotulo:'—',incompleto:true};
+ const p=st>=ts?100:st/ts*100;
+ return {st,ts,p,rotulo:st>=ts?'100%':p>0&&p<1?'<1%':Math.floor(p)+'%',incompleto};
+}
+function seloRegiao(nome,ufs,vistas){
+ try{
+  const c=coberturaGrupo(ufs,vistas),txt=c.p===null?'Sem dados de apuração em '+nome:nome+': '+format(c.st)+' de '+format(c.ts)+' seções totalizadas ('+c.rotulo+')'+(c.incompleto?' · há UF sem dado':'');
+  return '<span class="reg-cob'+(c.p===null?' vazio':'')+'" style="--p:'+(c.p===null?0:c.p.toFixed(2))+'" role="img" aria-label="'+escape(txt)+'" title="'+escape(txt)+'"><b>'+escape(c.rotulo)+'</b></span>';
+ }catch(_){return '<span class="reg-cob vazio"><b>—</b></span>';}
 }
 function seloMargem(v,e){
  try{
@@ -76,7 +89,7 @@ function resumo(eleicao,v,modo){
  $('count-lula').textContent=disponiveis?lula:'—';$('count-flavio').textContent=disponiveis?flavio:'—';
  const grupos={'Norte':['AC','AP','AM','PA','RO','RR','TO'],'Nordeste':['AL','BA','CE','MA','PB','PE','PI','RN','SE'],'Centro-Oeste':['DF','GO','MT','MS'],'Sudeste':['ES','MG','RJ','SP'],'Sul':['PR','RS','SC'],'Exterior':['ZZ']};
  $('regioes-nota').textContent=modo==='oficial'?'Percentuais oficiais agregados por região':'Percentuais do modelo agregados por região';
- $('regioes').innerHTML=Object.entries(grupos).map(([nome,ufs])=>{let l=0,f=0,d=0,invalido=false;for(const uf of ufs){const r=eleicao.vistas[uf];if(!r){invalido=true;continue;}const z=valores(r,modo);if(modo==='estimativa'&&numero(z.lula)===null)invalido=true;l+=numero(z.votos_lula)||0;f+=numero(z.votos_flavio)||0;d+=modo==='oficial'?r.concorrentes:numero(r.estimativa.presentes)||0;}const lp=d&&!invalido?l/d*100:null,fp=d&&!invalido?f/d*100:null;return '<div class="region-row"><span class="region-name">'+nome+'</span><div class="region-track" aria-label="Lula '+pct(lp)+'; Flávio '+pct(fp)+'"><span style="width:'+(lp||0)+'%"></span><i style="flex:none;width:'+(fp||0)+'%"></i></div><span class="region-pct">'+pct(lp)+'</span></div>';}).join('');
+ $('regioes').innerHTML=Object.entries(grupos).map(([nome,ufs])=>{let l=0,f=0,d=0,invalido=false;for(const uf of ufs){const r=eleicao.vistas[uf];if(!r){invalido=true;continue;}const z=valores(r,modo);if(modo==='estimativa'&&numero(z.lula)===null)invalido=true;l+=numero(z.votos_lula)||0;f+=numero(z.votos_flavio)||0;d+=modo==='oficial'?r.concorrentes:numero(r.estimativa.presentes)||0;}const lp=d&&!invalido?l/d*100:null,fp=d&&!invalido?f/d*100:null;return '<div class="region-row">'+seloRegiao(nome,ufs,eleicao.vistas)+'<span class="region-name">'+nome+'</span><div class="region-track" aria-label="Lula '+pct(lp)+'; Flávio '+pct(fp)+'"><span style="width:'+(lp||0)+'%"></span><i style="flex:none;width:'+(fp||0)+'%"></i></div><span class="region-pct">'+pct(lp)+'</span></div>';}).join('');
 }
 const SERIES=[['oficial','lula','#E52532'],['oficial','flavio','#59656D'],['estimativa','lula','#E52532'],['estimativa','flavio','#59656D']];
 function escala(valores){const v=valores.map(Number).filter(Number.isFinite);const lo=Math.min(30,...v.map(x=>Math.floor(x/10)*10)),hi=Math.max(70,...v.map(x=>Math.ceil(x/10)*10));return {lo:Math.max(0,lo),hi:Math.min(100,hi),ampliada:lo<30||hi>70};}

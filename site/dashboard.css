@@ -349,4 +349,14 @@ th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
 .margem-btn.ampla{background:#fff9eb;color:#835e24;border-color:#ecd7a8}
 .margem-btn.inicial,.margem-btn.sem{background:#f1f3f4;color:#50615a;border-color:#dfe5e1}
 @media(max-width:420px){.dl-est .margem-btn .rot{display:none}}
+/* Apuração por região: anel de progresso antes do nome */
+.region-row{grid-template-columns:36px 105px minmax(0,1fr) 69px}
+.regions-panel .region-row{grid-template-columns:36px 84px minmax(45px,1fr) 47px;gap:10px}
+.reg-cob{position:relative;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:conic-gradient(#246b45 calc(var(--p,0) * 1%),#e3ebe6 0);color:#173f30;font-variant-numeric:tabular-nums}
+.reg-cob::before{content:"";position:absolute;inset:3.5px;border-radius:50%;background:#fff}
+.reg-cob b{position:relative;font-size:10px;font-weight:800;letter-spacing:-.2px;line-height:1}
+.reg-cob.vazio{background:#e3ebe6;color:#7b8c83}
+.reg-cob.mini{width:24px;height:24px}.reg-cob.mini::before{inset:3px}.reg-cob.mini b{font-size:10px}
+.region-legend{display:flex;align-items:center;gap:9px;margin:0 0 14px;font-size:12px;color:var(--ink-2)}
+.region-legend strong{color:var(--ink)}
 
