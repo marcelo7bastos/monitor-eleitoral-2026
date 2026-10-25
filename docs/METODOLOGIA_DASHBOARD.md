@@ -100,8 +100,8 @@ A escala vertical se ajusta aos valores da série e **não começa obrigatoriame
 
 A metodologia fictícia será substituída/adequada conforme contrato de dados oficial, fórmulas homologadas do Excel e testes do Projeto Master. Em especial, no mundo real os votos válidos e eleitorado apto não podem ser tratados como fixos no processo de apuração sem evidência compatível.
 
-## 7. Autoria e projeto pessoal
+## 7. Colaboradores e natureza do projeto
 
-A seção "Sobre o projeto e autoria" apresenta links profissionais públicos do autor. O identificador ORCID ainda precisa de confirmação e não aponta para perfil não verificado.
+A barra lateral, acima de **Modo de demonstração**, identifica **Marcelo Cabreira Bastos** (desenvolvimento e análise) e **Ernesto Galindo** (colaborador). Os links ORCID, LinkedIn, site pessoal e GitHub são apresentados somente para Marcelo. ORCID confirmado pelo próprio usuário: https://orcid.org/0009-0002-4215-3446.
 
-**Independência:** este é um projeto pessoal. O MDA é apenas referência visual e não participa da elaboração, não endossa e não mantém este protótipo.
+**Privacidade:** não exibir e-mail, telefone ou outros dados pessoais/profissionais de Ernesto. O projeto é pessoal e independente; a referência estética ao MDA não significa endosso institucional. Aviso solicitado no painel: **“Este não é um sistema oficial do TSE”**.
