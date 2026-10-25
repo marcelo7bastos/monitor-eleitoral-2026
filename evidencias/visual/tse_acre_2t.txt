@@ -1,0 +1,103 @@
+- banner:
+  - link "Acessibilidade":
+    - /url: //www.tse.jus.br/acessibilidades-tse
+    - text: Acessibilidade
+  - generic: "|"
+  - link "Fale conosco":
+    - /url: //www.tse.jus.br/eleitor/servicos/ouvidoria
+  - generic: "|"
+  - link "Transparência":
+    - /url: //www.tse.jus.br/transparencia-e-prestacao-de-contas
+  - generic: "|"
+  - link "Acesso à Informação":
+    - /url: //www.tse.jus.br/transparencia-e-prestacao-de-contas/politica-de-privacidade-e-termos-de-uso
+  - banner:
+    - generic: Eleição Geral Ordinária 2026
+    - generic: Resultados
+    - generic: Perfis Salvos
+    - generic: Resumo Geral
+    - generic: Arquivos de Urna
+  - banner:
+    - button "Acre":
+      - generic: Acre
+    - generic: Turno
+    - button "1º":
+      - generic: 1º
+    - button "2º":
+      - generic: 2º
+- main:
+  - button "Presidente":
+    - generic: Presidente
+  - button "Governador":
+    - generic: Governador
+  - heading "Dados Gerais" [level=2]:
+    - generic: Dados Gerais
+  - generic: Última atualização 13/10/2026 17:42:47 (Horário local)
+  - generic: Número de vagas
+  - generic: "1"
+  - generic: Total de seções
+  - generic: "2.270"
+  - generic: Seções totalizadas
+  - generic: "0"
+  - generic: 0,00%
+  - generic: Votação
+  - generic: 0 Votos
+  - generic: Nominais
+  - generic: 0,00%
+  - generic: "0"
+  - generic: Válidos
+  - generic: "0"
+  - generic: Anulados
+  - generic: "0"
+  - generic: Anulados Sub judice
+  - generic: "0"
+  - generic: Em Branco
+  - generic: 0,00%
+  - generic: "0"
+  - generic: Nulos
+  - generic: 0,00%
+  - generic: "0"
+  - generic: Eleitorado apto
+  - generic: "613.715"
+  - text: Em seções
+  - text: Não Totalizadas
+  - generic: "613.715"
+  - text: Em seções
+  - text: Totalizadas
+  - generic: "0"
+  - generic: Instaladas
+  - generic: "0"
+  - generic: Não instaladas
+  - generic: "0"
+  - generic: Comparecimento
+  - generic: "0"
+  - generic: Abstenção
+  - generic: "0"
+  - tablist:
+    - tab "Nominal" [selected]:
+      - generic: Nominal
+  - button "Critério de ordenação dos candidatos":
+  - button:
+  - button "Atualizar":
+    - generic: Atualizar
+  - button "0,00% 0 votos PT – 13 LULA":
+    - generic: 0,00%
+    - generic: 0 votos
+    - generic: PT – 13
+    - generic: LULA
+  - button "0,00% 0 votos PL – 22 FLAVIO BOLSONARO":
+    - generic: 0,00%
+    - generic: 0 votos
+    - generic: PL – 22
+    - generic: FLAVIO BOLSONARO
+  - generic: Baixe nosso app
+  - link "Disponível no Google Play":
+    - /url: https://play.google.com/store/apps/details?id=br.jus.tse.resultados&utm_source=resultados
+    - img "Disponível no Google Play"
+  - link "Baixar na App Store":
+    - /url: https://apps.apple.com/br/app/resultados/id1136359313
+    - img "Baixar na App Store"
+  - link "Tribunal Superior Eleitoral":
+    - /url: //tse.jus.br/
+    - img "Tribunal Superior Eleitoral"
+  - generic: Versão 26.10.17 (7216371)

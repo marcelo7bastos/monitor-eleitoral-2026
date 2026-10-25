@@ -5,3 +5,7 @@ __pycache__/
 node_modules/
 dados/
 .DS_Store
+
+dist/
+.publicacao/
+

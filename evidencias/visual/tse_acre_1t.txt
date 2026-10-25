@@ -1,0 +1,185 @@
+- banner:
+  - link "Acessibilidade":
+    - /url: //www.tse.jus.br/acessibilidades-tse
+    - text: Acessibilidade
+  - generic: "|"
+  - link "Fale conosco":
+    - /url: //www.tse.jus.br/eleitor/servicos/ouvidoria
+  - generic: "|"
+  - link "Transparência":
+    - /url: //www.tse.jus.br/transparencia-e-prestacao-de-contas
+  - generic: "|"
+  - link "Acesso à Informação":
+    - /url: //www.tse.jus.br/transparencia-e-prestacao-de-contas/politica-de-privacidade-e-termos-de-uso
+  - banner:
+    - generic: Eleição Geral Ordinária 2026
+    - generic: Resultados
+    - generic: Perfis Salvos
+    - generic: Resumo Geral
+    - generic: Arquivos de Urna
+  - banner:
+    - button "Acre":
+      - generic: Acre
+    - generic: Turno
+    - button "1º":
+      - generic: 1º
+    - button "2º":
+      - generic: 2º
+- main:
+  - button "Presidente":
+    - generic: Presidente
+  - button "Governador":
+    - generic: Governador
+  - button "Senador":
+    - generic: Senador
+  - button "Deputado Federal":
+    - generic: Deputado Federal
+  - button "Deputado Estadual":
+    - generic: Deputado Estadual
+  - heading "Dados Gerais" [level=2]:
+    - generic: Dados Gerais
+  - generic: Última atualização 05/10/2026 12:51:05 (Horário local)
+  - generic: Número de vagas
+  - generic: "1"
+  - generic: Total de seções
+  - generic: "2.270"
+  - generic: Seções totalizadas
+  - generic: "2.270"
+  - generic: 100,00%
+  - generic: Votação
+  - generic: 488.330 Votos
+  - generic: Nominais
+  - generic: 96,06%
+  - generic: "469.066"
+  - generic: Válidos
+  - generic: "469.066"
+  - generic: Anulados
+  - generic: "0"
+  - generic: Anulados Sub judice
+  - generic: "0"
+  - generic: Em Branco
+  - generic: 1,14%
+  - generic: "5.579"
+  - generic: Nulos
+  - generic: 2,80%
+  - generic: "13.685"
+  - generic: Eleitorado apto
+  - generic: "613.742"
+  - text: Em seções
+  - text: Não Totalizadas
+  - generic: "0"
+  - text: Em seções
+  - text: Totalizadas
+  - generic: "613.742"
+  - generic: Instaladas
+  - generic: "613.742"
+  - generic: Não instaladas
+  - generic: "0"
+  - generic: Comparecimento
+  - generic: "488.330"
+  - generic: Abstenção
+  - generic: "125.412"
+  - generic: 79,57%
+  - generic: 20,43%
+  - tablist:
+    - tab "Nominal" [selected]:
+      - generic: Nominal
+  - button "Critério de ordenação dos candidatos":
+  - button:
+  - button "Atualizar":
+    - generic: Atualizar
+  - button "64,56% 302.807 votos PL – 22 FLAVIO BOLSONARO 2º Turno":
+    - generic: 64,56%
+    - generic: 302.807 votos
+    - generic: PL – 22
+    - generic: FLAVIO BOLSONARO
+    - list:
+      - generic: 2º Turno
+  - button "28,73% 134.770 votos PT – 13 LULA 2º Turno":
+    - generic: 28,73%
+    - generic: 134.770 votos
+    - generic: PT – 13
+    - generic: LULA
+    - list:
+      - generic: 2º Turno
+  - button "2,88% 13.523 votos AVANTE – 70 ESCRITOR AUGUSTO CURY Não eleito":
+    - generic: 2,88%
+    - generic: 13.523 votos
+    - generic: AVANTE – 70
+    - generic: ESCRITOR AUGUSTO CURY
+    - list:
+      - generic: Não eleito
+  - button "1,70% 7.980 votos MISSÃO – 14 RENAN SANTOS Não eleito":
+    - generic: 1,70%
+    - generic: 7.980 votos
+    - generic: MISSÃO – 14
+    - generic: RENAN SANTOS
+    - list:
+      - generic: Não eleito
+  - button "1,83% 8.594 votos PSD – 55 RONALDO CAIADO Não eleito":
+    - generic: 1,83%
+    - generic: 8.594 votos
+    - generic: PSD – 55
+    - generic: RONALDO CAIADO
+    - list:
+      - generic: Não eleito
+  - button "0,12% 573 votos NOVO – 30 ZEMA Não eleito":
+    - generic: 0,12%
+    - generic: 573 votos
+    - generic: NOVO – 30
+    - generic: ZEMA
+    - list:
+      - generic: Não eleito
+  - button "0,07% 314 votos UP – 80 SAMARA Não eleito":
+    - generic: 0,07%
+    - generic: 314 votos
+    - generic: UP – 80
+    - generic: SAMARA
+    - list:
+      - generic: Não eleito
+  - button "0,02% 71 votos PSTU – 16 HERTZ DIAS Não eleito":
+    - generic: 0,02%
+    - generic: 71 votos
+    - generic: PSTU – 16
+    - generic: HERTZ DIAS
+    - list:
+      - generic: Não eleito
+  - button "0,05% 215 votos DC – 27 CLARIANA BARAO Não eleito":
+    - generic: 0,05%
+    - generic: 215 votos
+    - generic: DC – 27
+    - generic: CLARIANA BARAO
+    - list:
+      - generic: Não eleito
+  - button "0,03% 140 votos PCB – 21 EDMILSON COSTA Não eleito":
+    - generic: 0,03%
+    - generic: 140 votos
+    - generic: PCB – 21
+    - generic: EDMILSON COSTA
+    - list:
+      - generic: Não eleito
+  - button "0,01% 39 votos DEMOCRATA – 35 VETERINÁRIO WILSON GRASSI Não eleito":
+    - generic: 0,01%
+    - generic: 39 votos
+    - generic: DEMOCRATA – 35
+    - generic: VETERINÁRIO WILSON GRASSI
+    - list:
+      - generic: Não eleito
+  - button "0,01% 40 votos PCO – 29 RUI COSTA PIMENTA Não eleito":
+    - generic: 0,01%
+    - generic: 40 votos
+    - generic: PCO – 29
+    - generic: RUI COSTA PIMENTA
+    - list:
+      - generic: Não eleito
+  - generic: Baixe nosso app
+  - link "Disponível no Google Play":
+    - /url: https://play.google.com/store/apps/details?id=br.jus.tse.resultados&utm_source=resultados
+    - img "Disponível no Google Play"
+  - link "Baixar na App Store":
+    - /url: https://apps.apple.com/br/app/resultados/id1136359313
+    - img "Baixar na App Store"
+  - link "Tribunal Superior Eleitoral":
+    - /url: //tse.jus.br/
+    - img "Tribunal Superior Eleitoral"
+  - generic: Versão 26.10.17 (7216371)

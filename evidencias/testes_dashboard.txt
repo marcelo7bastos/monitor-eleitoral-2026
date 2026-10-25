@@ -1,0 +1,27 @@
+test_falha_de_rede_fica_no_log (test_monitor.Atualizacoes.test_falha_de_rede_fica_no_log) ... ok
+test_historico_sem_mudanca_e_falha_preservam_dados (test_monitor.Atualizacoes.test_historico_sem_mudanca_e_falha_preservam_dados) ... ok
+test_rejeita_snapshot_regressivo (test_monitor.Atualizacoes.test_rejeita_snapshot_regressivo) ... ok
+test_ausencia_nao_vira_zero (test_monitor.Calculos.test_ausencia_nao_vira_zero) ... ok
+test_denominador_zero (test_monitor.Calculos.test_denominador_zero) ... ok
+test_entradas_invalidas (test_monitor.Calculos.test_entradas_invalidas) ... ok
+test_exemplo_manual_independente (test_monitor.Calculos.test_exemplo_manual_independente) ... ok
+test_nacional_nao_ignora_lacunas (test_monitor.Calculos.test_nacional_nao_ignora_lacunas) ... ok
+test_peso_nacional_nao_e_media_simples (test_monitor.Calculos.test_peso_nacional_nao_e_media_simples) ... ok
+test_cinco_valores_reais_conferem_com_snapshot (test_monitor.Indicadores.test_cinco_valores_reais_conferem_com_snapshot) ... ok
+test_identidade_nao_depende_do_nome (test_monitor.Indicadores.test_identidade_nao_depende_do_nome) ... ok
+test_nao_exige_apuracao_total (test_monitor.Indicadores.test_nao_exige_apuracao_total) ... ok
+test_rejeita_duplicado_e_campo_ausente (test_monitor.Indicadores.test_rejeita_duplicado_e_campo_ausente) ... ok
+test_rejeita_percentual_divergente (test_monitor.Indicadores.test_rejeita_percentual_divergente) ... ok
+test_segundo_turno_zerado_nao_produz_estimativa (test_monitor.Indicadores.test_segundo_turno_zerado_nao_produz_estimativa) ... ok
+test_dados_exatos_historico_sem_duplicacao_e_falha (test_publicacao.Publicacao.test_dados_exatos_historico_sem_duplicacao_e_falha) ... ok
+test_sem_dados_nao_fabrica_serie (test_publicacao.Publicacao.test_sem_dados_nao_fabrica_serie) ... ok
+test_snapshot_zerado_e_indisponivel (test_publicacao.Publicacao.test_snapshot_zerado_e_indisponivel) ... ok
+test_conjunto_28_e_falha_parcial_nao_substitui (test_resiliencia.Falhas.test_conjunto_28_e_falha_parcial_nao_substitui) ... ok
+test_fonte_antiga_sinalizada_sem_apagar (test_resiliencia.Falhas.test_fonte_antiga_sinalizada_sem_apagar) ... ok
+test_matriz_preserva_dados_e_sinaliza_falha (test_resiliencia.Falhas.test_matriz_preserva_dados_e_sinaliza_falha) ... ok
+test_sem_conjunto_anterior_nao_inventa_dados (test_resiliencia.Falhas.test_sem_conjunto_anterior_nao_inventa_dados) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 6.620s
+
+OK
