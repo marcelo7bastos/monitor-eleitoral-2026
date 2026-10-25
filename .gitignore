@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+tse_acre_*.json
+*.log
+.DS_Store
