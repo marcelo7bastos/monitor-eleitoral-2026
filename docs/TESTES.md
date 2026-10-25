@@ -22,6 +22,8 @@ Criar workflow apenas após T1–T4. Executar por workflow_dispatch; validar log
 ## T6 — Cron
 Habilitar `*/10 * * * *` após T5; observar duas execuções reais e registrar eventuais atrasos.
 
+**Resultado em 25/10/2026:** nenhum evento `schedule` foi observado em mais de duas horas (cron depois alterado para `*/5`). A coleta passou a ser mantida pelo Relógio da apuração (D-022). Critério original não atendido; detalhes em `PROJETO_MASTER.md`.
+
 ## T7 — HTML
 Verificar acessibilidade pública, responsividade, fonte, data/hora, cobertura e separação visual entre resultados oficiais e estimativas.
 

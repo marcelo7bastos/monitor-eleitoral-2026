@@ -33,3 +33,5 @@ Alterações de escopo ou de método devem ser registradas aqui com data, motivo
 - D-019: seguir o protótipo enviado, sem aplicar melhorias opcionais antes da publicação. Substituir somente dados e comportamentos fictícios e incluir os estados operacionais necessários.
 - D-020: manter frontend estático sem dependências externas, dados em JSON/CSV e histórico real no artefato persistente. Brasil identificado como agregado oficial das 28 abrangências.
 - D-021: preservar dados em falhas e publicar o aviso atualizado; manter datas de fonte, coleta e publicação distintas. Habilitar cron apenas após deploy manual e conferência pública.
+- D-022: manter o Relógio da apuração (`relogio.yml`, PR #13) como mecanismo efetivo de coleta a cada cinco minutos, porque nenhum evento `schedule` do cron foi observado em mais de duas horas. O cron `*/5` permanece declarado como reserva. O critério de T6 (duas execuções por cron) segue sem atendimento até haver decisão do responsável.
+

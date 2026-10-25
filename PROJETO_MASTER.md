@@ -30,9 +30,9 @@ Uma etapa só está **concluída** se houver evidência verificável (log, arqui
 | T3 | Fórmulas Excel → Python | Fórmulas auditadas, paridade nos casos de teste | 118 fórmulas; 590 comparações; docs/IMPLEMENTACAO_T2_T3.md | Equivalência matemática aprovada localmente |
 | T4 | 28 abrangências | 28 identificadores únicos, dados consistentes, CSV gerado | 28/28 nos dois turnos, execução local; docs/FALHAS_E_ACTIONS.md | Validado tecnicamente |
 | T5 | Actions manual | Workflow manual executa coleta/cálculo com sucesso | Execuções 40217703133 e 40217771870; artefatos inspecionados | Aprovado tecnicamente |
-| T6 | Agendamento | Cron de 10 minutos habilitado, duas execuções verificadas | URLs e horários | Pendente |
-| T7 | GitHub Pages | HTML público, acessível e distinguindo estimativa de apuração | URL e conferência visual | Pendente |
-| T8 | Homologação geral | Falha da API não substitui último snapshot válido | Testes de falha e relatório | Pendente |
+| T6 | Agendamento | Cron de 10 minutos habilitado, duas execuções verificadas | URLs e horários | **Não atendido como especificado:** nenhum evento `schedule` observado; coleta mantida pelo Relógio (D-022). Ver registro de 25/10 às 18h |
+| T7 | GitHub Pages | HTML público, acessível e distinguindo estimativa de apuração | URL e conferência visual | Aprovado (issue #7 fechada; docs/DASHBOARD_PRODUCAO.md) |
+| T8 | Homologação geral | Falha da API não substitui último snapshot válido | Testes de falha e relatório | Parcial: falhas controladas locais e no navegador aprovadas; faltam falha remota e apuração parcial real |
 
 ## Pontos de atenção
 - A abertura do JSON no navegador foi observada em captura enviada pelo usuário; não substitui o teste Python.
@@ -68,3 +68,14 @@ Branch `codex/dashboard-producao`, vinculada à issue #7. Conferência visual T2
 
 ## Pages validado — 25/10/2026
 Dashboard disponível em https://marcelo7bastos.github.io/monitor-eleitoral-2026/ após PR #9 e execução manual 40223454439 aprovada. Conferência pública desktop/celular e indicadores oficiais passaram. Etapa seguinte: habilitar cron e observar duas execuções automáticas com restauração do histórico. Evidências em docs/DASHBOARD_PRODUCAO.md.
+
+## Estado na noite do 2º turno — 25/10/2026, 18h (Brasília)
+Verificado por API do GitHub e testes locais, sem acesso ao painel público nem ao TSE a partir deste ambiente.
+
+- **Defeito da issue #11:** corrigido e integrado no [PR #12](https://github.com/marcelo7bastos/monitor-eleitoral-2026/pull/12); issue fechada.
+- **Agendamento (T6):** o cron foi habilitado após o PR #10 (cerca de 15h59 local) e passou a `*/5` no PR #17. Às 18h14 (21h14 UTC) a API de execuções não registrava nenhum evento `schedule` em todo o histórico do repositório. Isso confirma o aviso já registrado de que o cron do GitHub pode atrasar ou não disparar. O critério original (duas execuções automáticas por cron) **não foi cumprido** e a issue #6 permanece aberta.
+- **Coleta efetiva:** feita pelo workflow [Relógio da apuração](.github/workflows/relogio.yml) (PR #13), que dispara `monitor-manual.yml` a cada cinco minutos, pulando se houver execução ativa ou criada há menos de quatro minutos. As execuções de coleta recentes, a partir de 20h47 UTC, constam como `workflow_dispatch` concluídas com sucesso, em intervalos de cerca de cinco minutos. O relógio atual reinicia a si mesmo a cada 340 minutos até 26/10 às 09h00 UTC.
+- **Testes locais:** 32 testes Python, 5 testes T1 e 7 testes do painel, todos aprovados no commit 8e3c69d.
+- **Pendências para fechar T6 e T8:** (1) decidir se o critério de T6 passa a exigir execuções do Relógio em vez de cron; (2) registrar uma falha remota controlada; (3) arquivar e conferir contra o portal do TSE os instantâneos de apuração parcial real desta noite; (4) relatório final de homologação.
+- **Riscos operacionais abertos:** o histórico vive em artefatos de 90 dias, reenviados a cada coleta (58 artefatos após cerca de três horas), sujeitos à cota de armazenamento do Actions; não há arquivo LICENSE.
+
