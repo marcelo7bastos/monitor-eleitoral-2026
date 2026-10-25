@@ -1,7 +1,7 @@
 name: Relógio da apuração
 
 # Reserva do cron do GitHub, que pode atrasar ou não disparar: dispara a coleta
-# a cada dez minutos até o fim da janela. Cada execução dura menos de 6 h e,
+# a cada cinco minutos até o fim da janela. Cada execução dura menos de 6 h e,
 # ao terminar, inicia a próxima, até o horário informado em "fim".
 on:
   workflow_dispatch:
@@ -35,7 +35,7 @@ jobs:
       FIM: ${{ inputs.fim }}
       ELEICAO: ${{ inputs.eleicao }}
     steps:
-      - name: Disparar coleta a cada dez minutos
+      - name: Disparar coleta a cada cinco minutos
         shell: bash
         run: |
           set -euo pipefail
@@ -45,9 +45,9 @@ jobs:
             agora=$(date +%s)
             if [ "$agora" -ge "$fim" ]; then echo 'Fim da janela; relógio encerrado.'; exit 0; fi
             if [ "$agora" -ge "$limite" ]; then break; fi
-            # Pula se houver execução ativa ou criada há menos de 8 min (cron, tarefa local ou manual).
+            # Pula se houver execução ativa ou criada há menos de 4 min (cron, tarefa local ou manual).
             ocupado=$(gh run list --workflow monitor-manual.yml --limit 10 --json status,createdAt \
-              --jq '[.[] | select(.status != "completed" or (now - (.createdAt | fromdateiso8601)) < 480)] | length') || ocupado=erro
+              --jq '[.[] | select(.status != "completed" or (now - (.createdAt | fromdateiso8601)) < 240)] | length') || ocupado=erro
             if [ "$ocupado" = 0 ]; then
               gh workflow run monitor-manual.yml --ref main -f eleicao="$ELEICAO" \
                 && echo "Disparo enviado $(date -u +%FT%TZ)" \
@@ -55,7 +55,7 @@ jobs:
             else
               echo "Pulando $(date -u +%FT%TZ): execução ativa ou recente ($ocupado)"
             fi
-            sleep 600
+            sleep 300
           done
           gh workflow run relogio.yml --ref main -f fim="$FIM" -f eleicao="$ELEICAO"
           echo 'Limite de duração atingido; próximo relógio iniciado.'

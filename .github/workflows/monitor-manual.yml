@@ -2,7 +2,7 @@ name: Monitor eleitoral - coleta e Pages
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       eleicao:

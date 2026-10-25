@@ -135,4 +135,20 @@ class Publicacao(unittest.TestCase):
                 self.assertTrue((dist/nome).exists())
             self.assertIsNone(re.search(r'"dashboard\.(css|js)"',pagina))
 
+    def test_historico_so_registra_quando_arquivo_do_tse_muda(self):
+        from monitor.publicacao import sem_repeticao
+        with tempfile.TemporaryDirectory(dir=BASE/'tests') as t:
+            dados=Path(t)/'dados';dist=Path(t)/'dist'
+            executar('6257',dados,abrir=resposta)
+            gerar(dados,dist,BASE/'site')
+            executar('6257',dados,abrir=resposta)
+            r=gerar(dados,dist,BASE/'site')
+            self.assertEqual(len(r['eleicoes']['6257']['historico']),1)
+            h=r['eleicoes']['6257']['historico'][0]
+            mudou=json.loads(json.dumps(h,default=str));mudou['id']='novo';mudou['coleta_utc']='2999-01-01T00:00:00+00:00'
+            mudou['vistas']['AC']['sha256']='outro';mudou.pop('assinatura')
+            repetido=dict(mudou,id='repetido',coleta_utc='2999-01-01T00:05:00+00:00')
+            ids=[x['id'] for x in sem_repeticao([h,mudou,repetido])]
+            self.assertEqual(ids,[h['id'],'novo'])
+
 if __name__=='__main__':unittest.main()

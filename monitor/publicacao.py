@@ -37,6 +37,21 @@ def vista(registro):
             'andamento':d['andamento']}
 
 
+def assinatura(vistas):
+    """Identifica o conteúdo bruto do TSE da coleta: sha256 de cada um dos 28 arquivos (sem o BR, que inclui o horário)."""
+    return hashlib.sha256('|'.join(f"{uf}:{vistas[uf]['sha256']}" for uf in sorted(vistas) if uf!='BR').encode()).hexdigest()
+
+
+def sem_repeticao(historico):
+    """Mantém a primeira coleta de cada conteúdo consecutivo do TSE, por eleição; repetições não viram pontos."""
+    saida,ultima=[],{}
+    for h in sorted(historico,key=lambda h:(h['coleta_utc'],h['eleicao'])):
+        a=h.get('assinatura') or assinatura(h['vistas'])
+        if ultima.get(h['eleicao'])!=a: saida.append({**h,'assinatura':a})
+        ultima[h['eleicao']]=a
+    return saida
+
+
 def estimativa_parcial(vistas):
     """Brasil enquanto faltam UFs: soma(J)/soma(L) só das abrangências com estimativa calculada.
 
@@ -82,6 +97,7 @@ def gerar(pasta=Path('dados'), destino=Path('dist'), site=Path('site')):
     agora=datetime.now(timezone.utc).isoformat()
     histpath=pasta/'historico_dashboard.json'
     historico=json.loads(histpath.read_text(encoding='utf-8')) if histpath.exists() else []
+    historico=sem_repeticao(historico)
     for h in historico:  # coletas anteriores à regra parcial: recalcula só o Brasil a partir das UFs gravadas
         b=h['vistas'].get('BR')
         if b and 'ufs_total' not in b['estimativa']:
@@ -96,7 +112,8 @@ def gerar(pasta=Path('dados'), destino=Path('dist'), site=Path('site')):
         if conjunto:
             chave=eleicao+':'+conjunto['coleta_utc']
             if not any(h['id']==chave for h in historico):
-                historico.append({'id':chave,'eleicao':eleicao,'coleta_utc':conjunto['coleta_utc'],'vistas':vistas})
+                historico.append({'id':chave,'eleicao':eleicao,'coleta_utc':conjunto['coleta_utc'],'vistas':vistas,'assinatura':assinatura(vistas)})
+                historico=sem_repeticao(historico)
             atomico(destino/'data'/arq.name, arq.read_bytes())
             csvpath=pasta/f'conjunto_{eleicao}.csv'
             if csvpath.exists(): shutil.copyfile(csvpath,destino/'data'/csvpath.name)
