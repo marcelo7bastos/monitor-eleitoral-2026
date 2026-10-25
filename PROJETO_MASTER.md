@@ -62,3 +62,6 @@ Metodologia aceita pelo usuário. Fórmulas preservadas; rótulo L corrigido ape
 
 ## Resultado da execução manual — 25/10/2026
 T5 aprovado tecnicamente: execuções [40217703133](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40217703133) e [40217771870](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40217771870), 28 abrangências em cada uma, 24 testes por execução, artefatos conferidos e histórico restaurado com 56 linhas. Testes de falhas controladas aprovados; T8 geral permanece pendente por envolver painel e operação ainda não implementados. Nenhuma issue foi fechada nesta entrega.
+
+## Dashboard de produção — andamento em 25/10/2026
+Branch `codex/dashboard-producao`, vinculada à issue #7. Conferência visual T2 concluída no TSE para os dois turnos do Acre. Frontend segue o protótipo aprovado, com dados reais, histórico persistente e avisos de falha. Testes locais passaram. Pages e cron ainda em validação, sem conclusão antecipada. Detalhes: [DASHBOARD_PRODUCAO](docs/DASHBOARD_PRODUCAO.md).

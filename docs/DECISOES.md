@@ -28,3 +28,8 @@ Alterações de escopo ou de método devem ser registradas aqui com data, motivo
 
 ## Composição do dashboard — 25/10/2026
 - D-018: colaboradores Marcelo Cabreira Bastos e Ernesto Galindo apresentados na barra lateral acima do modo demonstração. Apenas links profissionais do Marcelo (incluindo ORCID 0009-0002-4215-3446); não incluir e-mail ou telefone de Ernesto. Mensagem de responsabilidade: “Este não é um sistema oficial do TSE”.
+
+## Produção — 25/10/2026
+- D-019: seguir o protótipo enviado, sem aplicar melhorias opcionais antes da publicação. Substituir somente dados e comportamentos fictícios e incluir os estados operacionais necessários.
+- D-020: manter frontend estático sem dependências externas, dados em JSON/CSV e histórico real no artefato persistente. Brasil identificado como agregado oficial das 28 abrangências.
+- D-021: preservar dados em falhas e publicar o aviso atualizado; manter datas de fonte, coleta e publicação distintas. Habilitar cron apenas após deploy manual e conferência pública.
