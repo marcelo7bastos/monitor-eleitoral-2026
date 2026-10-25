@@ -24,3 +24,10 @@ test('estimativa parcial do Brasil sempre informa N de 28',()=>{
  assert.equal(parcial({parcial:false,ufs_com_dados:28,ufs_total:28}),'');
  assert.equal(parcial(null),'');
 });
+test('placar mostra diferença estimativa − oficial com sinal e sem inventar valor',()=>{
+ const {delta,pp}=require('../site/dashboard.js');
+ assert.equal(pp(delta('67.05','65.36')),'+1,69 p.p.');
+ assert.equal(pp(delta('32.95','34.64')),'−1,69 p.p.');
+ assert.equal(delta(null,'65.36'),null);
+ assert.equal(pp(null),'');
+});

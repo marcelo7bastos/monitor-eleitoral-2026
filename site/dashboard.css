@@ -318,3 +318,25 @@ th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
 .quiet{color:#50615a}.status-alert{padding:14px 16px;border:1px solid #d9e2db;border-radius:10px;margin-bottom:22px;background:#fff9eb;color:#704d16}.status-alert.error{background:#fff0ee;color:#8f221a;border-color:#edb5b0}.status-alert.ok{background:#e8f3eb;color:#174b34}.meta-grid{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:12px;margin-bottom:20px}.meta-grid span{display:block;color:#50615a}.meta-grid strong{display:block;font-weight:650}.estimate-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px}.table-scroll{overflow-x:auto}.table-scroll table{min-width:880px}.num{text-align:right;font-variant-numeric:tabular-nums}.inline-note{font-size:12px;color:#50615a}.empty-chart{padding:80px 30px;text-align:center;color:#50615a}.series-stroke.estimativa{border-top-style:dashed}.info-trigger{min-width:24px;min-height:24px}.tool-btn{min-height:44px}.field select{min-height:44px}.timeline-panel{overflow:hidden}.sidebar-people{margin-top:auto}.source-range{overflow-wrap:anywhere}.table-sort{background:none;border:0;font-weight:700;color:inherit}.table-scroll caption{text-align:left;padding:10px 20px;font-size:12px}.timeline-history{margin-top:14px}.timeline-history summary{cursor:pointer;padding:10px}.timeline-history table{width:100%;font-size:12px}.timeline-history td,.timeline-history th{padding:6px}.skip{position:absolute;top:-60px;left:12px;background:#fff;padding:12px;z-index:100}.skip:focus{top:10px}.page-footer{margin:24px 0 0;font-size:12px;color:#50615a}.page-footer a{margin-right:14px}.candidate-pct{color:#192c26}.snapshot-candidate.lula .candidate-pct{color:#D71E2C}.snapshot-candidate.flavio .candidate-pct{color:#59656d}.kpi-bottom{flex-wrap:wrap}.credits-mobile{display:none}.load-message{padding:14px 0;color:#50615a}@media(max-width:1050px){.credits-mobile{display:block}}@media(max-width:790px){.estimate-grid{grid-template-columns:1fr}.meta-grid{display:grid;grid-template-columns:1fr 1fr}.top-actions{width:100%}.topbar{flex-wrap:wrap}.snapshot-panel .snapshot-result{display:block}.info-trigger{min-width:32px;min-height:32px}.chart-frame{min-height:280px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 @media(max-width:560px){.fields{display:grid;grid-template-columns:1fr;width:100%}.field{width:100%;min-width:0}.field select{width:100%;max-width:100%;min-width:0}.chart-frame{overflow-x:auto}.chart-frame svg{min-width:620px;width:620px}.grafico-vazio{font-size:14px;line-height:1.6;padding:16px 0;color:#50615a}}
+
+/* Placar oficial × estimativa: uma grade só, cada linha cruza os dois lados e mantém os candidatos alinhados */
+.dl-meta{font-size:12px;color:var(--ink-2);margin:6px 0 16px}.dl-meta b{color:var(--ink)}
+.dl-duelo{container-type:inline-size;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:11px;overflow:hidden}
+.dl-cel{padding:10px 14px;min-width:0}.dl-est{border-left:1px solid var(--border);background:#fbfcfb}
+.dl-cab{padding-top:16px;padding-bottom:6px}.dl-base{padding-bottom:16px}
+.dl-titulo{font-weight:800;font-size:14px;line-height:1.25}.dl-sub{font-size:12px;color:var(--ink-2);line-height:1.35}
+.dl-selo{display:inline-block;margin-top:7px;font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.dl-selo.oficial{background:var(--green-100);color:var(--green-700)}.dl-selo.parcial{background:#fff9eb;color:#835e24;border:1px solid #ecd7a8}.dl-selo.indisp{background:#f1f3f4;color:#50615a}
+.dl-cand{border-left:4px solid #D71E2C;padding:2px 0 2px 10px;height:100%}.dl-cand.flavio{border-color:#59656D}
+.dl-nome{font-weight:700;font-size:12px;color:var(--ink-2)}
+.dl-pct{display:block;font-size:clamp(26px,8.4cqi,44px);font-weight:800;letter-spacing:-1px;line-height:1.05;font-variant-numeric:tabular-nums}
+.dl-cand.lula .dl-pct{color:#D71E2C}.dl-cand.flavio .dl-pct{color:#59656D}
+.dl-qtd{font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.dl-delta{display:inline-block;margin:3px 0 2px;font-size:11px;font-weight:800;padding:1px 7px;border-radius:6px;font-variant-numeric:tabular-nums;background:#f1f3f4;color:#3c464d}
+.dl-delta.sobe{background:#fff0f1;color:#a8141f}.dl-delta.vazio{visibility:hidden}
+.dl-barra{display:flex;height:9px;border-radius:6px;overflow:hidden;background:#edf1ee;margin-top:4px}.dl-barra span{background:#D71E2C}.dl-barra i{background:#59656D}
+.dl-base p{font-size:12px;color:var(--ink-2);margin:0}.dl-base b{color:var(--ink)}
+.dl-rodape{margin-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--ink-2)}.dl-rodape strong{color:var(--ink)}
+@media(max-width:420px){.dl-cel{padding:9px}.dl-cand{padding-left:8px}}
+@media(min-width:1101px){.upper-grid.main-focus{grid-template-columns:minmax(0,1.4fr) minmax(400px,1fr)}}
+@media(max-width:1100px){.upper-grid.main-focus{grid-template-columns:1fr}}

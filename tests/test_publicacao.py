@@ -123,4 +123,16 @@ class Publicacao(unittest.TestCase):
             self.assertEqual(antigo['ufs_com_dados'],28)
             self.assertIsNotNone(antigo['lula'])
 
+    def test_index_publicado_versiona_css_e_js_por_conteudo(self):
+        import hashlib,re
+        with tempfile.TemporaryDirectory(dir=BASE/'tests') as t:
+            dist=Path(t)/'dist'
+            gerar(Path(t)/'dados',dist,BASE/'site')
+            pagina=(dist/'index.html').read_text(encoding='utf-8')
+            for nome in ('dashboard.css','dashboard.js'):
+                v=hashlib.sha256((BASE/'site'/nome).read_bytes()).hexdigest()[:12]
+                self.assertIn(f'"{nome}?v={v}"',pagina)
+                self.assertTrue((dist/nome).exists())
+            self.assertIsNone(re.search(r'"dashboard\.(css|js)"',pagina))
+
 if __name__=='__main__':unittest.main()

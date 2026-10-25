@@ -108,8 +108,11 @@ def gerar(pasta=Path('dados'), destino=Path('dist'), site=Path('site')):
     atomico(destino/'data/dashboard.json',json_texto(publicacao).encode('utf-8'))
     log=pasta/'abrangencias/logs/atualizacoes.csv'
     if log.exists(): shutil.copyfile(log,destino/'data/atualizacoes.csv')
-    for nome in ('index.html','dashboard.css','dashboard.js'):
-        shutil.copyfile(site/nome,destino/nome)
+    pagina=(site/'index.html').read_text(encoding='utf-8')
+    for nome in ('dashboard.css','dashboard.js'):  # versão por conteúdo no endereço: o navegador nunca mistura JS/CSS antigos
+        conteudo=(site/nome).read_bytes(); shutil.copyfile(site/nome,destino/nome)
+        pagina=pagina.replace(f'"{nome}"',f'"{nome}?v={hashlib.sha256(conteudo).hexdigest()[:12]}"')
+    atomico(destino/'index.html',pagina.encode('utf-8'))
     (destino/'.nojekyll').write_text('',encoding='utf-8')
     return publicacao
 
