@@ -245,6 +245,56 @@
       .snapshot-candidate .candidate-votes {font-size:10px;}
       .snapshot-panel .snapshot-result {gap:9px;}
     }
+
+/* V3: transparência das fórmulas e contatos profissionais verificados. */
+.info-trigger {
+  display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center;
+  width:19px; height:19px; padding:0; margin-left:5px; border:1px solid #91a79a;
+  border-radius:50%; background:#f3f8f5; color:#225b3e;
+  font-size:11px; font-family:Arial,sans-serif; font-weight:800; line-height:1;
+  vertical-align:middle; cursor:pointer; transition:background .14s,border-color .14s;
+}
+.info-trigger:hover { color:#fff; background:#246b45; border-color:#246b45; }
+.info-trigger:focus-visible { outline:3px solid #d19c31; outline-offset:2px; }
+.info-trigger.small { width:17px; height:17px; font-size:10px; margin-left:4px; }
+.candidate-pct-row {display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.candidate-pct-row .info-trigger { margin-left:0; }
+.candidate-votes .info-trigger {width:16px;height:16px;font-size:10px;vertical-align:middle}
+.kpi-label {display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap}
+.kpi-label .info-trigger {margin-left:2px}
+.region-pct {display:flex;justify-content:flex-end;align-items:center;gap:3px}
+.region-pct .info-trigger {min-width:17px}
+th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
+.snapshot-panel .section-top h2 .info-trigger{transform:translateY(-2px)}
+.result-footer .info-trigger {margin-left:3px}
+.method-dialog { border:1px solid #d9e5dc; padding:0; border-radius:15px; width:min(520px,calc(100% - 28px)); max-height:min(83vh,690px); box-shadow:0 24px 80px #132b2050; color:var(--ink); }
+.method-dialog::backdrop {background:#0d2518a8;backdrop-filter:blur(2px)}
+.method-head {display:flex;justify-content:space-between;align-items:start;gap:18px;padding:22px 24px 14px;background:#f5f9f6;border-bottom:1px solid #e0e9e3}
+.method-head .eyebrow{margin-bottom:8px}
+.method-head h2 {font-size:20px;margin:0}
+.close-dialog{font-size:22px;border:1px solid #d5e0d7;background:#fff;color:#2a493a;line-height:1;width:34px;height:34px;border-radius:9px;cursor:pointer}
+.method-body{padding:20px 24px 24px;font-size:13px;line-height:1.65}
+.method-body h3{font-size:12px;margin:0 0 6px;color:#4c6259;letter-spacing:.4px;text-transform:uppercase}
+.method-formula{background:#f2f6f3;border:1px solid #dbe6de;border-radius:9px;color:#153d2a;padding:12px 13px;margin:8px 0 19px;font:600 13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.method-body p{margin:0 0 17px}
+.method-disclaimer{font-size:12px;color:#78612e;background:#fff9eb;border:1px solid #ead8ad;border-radius:8px;padding:11px 12px}
+.credits {margin-top:26px;padding:22px 24px 24px}
+.credits-heading {margin-bottom:16px}
+.credits-heading h2{font-size:16px;margin-bottom:4px}
+.credits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.credit-card{background:#fafbf9;border:1px solid #e0e9e3;border-radius:10px;padding:16px 17px;min-width:0}
+.credit-role{color:#577368;font-size:10px;font-weight:850;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px}
+.credit-name{margin:0;font-size:15px;font-weight:750;color:#1d3e2c}
+.credit-description{color:#657a6d;font-size:12px;margin:6px 0 13px}
+.credit-links{display:flex;flex-wrap:wrap;gap:8px}
+.credit-links a,.credit-pending{display:inline-flex;align-items:center;text-decoration:none;padding:7px 10px;font-size:11px;font-weight:700;color:#23583f;background:#fff;border:1px solid #d8e6db;border-radius:7px}
+.credit-links a:hover{background:#eaf4ed;text-decoration:underline}
+.credit-pending{color:#718078;border-style:dashed;background:transparent;cursor:default}
+.credit-quiet{margin:14px 0 0;color:#78877d;font-size:10px;line-height:1.55}
+.method-intro{margin-top:16px;border:1px solid #e1e9e3;border-radius:10px;padding:15px;background:#fafbf9}
+.method-intro h3{margin:0 0 7px}
+.method-intro p{margin:0;color:#53675c;line-height:1.55}
+@media(max-width:670px){.credits-grid{grid-template-columns:1fr}.credits{padding:19px 16px}.credit-card{padding:14px}.method-head{padding:17px 18px 12px}.method-body{padding:18px}.info-trigger{width:20px;height:20px}}
   </style>
 </head>
 <body>
@@ -323,7 +373,7 @@
               <div class="timeline-heading">
                 <div>
                   <p class="eyebrow" style="margin-bottom:6px">Evolução ao longo da apuração fictícia</p>
-                  <h2 id="timeline-title">Resultado a cada atualização</h2>
+                  <h2 id="timeline-title">Resultado a cada atualização <button type="button" class="info-trigger" data-method="timeline" aria-label="Metodologia da série temporal fictícia" title="Metodologia da série temporal fictícia">i</button></h2>
                   <p class="subtitle">Pontos a cada 10 minutos · eixo inicial de 17h a 00h</p>
                 </div>
                 <span class="mini-time" id="chart-last">25/10 · 23:50</span>
@@ -338,7 +388,7 @@
                 <div class="chart-tip" id="trend-tip" hidden></div>
               </div>
               <div class="trend-utilities">
-                <span class="update-status"><b id="point-count">42 pontos simulados</b> · Último: <span id="last-update">23:50</span></span>
+                <span class="update-status"><b id="point-count">42 pontos simulados</b><button type="button" class="info-trigger" data-method="updates" aria-label="Contagem e horários das atualizações" title="Contagem e horários das atualizações">i</button> · Último: <span id="last-update">23:50</span></span>
                 <div class="timeline-buttons">
                   <button class="tool-btn primary" id="add-update" type="button" title="Acrescentar uma atualização fictícia de 10 minutos">+ 10 min</button>
                   <button class="tool-btn" id="autoplay" type="button" aria-pressed="false" title="Reprodução acelerada, apenas demonstrativa">▶ Reproduzir</button>
@@ -352,53 +402,98 @@
               <div class="section-top">
                 <div>
                   <p class="sim-status">● SIMULAÇÃO · DADOS FICTÍCIOS</p>
-                  <h2 id="comparison-title">Resultado nacional</h2>
+                  <h2 id="comparison-title">Resultado nacional <button type="button" class="info-trigger" data-method="national" aria-label="Cálculo da estimativa nacional e por UF" title="Cálculo da estimativa nacional e por UF">i</button></h2>
                   <p class="subtitle">Estimativa no último ponto do gráfico</p>
                   <span class="snapshot-time">Atualização exibida: <strong id="snapshot-time" style="margin-left:5px">25/10 · 23:50</strong></span>
                 </div>
               </div>
               <div class="snapshot-result">
-                <div class="snapshot-candidate lula"><div class="candidate-name">Lula</div><div class="candidate-pct" id="lula-pct">—</div><div class="candidate-votes" id="lula-votes">— votos fictícios</div></div>
-                <div class="snapshot-candidate flavio"><div class="candidate-name">Flávio Bolsonaro</div><div class="candidate-pct" id="flavio-pct">—</div><div class="candidate-votes" id="flavio-votes">— votos fictícios</div></div>
+                <div class="snapshot-candidate lula"><div class="candidate-name">Lula</div><div class="candidate-pct-row"><div class="candidate-pct" id="lula-pct">—</div><button type="button" class="info-trigger" data-method="candidate_share" aria-label="Cálculo do percentual de Lula" title="Cálculo do percentual de Lula">i</button></div><div class="candidate-votes"><span id="lula-votes">— votos fictícios</span><button type="button" class="info-trigger" data-method="candidate_votes" aria-label="Cálculo dos votos fictícios de Lula" title="Cálculo dos votos fictícios de Lula">i</button></div></div>
+                <div class="snapshot-candidate flavio"><div class="candidate-name">Flávio Bolsonaro</div><div class="candidate-pct-row"><div class="candidate-pct" id="flavio-pct">—</div><button type="button" class="info-trigger" data-method="candidate_share" aria-label="Cálculo do percentual de Flávio Bolsonaro" title="Cálculo do percentual de Flávio Bolsonaro">i</button></div><div class="candidate-votes"><span id="flavio-votes">— votos fictícios</span><button type="button" class="info-trigger" data-method="candidate_votes" aria-label="Cálculo dos votos fictícios de Flávio Bolsonaro" title="Cálculo dos votos fictícios de Flávio Bolsonaro">i</button></div></div>
               </div>
               <div class="share-bar" role="img" aria-label="Distribuição ilustrativa dos votos válidos" id="share-chart"><span class="share-left" id="share-left" style="width:50%"></span><span class="share-right"></span></div>
-              <div class="share-labels"><span><i class="legend-dot"></i> Lula</span><span>Flávio Bolsonaro <i class="legend-dot amber"></i></span></div>
-              <div class="result-footer"><span id="leader-label" class="lead-note">—</span><span>Diferença: <span class="gap-value" id="gap-pp">—</span> <span id="gap-votos">(— votos)</span></span></div>
+              <div class="share-labels"><span><i class="legend-dot"></i> Lula <button type="button" class="info-trigger" data-method="share_bar" aria-label="Metodologia da barra de proporção" title="Metodologia da barra de proporção">i</button></span><span>Flávio Bolsonaro <i class="legend-dot amber"></i></span></div>
+              <div class="result-footer"><span id="leader-label" class="lead-note">—</span><span>Diferença: <span class="gap-value" id="gap-pp">—</span> <span id="gap-votos">(— votos)</span> <button type="button" class="info-trigger" data-method="difference" aria-label="Metodologia da diferença em pontos percentuais e em votos" title="Metodologia da diferença em pontos percentuais e em votos">i</button></span></div>
             </article>
           </div>
           <div class="kpi-grid" aria-label="Indicadores de participação eleitoral fictícios">
-            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Eleitorado apto</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 4 5"/></svg></span></div><div class="kpi-number" id="kpi-apt">—</div><div class="kpi-bottom">Base eleitoral simulada</div></article>
-            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Comparecimento</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></span></div><div class="kpi-number" id="kpi-comparecimento">—</div><div class="kpi-bottom"><span class="mini-pill" id="rate-comp">—</span> dos eleitores aptos</div></article>
-            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Abstenção</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></span></div><div class="kpi-number" id="kpi-abst">—</div><div class="kpi-bottom"><span class="mini-pill" id="rate-abst">—</span> dos eleitores aptos</div></article>
-            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Votos válidos</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7 12h10M12 7v10"/></svg></span></div><div class="kpi-number" id="kpi-validos">—</div><div class="kpi-bottom">Cenário hipotético consolidado</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Eleitorado apto <button type="button" class="info-trigger" data-method="electorate" aria-label="Como é calculado Eleitorado apto" title="Como é calculado Eleitorado apto">i</button></span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 4 5"/></svg></span></div><div class="kpi-number" id="kpi-apt">—</div><div class="kpi-bottom">Base eleitoral simulada</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Comparecimento <button type="button" class="info-trigger" data-method="turnout" aria-label="Como é calculado Comparecimento" title="Como é calculado Comparecimento">i</button></span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></span></div><div class="kpi-number" id="kpi-comparecimento">—</div><div class="kpi-bottom"><span class="mini-pill" id="rate-comp">—</span><button type="button" class="info-trigger" data-method="turnout_rate" aria-label="Cálculo da taxa de comparecimento" title="Cálculo da taxa de comparecimento">i</button> dos eleitores aptos</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Abstenção <button type="button" class="info-trigger" data-method="abstention" aria-label="Como é calculado Abstenção" title="Como é calculado Abstenção">i</button></span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></span></div><div class="kpi-number" id="kpi-abst">—</div><div class="kpi-bottom"><span class="mini-pill" id="rate-abst">—</span><button type="button" class="info-trigger" data-method="abstention_rate" aria-label="Cálculo da taxa de abstenção" title="Cálculo da taxa de abstenção">i</button> dos eleitores aptos</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Votos válidos <button type="button" class="info-trigger" data-method="valid_votes" aria-label="Como é calculado Votos válidos" title="Como é calculado Votos válidos">i</button></span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7 12h10M12 7v10"/></svg></span></div><div class="kpi-number" id="kpi-validos">—</div><div class="kpi-bottom">Cenário hipotético consolidado</div></article>
           </div>
           <article class="panel panel-inner regions-panel" aria-label="Resumo territorial do cenário fixo">
-            <div class="section-top"><div><h2>Visão por região</h2><p class="subtitle">Percentual simulado de Lula no cenário-base, sem variação temporal</p></div><span class="tiny-pill">Brasil</span></div>
+            <div class="section-top"><div><h2>Visão por região <button type="button" class="info-trigger" data-method="region" aria-label="Cálculo dos percentuais por região" title="Cálculo dos percentuais por região">i</button></h2><p class="subtitle">Percentual simulado de Lula no cenário-base, sem variação temporal</p></div><span class="tiny-pill">Brasil</span></div>
             <div class="region-bars" id="regions"></div>
             <div class="region-foot"><span>Distribuição de votos · cenário-base</span><span class="region-dots"><span><i class="legend-dot"></i>Lula</span><span><i class="legend-dot amber"></i>Flávio</span></span></div>
           </article>
           <div class="data-context">A tabela e os indicadores abaixo mostram o <b>cenário-base fictício</b>; o gráfico e o placar à direita exibem cada atualização simulada.</div>
           <div class="bottom-grid">
-            <section class="panel table-panel" aria-labelledby="table-title"><div class="table-heading"><div><h2 id="table-title">Detalhamento territorial</h2><p class="subtitle">Resultados hipotéticos das 27 UFs e exterior</p></div><div class="table-actions"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search-geral" placeholder="Buscar UF" aria-label="Buscar Unidade da Federação"></div></div></div><div class="table-scroll"><table><thead><tr><th>UF</th><th>Lula</th><th>Flávio</th><th>Aptos</th><th>Comparecimento</th></tr></thead><tbody id="tbody-geral"></tbody></table></div><div class="table-end"><span id="table-count">28 abrangências</span><span>Clique em uma UF para detalhar</span></div></section>
-            <aside class="panel side-card"><div class="info-swatch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 3v18h18M7 15l5-5 3 3 5-7"/></svg></div><h2>Leitura da simulação</h2><p class="subtitle">Diferença pequena no cenário ilustrativo</p><p class="note-stat" id="gap-card">— p.p.</p><p class="info-text">Distância entre os dois percentuais de votos válidos, calculada sobre números fictícios.</p><div class="divider"></div><div class="mini-split"><div class="mini-row"><span>UFs com Lula à frente</span><strong id="count-lula">—</strong></div><div class="mini-row"><span>UFs com Flávio à frente</span><strong id="count-flavio">—</strong></div><div class="mini-row"><span>Exterior (ZZ)</span><strong>incluído</strong></div></div><button class="info-link" type="button" data-goto="metodologia">Como calculamos? <span aria-hidden="true">↗</span></button></aside>
+            <section class="panel table-panel" aria-labelledby="table-title"><div class="table-heading"><div><h2 id="table-title">Detalhamento territorial <button type="button" class="info-trigger" data-method="territory" aria-label="Metodologia dos dados por UF" title="Metodologia dos dados por UF">i</button></h2><p class="subtitle">Resultados hipotéticos das 27 UFs e exterior</p></div><div class="table-actions"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search-geral" placeholder="Buscar UF" aria-label="Buscar Unidade da Federação"></div></div></div><div class="table-scroll"><table><thead><tr><th>UF</th><th>Lula <button type="button" class="info-trigger" data-method="territory" aria-label="Cálculo percentual territorial" title="Cálculo percentual territorial">i</button></th><th>Flávio <button type="button" class="info-trigger" data-method="territory" aria-label="Cálculo percentual territorial" title="Cálculo percentual territorial">i</button></th><th>Aptos <button type="button" class="info-trigger" data-method="electorate" aria-label="Origem do eleitorado fictício" title="Origem do eleitorado fictício">i</button></th><th>Comparecimento <button type="button" class="info-trigger" data-method="turnout" aria-label="Cálculo do comparecimento fictício" title="Cálculo do comparecimento fictício">i</button></th></tr></thead><tbody id="tbody-geral"></tbody></table></div><div class="table-end"><span id="table-count">28 abrangências</span><span>Clique em uma UF para detalhar</span></div></section>
+            <aside class="panel side-card"><div class="info-swatch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 3v18h18M7 15l5-5 3 3 5-7"/></svg></div><h2>Leitura da simulação</h2><p class="subtitle">Diferença pequena no cenário ilustrativo</p><p class="note-stat" id="gap-card">— p.p.</p><button type="button" class="info-trigger" data-method="difference" aria-label="Metodologia da diferença entre candidatos" title="Metodologia da diferença entre candidatos">i</button><p class="info-text">Distância entre os dois percentuais de votos válidos, calculada sobre números fictícios.</p><div class="divider"></div><div class="mini-split"><div class="mini-row"><span>UFs com Lula à frente <button type="button" class="info-trigger" data-method="uf_counts" aria-label="Contagem das UFs em que Lula lidera" title="Contagem das UFs em que Lula lidera">i</button></span><strong id="count-lula">—</strong></div><div class="mini-row"><span>UFs com Flávio à frente <button type="button" class="info-trigger" data-method="uf_counts" aria-label="Contagem das UFs em que Flávio lidera" title="Contagem das UFs em que Flávio lidera">i</button></span><strong id="count-flavio">—</strong></div><div class="mini-row"><span>Exterior (ZZ)</span><strong>incluído</strong></div></div><button class="info-link" type="button" data-goto="metodologia">Como calculamos? <span aria-hidden="true">↗</span></button></aside>
           </div>
         </section>
 
         <section class="page-view" id="view-ufs" hidden aria-labelledby="title-ufs">
           <div class="view-title"><p class="eyebrow">Análise territorial</p><h1 id="title-ufs">Comparação por Unidade da Federação</h1><p class="heading-sub">Pesquise e selecione qualquer UF para consultar os indicadores fictícios da simulação.</p></div>
-          <section class="panel table-panel table-full"><div class="table-heading"><div><h2>As 28 abrangências eleitorais</h2><p class="subtitle">Votos válidos fictícios · clique em uma linha para exibir na visão geral</p></div><div class="table-actions"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search-ufs" placeholder="Buscar estado / sigla" aria-label="Filtrar tabela de UFs"></div><button class="btn btn-primary" type="button" data-csv="true">Exportar CSV</button></div></div><div class="table-scroll"><table><thead><tr><th>UF</th><th>Lula (%)</th><th>Flávio (%)</th><th>Eleitorado apto</th><th>Comparecimento</th><th>Abstenção</th><th>Votos válidos</th></tr></thead><tbody id="tbody-ufs"></tbody></table></div><div class="table-end"><span id="full-count">28 abrangências</span><span>Simulação independente · dados inteiramente fictícios</span></div></section>
+          <section class="panel table-panel table-full"><div class="table-heading"><div><h2>As 28 abrangências eleitorais</h2><p class="subtitle">Votos válidos fictícios · clique em uma linha para exibir na visão geral</p></div><div class="table-actions"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search-ufs" placeholder="Buscar estado / sigla" aria-label="Filtrar tabela de UFs"></div><button class="btn btn-primary" type="button" data-csv="true">Exportar CSV</button></div></div><div class="table-scroll"><table><thead><tr><th>UF</th><th>Lula (%) <button type="button" class="info-trigger" data-method="territory" aria-label="Cálculo percentual territorial" title="Cálculo percentual territorial">i</button></th><th>Flávio (%) <button type="button" class="info-trigger" data-method="territory" aria-label="Cálculo percentual territorial" title="Cálculo percentual territorial">i</button></th><th>Eleitorado apto <button type="button" class="info-trigger" data-method="electorate" aria-label="Origem do eleitorado fictício" title="Origem do eleitorado fictício">i</button></th><th>Comparecimento <button type="button" class="info-trigger" data-method="turnout" aria-label="Cálculo do comparecimento fictício" title="Cálculo do comparecimento fictício">i</button></th><th>Abstenção <button type="button" class="info-trigger" data-method="abstention" aria-label="Cálculo da abstenção fictícia" title="Cálculo da abstenção fictícia">i</button></th><th>Votos válidos <button type="button" class="info-trigger" data-method="valid_votes" aria-label="Cálculo dos votos válidos fictícios" title="Cálculo dos votos válidos fictícios">i</button></th></tr></thead><tbody id="tbody-ufs"></tbody></table></div><div class="table-end"><span id="full-count">28 abrangências</span><span>Simulação independente · dados inteiramente fictícios</span></div></section>
         </section>
 
         <section class="page-view" id="view-metodologia" hidden aria-labelledby="title-metodologia">
           <div class="view-title"><p class="eyebrow">Transparência e método</p><h1 id="title-metodologia">Metodologia do protótipo</h1><p class="heading-sub">Como os dados fictícios foram gerados e como será a integração com a fonte oficial.</p></div>
           <div class="explainer"><article class="panel"><div class="number">01 / DADOS</div><h3>Cenário 100% fictício</h3><p>Os volumes, percentuais e os pontos históricos de 10 em 10 minutos foram gerados localmente por regras determinísticas para simular uma disputa apertada. Não são resultado eleitoral, pesquisa ou projeção baseada em dados observados.</p></article><article class="panel"><div class="number">02 / CÁLCULOS</div><h3>Totais ponderados</h3><p>Comparecimento + abstenção = eleitorado apto. Os votos válidos são uma fração simulada dos presentes. O cenário-base nacional decorre da soma ponderada das 28 abrangências; o histórico visual usa pequenas oscilações determinísticas em torno desse cenário.</p></article><article class="panel"><div class="number">03 / PRÓXIMA FASE</div><h3>API e homologação</h3><p>A integração futura será em Python, com JSON oficial do TSE, validações e atualização via GitHub Actions. A publicação real dependerá da aprovação dos testes e da metodologia.</p></article></div>
-          <div class="panel method-note"><h2>Regras de leitura</h2><p>Este painel é uma demonstração independente de interface. A curva temporal também é inteiramente inventada, com pontos espaçados a cada 10 minutos e extensão além de 00h. A vantagem simulada de Lula não deve ser interpretada como divulgação de vencedor, tendência, intenção de voto ou contagem realizada pelo TSE. A identidade remete a princípios de design institucional, sem usar logotipos ou afirmar endosso do MDA.</p><p><strong>Fórmulas ilustrativas:</strong> <code>comparecimento = eleitorado_apto × taxa_sintética</code> · <code>abstenção = aptos − comparecimento</code> · <code>% candidato = votos_do_candidato / votos_válidos × 100</code></p><p><strong>Origem futura dos dados reais:</strong> <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">Portal de resultados do TSE</a>. Nenhuma requisição externa é realizada por este protótipo.</p><button type="button" class="btn" data-goto="geral">Voltar à visão geral</button></div>
+          <div class="panel method-note"><h2>Regras de leitura</h2><p>Este painel é uma demonstração independente de interface. A curva temporal também é inteiramente inventada, com pontos espaçados a cada 10 minutos e extensão além de 00h. A vantagem simulada de Lula não deve ser interpretada como divulgação de vencedor, tendência, intenção de voto ou contagem realizada pelo TSE. A identidade remete a princípios de design institucional, sem usar logotipos ou afirmar endosso do MDA.</p><p><strong>Fórmulas ilustrativas:</strong> <code>comparecimento = eleitorado_apto × taxa_sintética</code> · <code>abstenção = aptos − comparecimento</code> · <code>% candidato = votos_do_candidato / votos_válidos × 100</code></p><p><strong>Origem futura dos dados reais:</strong> <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">Portal de resultados do TSE</a>. Nenhuma requisição externa é realizada por este protótipo.</p><div class="method-intro"><h3>Como usar os ícones “i”</h3><p>O símbolo ao lado de cada campo calculado abre uma explicação com fórmula, variáveis, arredondamentos, abrangência e limitações. Na tabela, os ícones ficam nos cabeçalhos e se aplicam a todas as linhas da coluna.</p></div><button type="button" class="btn" data-goto="geral">Voltar à visão geral</button></div>
         </section>
 
-        <footer class="footer" id="footer"><span>Monitor Eleitoral 2026 · Protótipo independente · Todos os resultados são fictícios.</span><span><a href="https://www.gov.br/mda/pt-br" target="_blank" rel="noopener noreferrer">MDA (referência visual)</a> · <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">TSE (fonte futura)</a></span></footer>
+        
+<section class="panel credits" id="contatos" aria-labelledby="credits-title">
+  <div class="credits-heading">
+    <h2 id="credits-title">Sobre o projeto e contatos</h2>
+    <p class="subtitle">Créditos e contatos profissionais · protótipo experimental independente</p>
+  </div>
+  <div class="credits-grid">
+    <article class="credit-card">
+      <p class="credit-role">Desenvolvimento e análise</p>
+      <h3 class="credit-name">Marcelo Cabreira Bastos</h3>
+      <p class="credit-description">Dados, monitoramento e avaliação de políticas públicas</p>
+      <div class="credit-links">
+        <a href="https://www.linkedin.com/in/marcelo-cabreira-bastos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marcelo Cabreira Bastos">LinkedIn ↗</a>
+        <a href="https://marcelo7bastos.github.io/project_portfolio/index.html" target="_blank" rel="noopener noreferrer" aria-label="Portfólio de Marcelo Cabreira Bastos">Site pessoal ↗</a>
+        <a href="https://github.com/marcelo7bastos" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Marcelo Cabreira Bastos">GitHub ↗</a>
+        <a href="mailto:marceloc.bastos@hotmail.com" aria-label="Enviar e-mail ao contato público de Marcelo">E-mail ↗</a>
+        <span class="credit-pending" title="Não foi possível confirmar o link específico do perfil no ORCID">ORCID · link a confirmar</span>
+      </div>
+    </article>
+    <article class="credit-card">
+      <p class="credit-role">Contato institucional de referência</p>
+      <h3 class="credit-name">Ernesto Pereira Galindo</h3>
+      <p class="credit-description">Ministério do Desenvolvimento Agrário e Agricultura Familiar</p>
+      <div class="credit-links">
+        <a href="mailto:ernesto.galindo@mda.gov.br" aria-label="Enviar e-mail institucional a Ernesto Galindo">E-mail institucional ↗</a>
+        <a href="tel:+556132764995" aria-label="Telefonar para o contato institucional de Ernesto Galindo">(61) 3276-4995</a>
+        <a href="https://www.gov.br/mda/pt-br/acesso-a-informacao/institucional/quem-e-quem/secretaria-executiva" target="_blank" rel="noopener noreferrer">Diretório do MDA ↗</a>
+      </div>
+    </article>
+  </div>
+  <p class="credit-quiet">O contato institucional e a inspiração estética não significam endosso do MDA ou do TSE, nem atribuem a Ernesto Galindo autoria ou responsabilidade por este protótipo. Contatos obtidos de páginas públicas.</p>
+</section>
+<footer class="footer" id="footer"><span>Monitor Eleitoral 2026 · Protótipo independente · Todos os resultados são fictícios.</span><span><a href="https://www.gov.br/mda/pt-br" target="_blank" rel="noopener noreferrer">MDA (referência visual)</a> · <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">TSE (fonte futura)</a></span></footer>
+
       </main>
     </div>
   </div>
+
+<dialog class="method-dialog" id="method-dialog" aria-labelledby="method-title" aria-describedby="method-text">
+  <header class="method-head">
+    <div><p class="eyebrow">Transparência dos indicadores</p><h2 id="method-title">Metodologia do cálculo</h2></div>
+    <button id="method-close" type="button" class="close-dialog" aria-label="Fechar metodologia">×</button>
+  </header>
+  <div class="method-body" id="method-text">
+    <h3>Fórmula</h3><div class="method-formula" id="method-formula"></div>
+    <h3>Como interpretar</h3><p id="method-description"></p>
+    <h3>Limitações</h3><div class="method-disclaimer" id="method-warning"></div>
+  </div>
+</dialog>
   <script>
     'use strict';
     // Arquivo demonstrativo: todas as entradas e resultados abaixo são inventados.
@@ -555,6 +650,131 @@
       const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='historico_SIMULADO_'+selected+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);
     }
 
+
+// Catálogo de metodologias correspondente às fórmulas efetivamente implementadas.
+const METHODS = {
+  electorate: {
+    title:'Eleitorado apto — dado fictício',
+    formula:'aptos_UF = arredondar(peso_sintético_UF × 1.000.000)\naptos_abrangência = Σ aptos_UF',
+    description:'Cada UF recebe um peso sintético em milhões definido no código. O valor exibido para Brasil é a soma das 28 abrangências (27 UFs e exterior, ZZ). Não é uma estimativa estatística de eleitorado real.',
+    warning:'A origem é uma tabela fictícia interna, não o cadastro eleitoral do TSE. Números compactados em milhões/mil são apenas formato visual.'
+  },
+  turnout: {
+    title:'Comparecimento fictício',
+    formula:'comparecimento_UF = arredondar(aptos_UF × taxa_presença_sintética_UF)\ncomparecimento_abrangência = Σ comparecimento_UF',
+    description:'O programa aplica a taxa inventada de presença de cada UF ao eleitorado sintético. O total Brasil resulta da soma dos valores arredondados de todas as abrangências.',
+    warning:'Não representa comparecimento efetivamente apurado. A taxa sintética é definida na lista territorial do código.'
+  },
+  abstention: {
+    title:'Abstenção fictícia',
+    formula:'abstenção_UF = aptos_UF − comparecimento_UF\nabstenção_abrangência = Σ abstenção_UF',
+    description:'A diferença entre o eleitorado sintético e o comparecimento sintético por UF. Por construção, comparecimento + abstenção = aptos.',
+    warning:'Não representa registros da Justiça Eleitoral; os valores são derivados do mesmo cenário fictício.'
+  },
+  valid_votes: {
+    title:'Votos válidos fictícios',
+    formula:'fator_UF = 0,946 + (índice_UF módulo 6) × 0,004\nválidos_UF = arredondar(comparecimento_UF × fator_UF)\nválidos_abrangência = Σ válidos_UF',
+    description:'O índice inicia em zero na lista de 28 abrangências; o fator sintético muda por UF. O restante dos comparecimentos não é classificado detalhadamente (brancos/nulos não são exibidos).',
+    warning:'Fatores escolhidos para demonstração, não taxas oficiais. Para dados reais, o denominador deverá ser homologado junto à fonte do TSE.'
+  },
+  turnout_rate: {
+    title:'Taxa de comparecimento',
+    formula:'taxa_comparecimento (%) = 100 × comparecimento / eleitorado_apto',
+    description:'O quociente é calculado usando as quantidades sintéticas da abrangência selecionada, depois exibido com uma casa decimal.',
+    warning:'Taxa fictícia, não apuração real. Se o eleitorado apto for zero em dados futuros, deve-se exibir “não disponível”, sem dividir por zero.'
+  },
+  abstention_rate: {
+    title:'Taxa de abstenção',
+    formula:'taxa_abstenção (%) = 100 × abstenção / eleitorado_apto',
+    description:'A taxa é calculada com os totais sintéticos para Brasil ou UF e apresentada com uma casa decimal. Em condições consistentes, a soma das taxas é 100% antes do arredondamento.',
+    warning:'Os arredondamentos visuais podem produzir diferença de 0,1 p.p. na soma exibida.'
+  },
+  territory: {
+    title:'Percentuais e volumes na tabela territorial',
+    formula:'ajuste = 0,5064 − (Σ válidos_UF × inclinação_UF / Σ válidos_UF)\nvotos_Lula_UF = arredondar(válidos_UF × (inclinação_UF + ajuste))\nvotos_Flávio_UF = válidos_UF − votos_Lula_UF\n% candidato_UF = 100 × votos_candidato_UF / válidos_UF',
+    description:'A inclinação eleitoral sintética de cada UF é ajustada por uma constante, para aproximar a participação ponderada nacional de Lula de 50,64%. As tabelas exibem o cenário-base, não cada passo da animação. Os totais por UF são arredondados em inteiros.',
+    warning:'Ajuste e inclinações foram definidos para obter deliberadamente uma disputa apertada. Não há inferência sobre voto real. As tabelas não variam quando o usuário avança o histórico.'
+  },
+  national: {
+    title:'Consolidação nacional ponderada',
+    formula:'votos_candidato_Brasil = Σ votos_candidato_UF\nválidos_Brasil = Σ válidos_UF\n% candidato_Brasil = 100 × votos_candidato_Brasil / válidos_Brasil',
+    description:'A consolidação considera 27 UFs + ZZ e soma os votos fictícios antes de calcular o percentual, evitando média simples dos percentuais estaduais. No cartão principal, essa base é ajustada com variação temporal inventada.',
+    warning:'O alvo de aproximadamente 50,64% de Lula foi escolhido para demonstrar o layout. Nenhuma estimativa tem origem na apuração ou em pesquisa eleitoral.'
+  },
+  timeline: {
+    title:'Histórico temporal e curva simulada',
+    formula:'17h00 ≤ horário inicial ≤ 23h50; passo = 10 min\nparticipação_Lula(t) = participação_base + oscilação_sintética(t)\nparticipação_Flávio(t) = 100 − participação_Lula(t)\napós 23h50: oscilação = 0,12 × sen(0,75k) + 0,045 × sen(1,83k)',
+    description:'O histórico contém 42 pontos predefinidos de 17h00 a 23h50. Antes desse horário, a função usa senos e um termo de aproximação ao cenário-base. Depois, cada clique adiciona um ponto de 10 minutos com oscilação matemática. O eixo horizontal inicia em 17h e vai até 00h, estendendo-se ao avançar além de meia-noite. A escala vertical é ampliada automaticamente.',
+    warning:'Todos os pontos são sintéticos. O botão “Reproduzir” simula 10 minutos por segundo, sem acessar o TSE. Essas curvas não são tendência ou histórico real de apuração.'
+  },
+  updates: {
+    title:'Contagem e horário das atualizações fictícias',
+    formula:'N = (horário_final − 17h00) / 10 min + 1\npróximo_horário = último_horário + 10 min',
+    description:'O gráfico inicia com 42 observações sintéticas. Os controles criam mais pontos a cada 10 minutos; depois de 00h00, a data muda para 26/10 no eixo e no horário de referência.',
+    warning:'A contagem indica pontos gerados localmente, nunca requisições efetivas à fonte oficial.'
+  },
+  candidate_share: {
+    title:'Percentual de cada candidato no placar',
+    formula:'% Lula(t) = % Lula_base + variação_sintética(t)\n% Flávio(t) = 100 − % Lula(t)',
+    description:'O percentual-base resulta da agregação ponderada de votos fictícios. A série visual adiciona uma oscilação determinística, com limites matemáticos entre 0,5% e 99,5%. Os dois percentuais somam sempre 100% antes do arredondamento.',
+    warning:'Este placar é demonstrativo. Não usa dados reais nem corresponde à estimativa produzida pela planilha Excel ainda não homologada.'
+  },
+  candidate_votes: {
+    title:'Votos fictícios por candidato no placar',
+    formula:'votos_Lula(t) = arredondar(válidos_base × % Lula(t) / 100)\nvotos_Flávio(t) = válidos_base − votos_Lula(t)',
+    description:'O total de votos válidos fictícios permanece constante durante a animação. A variação no percentual redistribui esses votos entre os candidatos, sem alterar a base total.',
+    warning:'Como o total é fixo, estes números não representam o crescimento real da apuração ao longo do tempo.'
+  },
+  share_bar: {
+    title:'Barra de participação no placar',
+    formula:'largura_vermelha (%) = % Lula(t)\nlargura_cinza (%) = 100 − largura_vermelha',
+    description:'A largura de cada segmento representa o percentual fictício exibido no cartão ao lado. Os segmentos totalizam 100% dos votos válidos sintéticos.',
+    warning:'As cores são apenas escolha visual deste protótipo, sem indicação institucional ou equivalência oficial.'
+  },
+  difference: {
+    title:'Diferença entre os candidatos',
+    formula:'diferença (p.p.) = |% Lula(t) − % Flávio(t)|\ndiferença (votos) = |votos_Lula(t) − votos_Flávio(t)|',
+    description:'A diferença percentual é medida em pontos percentuais, não em taxa de crescimento percentual. A quantidade de votos é a diferença absoluta entre os números fictícios do mesmo cenário e horário. A liderança é definida pelo maior número de votos.',
+    warning:'O card “Leitura da simulação” pode exibir o último ponto, enquanto tabela e regiões permanecem no cenário-base. Nenhum valor é oficial.'
+  },
+  region: {
+    title:'Percentuais por região',
+    formula:'% Lula_região = 100 × Σ votos_Lula_UF / Σ votos_válidos_UF\n% Flávio_região = 100 − % Lula_região',
+    description:'As UFs são agrupadas em Norte, Nordeste, Centro-Oeste, Sudeste, Sul e Exterior. Cada região usa a soma dos votos válidos fictícios como denominador; não é média aritmética simples entre estados.',
+    warning:'Os gráficos regionais representam o cenário-base fictício e permanecem estáticos ao avançar o histórico temporal.'
+  },
+  uf_counts: {
+    title:'Contagem das UFs com vantagem de cada candidato',
+    formula:'contagem_candidato = quantidade de UFs em que votos_candidato > votos_adversário',
+    description:'A comparação é feita com os votos fictícios inteiros do cenário-base de cada UF. O exterior (ZZ) é excluído deliberadamente desta contagem de UFs, mas está incluído no Brasil.',
+    warning:'Esse indicador é uma contagem territorial e não substitui o percentual nacional ponderado. Em caso de empate, a UF não é contada para nenhum candidato.'
+  }
+};
+function openMethod(method, trigger){
+  const data=METHODS[method];
+  if(!data) return;
+  $('method-title').textContent=data.title;
+  $('method-formula').textContent=data.formula;
+  $('method-description').textContent=data.description;
+  $('method-warning').textContent=data.warning;
+  const dialog=$('method-dialog');
+  if(!dialog.open){ if(typeof dialog.showModal==='function') dialog.showModal(); else dialog.setAttribute('open',''); }
+  $('method-close').focus();
+}
+function wireMethodology(){
+  document.addEventListener('click', event=>{
+    const trigger=event.target.closest('button[data-method]');
+    if(!trigger) return;
+    event.preventDefault(); event.stopPropagation();
+    openMethod(trigger.dataset.method,trigger);
+  },true);
+  document.addEventListener('keydown',event=>{
+    // Botões dentro de tabelas não devem disparar o atalho de seleção da UF.
+    if(event.target.closest('button[data-method]') && (event.key==='Enter'||event.key===' ')) event.stopPropagation();
+  },true);
+  $('method-close').addEventListener('click',()=>$('method-dialog').close());
+  $('method-dialog').addEventListener('click',event=>{if(event.target===$('method-dialog')) $('method-dialog').close();});
+}
     const $=id=>document.getElementById(id);
     let selected='BR';
     let view='geral';
@@ -564,7 +784,7 @@
     function setRegionBars(){
       $('regions').innerHTML=regionOrder.map(region=>{
         const agg=aggregate(records.filter(r=>r.region===region));
-        return `<div class="region-row"><span class="region-name">${escapeHTML(region)}</span><div class="region-track" aria-label="${region}: Lula ${fmtPct(agg.lulaPct)}"><span style="width:${agg.lulaPct.toFixed(3)}%"></span><i></i></div><span class="region-pct">${fmtPct(agg.lulaPct,1)}</span></div>`;
+        return `<div class="region-row"><span class="region-name">${escapeHTML(region)}</span><div class="region-track" aria-label="${region}: Lula ${fmtPct(agg.lulaPct)}"><span style="width:${agg.lulaPct.toFixed(3)}%"></span><i></i></div><span class="region-pct">${fmtPct(agg.lulaPct,1)}<button type="button" class="info-trigger" data-method="region" aria-label="Cálculo do percentual por região" title="Cálculo do percentual por região">i</button></span></div>`;
       }).join('');
     }
     function renderHeader(){
@@ -626,6 +846,7 @@
       const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='monitor_eleitoral_2026_SIMULACAO.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
     }
     function init(){
+      wireMethodology();
       const select=$('uf');
       records.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
       records.forEach(r=>{const option=document.createElement('option');option.value=r.uf;option.textContent=r.uf+' · '+r.name;select.appendChild(option)});
@@ -635,8 +856,8 @@
       document.querySelectorAll('[data-csv]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();downloadCSV()}));
       $('search-geral').addEventListener('input',()=>renderTable('geral'));
       $('search-ufs').addEventListener('input',()=>renderTable('ufs'));
-      document.addEventListener('click',e=>{const row=e.target.closest('tr[data-select]');if(row)selectUF(row.dataset.select)});
-      document.addEventListener('keydown',e=>{const row=e.target.closest('tr[data-select]');if(row&&(e.key==='Enter'||e.key===' ')){e.preventDefault();selectUF(row.dataset.select)}});
+      document.addEventListener('click',e=>{const row=e.target.closest('tr[data-select]');if(row && !e.target.closest('button[data-method]'))selectUF(row.dataset.select)});
+      document.addEventListener('keydown',e=>{const row=e.target.closest('tr[data-select]');if(row && !e.target.closest('button[data-method]')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();selectUF(row.dataset.select)}});
       $('add-update').addEventListener('click',nextDemoPoint);
       $('autoplay').addEventListener('click',toggleAutoplay);
       $('reset-trend').addEventListener('click',resetDemo);
