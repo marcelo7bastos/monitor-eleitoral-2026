@@ -340,3 +340,13 @@ th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
 @media(max-width:420px){.dl-cel{padding:9px}.dl-cand{padding-left:8px}}
 @media(min-width:1101px){.upper-grid.main-focus{grid-template-columns:minmax(0,1.4fr) minmax(400px,1fr)}}
 @media(max-width:1100px){.upper-grid.main-focus{grid-template-columns:1fr}}
+/* Selo de margem de cenário (issue #21) */
+.dl-selos{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px;align-items:center}.dl-selos .dl-selo{margin-top:0}
+.margem-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;border-radius:999px;padding:3px 9px 3px 8px;font-size:11px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.margem-btn .num{font-size:12px}.margem-btn .rot{font-weight:700;opacity:.85}.margem-btn svg{width:12px;height:12px;flex-shrink:0}
+.margem-btn.estreita,.margem-btn.completa{background:#e8f3eb;color:#1d5c3a;border-color:#cfe5d6}
+.margem-btn.moderada{background:#eef3f6;color:#2f4757;border-color:#d6e1e8}
+.margem-btn.ampla{background:#fff9eb;color:#835e24;border-color:#ecd7a8}
+.margem-btn.inicial,.margem-btn.sem{background:#f1f3f4;color:#50615a;border-color:#dfe5e1}
+@media(max-width:420px){.dl-est .margem-btn .rot{display:none}}
+

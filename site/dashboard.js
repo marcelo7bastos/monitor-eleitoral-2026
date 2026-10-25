@@ -18,6 +18,7 @@ function status(v,estado,coleta,agora=Date.now()){
  if(estado.desatualizado)return {tipo:'',texto:'Dados preservados com horário antigo na fonte. Consulte o turno e os horários; não interpretar como apuração atual.'};
  return {tipo:'ok',texto:'Coleta válida. '+(v.andamento==='f'?'Totalização finalizada na fonte.':'Apuração parcial na fonte.')};
 }
+const DELTA_CENARIO=10; // suposição explícita (p.p.): quanto o restante a apurar pode divergir do já apurado
 const METODOS={
  validos:['Votos válidos','Quantidade = v.vv','Fonte: TSE. Quantidade oficial inteira; Brasil soma os votos válidos das 27 UFs e exterior. Sem totalização, não interpretar zero como resultado eleitoral.'],
  liderancas:['UFs à frente','Contagem das UFs em que o percentual selecionado é maior','Exclui exterior, empates e abrangências sem apuração/estimativa disponível. Usa a medida selecionada; não declara eleição ou vitória.'],
@@ -26,10 +27,11 @@ const METODOS={
  modelo:['Estimativas do modelo','I = comparecimento / (comparecimento + abstenção)\nL = aptos × I\nJ = L × fração de Lula\nK = L × fração de Flávio\nBrasil: M = soma(J)/soma(L); N = soma(K)/soma(L)','Metodologia da planilha aceita pelo usuário, preservada no Python. L significa PRESENTES ESTIMADOS, sem descontar brancos/nulos. Frações usam cand.pvapn / 100. Quantidades estimadas sem arredondamento intermediário; o placar as exibe como inteiros e a planilha .xlsx traz o valor completo. Extrapola a participação observada para o eleitorado; não é previsão probabilística nem resultado oficial. Brasil parcial: enquanto alguma abrangência não tem dados, M e N somam J, K e L só das UFs com estimativa calculada e informam N de 28; o valor muda conforme novas UFs entram e não equivale a M30/N30 da planilha.'],
  participacao:['Eleitorado e participação','Aptos = e.te; comparecimento = e.c; abstenção = e.a','Quantidades oficiais inteiras. Brasil soma as 27 UFs + exterior. Em apuração parcial, comparecimento e abstenção ainda não abrangem todo o eleitorado; zeros sem totalização não são resultado eleitoral.'],
  cobertura:['Cobertura da totalização','100 × seções totalizadas (s.st) ÷ total de seções (s.ts)','Fonte: TSE. Brasil: soma(st) / soma(ts), incluindo ZZ. Duas casas na exibição. Cobertura não é estimativa de preferência eleitoral.'],
+ margem:['Margem de cenário','margem = (1 − piso da faixa) × δ, com δ = 10 p.p.\nMenos de 25% das seções: sem margem\n25% a 50%: ± 7,5 p.p. (faixa ampla)\n50% a 75%: ± 5,0 p.p. (moderada)\n75% a 99,99%: ± 2,5 p.p. (estreita)\n100%: apuração completa','Fração apurada = seções totalizadas ÷ total de seções (cobertura). Supõe que os votos ainda não apurados possam divergir do já apurado em até δ = 10 p.p.; δ é uma suposição, não um valor medido. Cada faixa usa o pior caso da faixa, para o número não oscilar a cada coleta. Não é intervalo de confiança estatístico, não considera que as seções têm eleitorados diferentes e não corrige o viés da fórmula da planilha (presentes, sem descontar brancos e nulos). Sem margem quando a estimativa do Brasil é parcial (nem todas as UFs têm dados). Será calibrada com o histórico desta eleição.'],
  diferenca:['Diferença entre candidatos','Diferença em p.p. = |% Lula − % Flávio|\nDiferença em quantidade = |votos Lula − votos Flávio|','Usa exclusivamente a medida selecionada: oficial ou estimativa. Duas casas para p.p. e estimativas; votos oficiais inteiros. Não declara vencedor e não expressa margem de erro.'],
  historico:['Histórico de coletas reais','Cada ponto = uma coleta completa validada de 28 abrangências em que algum arquivo do TSE mudou\nEscala padrão de 30% a 70%; amplia em passos de 10 p.p. quando algum ponto sai da faixa\nLinha cheia = percentual oficial; tracejada = estimativa do modelo\nEixo de referência: 25/10/2026 17h até 26/10 00h; extensão automática depois disso','Eixo usa horário da coleta em Brasília. Horário da fonte permanece nos metadados; consultas repetidas podem registrar o mesmo valor real. Nenhuma interpolação ou preenchimento fictício. Sem apuração ou antes do início de referência, não há ponto para plotar. Os registros anteriores são preservados no JSON histórico.']
 };
-if(typeof module!=='undefined')module.exports={numero,format,pct,pontos,periodo,status,parcial,delta,pp,escala};
+if(typeof module!=='undefined')module.exports={numero,format,pct,pontos,periodo,status,parcial,delta,pp,escala,margemCenario,seloMargem,placar,DELTA_CENARIO};
 if(typeof document==='undefined')return;
 let erroRede='',payload=null,publicado=null,requestId=0,sortKey='uf',sortAsc=true,ultimaInfo=null;
 const $=id=>document.getElementById(id);
@@ -37,9 +39,27 @@ function info(tipo,label){return '<button type="button" class="info-trigger" dat
 function card(titulo,valor,nota,metodo){return '<article class="panel kpi"><div class="kpi-top"><span class="kpi-label">'+titulo+' '+info(metodo,'Metodologia: '+titulo)+'</span></div><div class="kpi-number">'+escape(valor)+'</div><div class="kpi-bottom">'+escape(nota)+'</div></article>';}
 function delta(est,ofi){if(numero(est)===null||numero(ofi)===null)return null;return Number(est)-Number(ofi);}
 function pp(d){return d===null?'':(d>0?'+':d<0?'−':'')+format(Math.abs(d),2)+' p.p.';}
+function margemCenario(cobertura,estimativaParcial=false){
+ const c=numero(cobertura);
+ if(c===null)return null;
+ if(estimativaParcial)return {estado:'sem',rotulo:'Sem margem',faixa:'estimativa parcial'};
+ if(c>=100)return {estado:'completa',rotulo:'Apuração completa',faixa:''};
+ if(c<25)return {estado:'inicial',rotulo:'Apuração inicial · sem margem',faixa:''};
+ const piso=c>=75?75:c>=50?50:25,estado=c>=75?'estreita':c>=50?'moderada':'ampla';
+ const margem=Math.ceil((1-piso/100)*DELTA_CENARIO*10-1e-9)/10;
+ return {estado,piso,margem,rotulo:'± '+format(margem,1)+' p.p.',faixa:{estreita:'estreita',moderada:'moderada',ampla:'faixa ampla'}[estado]};
+}
+function seloMargem(v,e){
+ try{
+  if(!e||numero(e.lula)===null)return '';
+  const m=margemCenario(v?.cobertura,!!parcial(e));
+  if(!m)return '';
+  return '<button type="button" class="margem-btn '+m.estado+'" data-method="margem" title="Margem de cenário: ver como é calculada"><span class="num">'+escape(m.rotulo)+'</span>'+(m.faixa?'<span class="rot">'+escape(m.faixa)+'</span>':'')+'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="M8 7.2v4M8 4.9v.1" stroke-linecap="round"/></svg></button>';
+ }catch(_){return '';}
+}
 function placar(v){const o=v,e=v?.estimativa,cel=(est,html,extra='')=>'<div class="dl-cel'+(est?' dl-est':'')+extra+'" role="'+(extra===' dl-cab'?'columnheader':'cell')+'">'+html+'</div>';
  const selo=!e||numero(e.lula)===null?'<span class="dl-selo indisp">Indisponível</span>':parcial(e)?'<span class="dl-selo parcial" title="Só '+e.ufs_com_dados+' das '+e.ufs_total+' abrangências têm dados; o valor muda conforme novas UFs entram.">'+escape(parcial(e).replace('parcial','Parcial'))+'</span>':'<span class="dl-selo oficial">Modelo completo</span>';
- let h=cel(false,'<div class="dl-titulo">Resultado oficial</div><div class="dl-sub">TSE · votos apurados</div><span class="dl-selo oficial">Fonte: TSE</span>',' dl-cab')+cel(true,'<div class="dl-titulo">Nossa estimativa</div><div class="dl-sub">Modelo da planilha</div>'+selo,' dl-cab');
+ let h=cel(false,'<div class="dl-titulo">Resultado oficial</div><div class="dl-sub">TSE · votos apurados</div><div class="dl-selos"><span class="dl-selo oficial">Fonte: TSE</span></div>',' dl-cab')+cel(true,'<div class="dl-titulo">Nossa estimativa</div><div class="dl-sub">Modelo da planilha</div><div class="dl-selos">'+selo+seloMargem(v,e)+'</div>',' dl-cab');
  for(const nome of ['lula','flavio']){const rot=nome==='lula'?'Lula':'Flávio Bolsonaro',d=delta(e?.[nome],o?.[nome]);
   h+=cel(false,'<div class="dl-cand '+nome+'"><div class="dl-nome">'+rot+'</div><span class="dl-pct">'+pct(o?.[nome])+'</span><span class="dl-delta vazio" aria-hidden="true">0</span><div class="dl-qtd">'+format(o?.['votos_'+nome])+' votos oficiais</div></div>');
   h+=cel(true,'<div class="dl-cand '+nome+'"><div class="dl-nome">'+rot+'</div><span class="dl-pct">'+pct(e?.[nome])+'</span><span class="dl-delta'+(d===null?' vazio':d>0?' sobe':'')+'" title="Estimativa − oficial">'+(d===null?'—':pp(d))+'</span><div class="dl-qtd">'+format(e?.['votos_'+nome])+' estimados</div></div>');}
