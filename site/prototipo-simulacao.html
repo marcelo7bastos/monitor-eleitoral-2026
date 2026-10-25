@@ -246,7 +246,7 @@
       .snapshot-panel .snapshot-result {gap:9px;}
     }
 
-/* V3: transparência das fórmulas e identificação de autoria do projeto pessoal. */
+/* V4: transparência metodológica e autoria do projeto pessoal. */
 .info-trigger {
   display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center;
   width:19px; height:19px; padding:0; margin-left:5px; border:1px solid #91a79a;
@@ -295,6 +295,31 @@ th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
 .method-intro h3{margin:0 0 7px}
 .method-intro p{margin:0;color:#53675c;line-height:1.55}
 @media(max-width:670px){.credits-grid{grid-template-columns:1fr}.credits{padding:19px 16px}.credit-card{padding:14px}.method-head{padding:17px 18px 12px}.method-body{padding:18px}.info-trigger{width:20px;height:20px}}
+
+    /* Colaboradores na barra lateral: projeto pessoal, sem contatos de terceiros */
+    .sidebar {overflow-y:auto; scrollbar-width:thin; scrollbar-color:#5b8068 transparent;}
+    .sidebar-people {padding:0 0 15px; margin:0 0 15px; border-bottom:1px solid #456753;}
+    .side-people-title {color:#c9dbcF;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin:0 0 12px;}
+    .side-person {margin:0 0 12px;}
+    .side-person:last-child {margin-bottom:0;}
+    .side-person-name {display:block;font-size:12px;font-weight:750;line-height:1.4;color:#ffffff;}
+    .side-person-role {display:block;color:#abc9b7;font-size:10px;margin-top:2px;}
+    .side-person-links {display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+    .side-person-links a {color:#e8f7ef;background:#2c5944;border:1px solid #507a61;border-radius:6px;padding:4px 7px;text-decoration:none;font-size:10px;font-weight:650;line-height:1.3;}
+    .side-person-links a:hover {background:#3a7055;text-decoration:underline;}
+    .side-person-links a:focus-visible {outline:2px solid #e0ac45;outline-offset:2px;}
+    .sidebar-foot {margin-top:12px;font-size:11px;line-height:1.5;color:#bed1c2;}
+    .mobile-collaborators {display:none;}
+    @media (max-width:1050px) {
+      .mobile-collaborators {display:block; margin-top:22px;}
+      .mobile-collaborators h2 {font-size:16px;margin:0 0 12px;}
+      .mobile-team-list {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+      .mobile-team-person {border:1px solid #dfe9e1;background:#fff;border-radius:9px;padding:12px;min-width:0;}
+      .mobile-team-person strong {display:block;font-size:13px;line-height:1.4;}
+      .mobile-team-person small {display:block;color:#657a6d;margin-top:4px;}
+      .mobile-team-person .side-person-links a {color:#174b34;background:#eff6f0;border-color:#dbe6de;}
+    }
+    @media (max-width:560px) {.mobile-team-list {grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -324,9 +349,28 @@ th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
         </div>
       </nav>
       <div class="side-bottom">
-        <p class="side-tiny">Modo de demonstração</p>
-        <span class="side-source"><span class="source-dot"></span> Dados fictícios</span>
-        <p class="sidebar-foot">Identidade inspirada em linguagem institucional. Este não é um sistema oficial do MDA ou do TSE.</p>
+        <section class="sidebar-people" aria-label="Colaboradores do projeto">
+          <p class="side-people-title">Colaboradores</p>
+          <div class="side-person">
+            <strong class="side-person-name">Marcelo Cabreira Bastos</strong>
+            <span class="side-person-role">Desenvolvimento e análise</span>
+            <div class="side-person-links">
+              <a href="https://orcid.org/0009-0002-4215-3446" target="_blank" rel="noopener noreferrer" aria-label="ORCID de Marcelo Cabreira Bastos">ORCID ↗</a>
+              <a href="https://www.linkedin.com/in/marcelo-cabreira-bastos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marcelo Cabreira Bastos">LinkedIn ↗</a>
+              <a href="https://marcelo7bastos.github.io/project_portfolio/index.html" target="_blank" rel="noopener noreferrer" aria-label="Site pessoal de Marcelo Cabreira Bastos">Site ↗</a>
+              <a href="https://github.com/marcelo7bastos" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Marcelo Cabreira Bastos">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="side-person">
+            <strong class="side-person-name">Ernesto Galindo</strong>
+            <span class="side-person-role">Colaborador</span>
+          </div>
+        </section>
+        <div class="side-demo" aria-label="Status da demonstração">
+          <p class="side-tiny">Modo de demonstração</p>
+          <span class="side-source"><span class="source-dot"></span> Dados fictícios</span>
+          <p class="sidebar-foot">Este não é um sistema oficial do TSE</p>
+        </div>
       </div>
     </aside>
 
@@ -445,27 +489,21 @@ th .info-trigger {width:17px;height:17px;font-size:10px;background:#fff}
           <div class="panel method-note"><h2>Regras de leitura</h2><p>Este painel é uma demonstração independente de interface. A curva temporal também é inteiramente inventada, com pontos espaçados a cada 10 minutos e extensão além de 00h. A vantagem simulada de Lula não deve ser interpretada como divulgação de vencedor, tendência, intenção de voto ou contagem realizada pelo TSE. A identidade remete a princípios de design institucional, sem usar logotipos ou afirmar endosso do MDA.</p><p><strong>Fórmulas ilustrativas:</strong> <code>comparecimento = eleitorado_apto × taxa_sintética</code> · <code>abstenção = aptos − comparecimento</code> · <code>% candidato = votos_do_candidato / votos_válidos × 100</code></p><p><strong>Origem futura dos dados reais:</strong> <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">Portal de resultados do TSE</a>. Nenhuma requisição externa é realizada por este protótipo.</p><div class="method-intro"><h3>Como usar os ícones “i”</h3><p>O símbolo ao lado de cada campo calculado abre uma explicação com fórmula, variáveis, arredondamentos, abrangência e limitações. Na tabela, os ícones ficam nos cabeçalhos e se aplicam a todas as linhas da coluna.</p></div><button type="button" class="btn" data-goto="geral">Voltar à visão geral</button></div>
         </section>
 
-        
-<section class="panel credits" id="contatos" aria-labelledby="credits-title">
-  <div class="credits-heading">
-    <h2 id="credits-title">Sobre o projeto e autoria</h2>
-    <p class="subtitle">Projeto pessoal e independente · autoria e links profissionais</p>
-  </div>
-  <div class="credits-grid">
-    <article class="credit-card">
-      <p class="credit-role">Desenvolvimento e análise</p>
-      <h3 class="credit-name">Marcelo Cabreira Bastos</h3>
-      <p class="credit-description">Dados, monitoramento e avaliação de políticas públicas</p>
-      <div class="credit-links">
-        <a href="https://www.linkedin.com/in/marcelo-cabreira-bastos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marcelo Cabreira Bastos">LinkedIn ↗</a>
-        <a href="https://marcelo7bastos.github.io/project_portfolio/index.html" target="_blank" rel="noopener noreferrer" aria-label="Portfólio de Marcelo Cabreira Bastos">Site pessoal ↗</a>
-        <a href="https://github.com/marcelo7bastos" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Marcelo Cabreira Bastos">GitHub ↗</a>
-        <a href="mailto:marceloc.bastos@hotmail.com" aria-label="Enviar e-mail ao contato público de Marcelo">E-mail ↗</a>
-        <span class="credit-pending" title="Não foi possível confirmar o link específico do perfil no ORCID">ORCID · link a confirmar</span>
+<section class="panel mobile-collaborators" id="contatos" aria-labelledby="mobile-collaborators-title">
+  <h2 id="mobile-collaborators-title">Colaboradores</h2>
+  <div class="mobile-team-list">
+    <div class="mobile-team-person">
+      <strong>Marcelo Cabreira Bastos</strong><small>Desenvolvimento e análise</small>
+      <div class="side-person-links">
+        <a href="https://orcid.org/0009-0002-4215-3446" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
+        <a href="https://www.linkedin.com/in/marcelo-cabreira-bastos/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://marcelo7bastos.github.io/project_portfolio/index.html" target="_blank" rel="noopener noreferrer">Site ↗</a>
+        <a href="https://github.com/marcelo7bastos" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
-    </article>
-</div>
-  <p class="credit-quiet">Este é um projeto pessoal independente. A referência visual ao MDA não implica participação ou endosso institucional do Ministério ou do TSE.</p>
+    </div>
+    <div class="mobile-team-person"><strong>Ernesto Galindo</strong><small>Colaborador</small></div>
+  </div>
+  <p class="credit-quiet">Este não é um sistema oficial do TSE</p>
 </section>
 <footer class="footer" id="footer"><span>Monitor Eleitoral 2026 · Protótipo independente · Todos os resultados são fictícios.</span><span><a href="https://www.gov.br/mda/pt-br" target="_blank" rel="noopener noreferrer">MDA (referência visual)</a> · <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">TSE (fonte futura)</a></span></footer>
 
