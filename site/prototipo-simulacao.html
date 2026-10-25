@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Protótipo demonstrativo e independente de painel de simulação eleitoral. Dados totalmente fictícios.">
+  <title>Monitor Eleitoral 2026 — Protótipo de simulação</title>
+  <style>
+    :root {
+      --green-950:#103629; --green-900:#173f30; --green-800:#194e37; --green-700:#246b45;
+      --green-100:#e8f3eb; --bg:#f5f7f6; --surface:#fff; --ink:#192c26; --ink-2:#4c6259;
+      --quiet:#7b8c83; --border:#e0e9e3; --blue:#E52532; --blue-soft:#fff0f1;
+      --amber:#9BA5AD; --amber-soft:#f1f3f4; --ochre:#c89845; --warning:#835e24;
+      --shadow:0 5px 22px rgba(24,58,42,.035); --radius:13px;
+    }
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body { margin:0; background:var(--bg); font-family:Rawline,"Segoe UI",Arial,Helvetica,sans-serif; color:var(--ink); line-height:1.45; font-size:14px; }
+    a { color:inherit; }
+    button,select,input { font:inherit; }
+    button { cursor:pointer; }
+    button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible { outline:3px solid #e0ac45; outline-offset:3px; }
+    [hidden] { display:none!important }
+    .layout { display:grid; grid-template-columns:244px minmax(0,1fr); min-height:100vh; }
+    .sidebar { background:var(--green-900); color:#e9f3ed; padding:28px 18px 20px; position:sticky; top:0; height:100vh; display:flex; flex-direction:column; gap:28px; }
+    .brand { display:flex; align-items:center; gap:11px; padding:0 8px; text-decoration:none; }
+    .brand-icon { border:1px solid #719f81; background:#275942; border-radius:12px; display:grid; place-items:center; height:40px; width:40px; color:#dff5e5; flex-shrink:0; }
+    .brand-name { font-weight:750; font-size:15px; line-height:1.22; letter-spacing:-.2px; }
+    .brand-meta { color:#b5cfc0; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+    .nav-group-title { padding:0 14px; font-size:10px; letter-spacing:1.7px; text-transform:uppercase; color:#a1bdab; font-weight:750; margin:3px 0 13px; }
+    .nav-items { display:flex; flex-direction:column; gap:5px; }
+    .nav-btn { width:100%; display:flex; align-items:center; gap:12px; border:0; border-radius:9px; background:transparent; padding:11px 13px; color:#cfdfd3; text-align:left; transition:background .15s; font-weight:600; font-size:13px; }
+    .nav-btn svg { width:17px; height:17px; stroke-width:1.7; flex-shrink:0; }
+    .nav-btn:hover { background:#285640; }
+    .nav-btn.active { background:#326749; color:white; box-shadow:inset 3px 0 #d0b16a; }
+    .side-bottom { margin-top:auto; border-top:1px solid #3b6350; padding:18px 10px 0; }
+    .side-tiny { color:#b7d1bf; font-size:11px; margin:0 0 7px; }
+    .side-source { display:flex; gap:9px; align-items:center; color:#f6faf7; font-size:12px; font-weight:650; }
+    .source-dot { height:8px; width:8px; border-radius:50%; background:#d1bd7c; display:inline-block; }
+    .sidebar-foot { font-size:10px; color:#9ab6a5; line-height:1.55; margin-top:19px; }
+    .main { min-width:0; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; min-height:73px; gap:12px; padding:18px clamp(18px,3vw,42px); background:#fff; border-bottom:1px solid var(--border); }
+    .crumb { font-size:12px; color:var(--quiet); font-weight:600; }
+    .crumb b { color:var(--green-800); }
+    .top-actions { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .mock-pill { border:1px solid #dec78c; background:#fff9e9; color:#785922; padding:6px 10px; border-radius:50px; font-size:10px; font-weight:850; letter-spacing:.65px; white-space:nowrap; }
+    .time { display:flex; gap:7px; align-items:center; color:var(--ink-2); font-size:12px; white-space:nowrap; }
+    .time svg { width:14px; height:14px; }
+    .container { max-width:1540px; margin:0 auto; padding:31px clamp(18px,3vw,42px) 40px; }
+    .fake-alert { display:flex; align-items:flex-start; gap:12px; background:#fffaf0; border:1px solid #ebd7aa; padding:12px 15px; border-radius:11px; margin-bottom:25px; color:#70521b; font-size:12px; }
+    .fake-alert svg { flex-shrink:0; margin-top:1px; width:17px; height:17px; }
+    .fake-alert strong { font-weight:800; }
+    .heading-row { display:flex; justify-content:space-between; gap:18px; align-items:end; margin-bottom:23px; }
+    .eyebrow { color:var(--green-700); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; font-weight:850; margin:0 0 8px; }
+    h1 { font-size:clamp(23px,2.2vw,31px); letter-spacing:-.85px; line-height:1.18; margin:0 0 9px; font-weight:770; }
+    .heading-sub { color:var(--ink-2); font-size:13px; margin:0; max-width:680px; }
+    .head-link { display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--green-700); font-weight:750; white-space:nowrap; font-size:12px; padding-bottom:3px; }
+    .head-link:hover { text-decoration:underline; }
+    .filters { display:flex; align-items:end; justify-content:space-between; gap:11px; padding:14px 17px; border:1px solid var(--border); background:#fff; border-radius:var(--radius); margin-bottom:20px; flex-wrap:wrap; }
+    .fields { display:flex; flex-wrap:wrap; gap:12px; align-items:end; }
+    .field { display:flex; flex-direction:column; gap:6px; }
+    .field label { color:var(--ink-2); font-size:11px; font-weight:700; }
+    .field select { min-width:166px; border:1px solid #d9e3dc; border-radius:8px; height:38px; padding:0 35px 0 12px; font-weight:650; color:#2a4537; background:#fff; }
+    .filter-note { color:var(--quiet); font-size:11px; padding-bottom:9px; text-align:right; }
+    .kpi-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:18px; }
+    .panel { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); min-width:0; }
+    .kpi { padding:19px 20px 17px; min-height:134px; }
+    .kpi-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+    .kpi-label { color:var(--ink-2); font-size:12px; font-weight:700; }
+    .kpi-icon { width:28px; height:28px; display:grid; place-items:center; background:#f0f5f1; border-radius:8px; color:var(--green-700); }
+    .kpi-icon svg { height:15px; width:15px; }
+    .kpi-number { font-size:clamp(25px,2.15vw,33px); font-weight:780; letter-spacing:-.95px; font-variant-numeric:tabular-nums; line-height:1.15; }
+    .kpi-bottom { margin-top:8px; display:flex; gap:8px; align-items:center; color:var(--quiet); font-size:11px; }
+    .mini-pill { background:#eaf4ed; color:#246b45; padding:3px 7px; border-radius:5px; font-weight:800; white-space:nowrap; }
+    .upper-grid { display:grid; grid-template-columns:minmax(0,1.48fr) minmax(300px,1fr); gap:18px; margin-bottom:18px; }
+    .panel-inner { padding:22px 23px; }
+    .section-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:19px; }
+    h2 { font-size:16px; margin:0 0 3px; font-weight:770; letter-spacing:-.27px; }
+    .subtitle { font-size:11px; color:var(--quiet); margin:0; }
+    .tiny-pill { display:inline-flex; align-items:center; gap:5px; color:#6e6142; background:#f9f3e7; padding:5px 8px; border-radius:6px; font-size:10px; font-weight:800; white-space:nowrap; }
+    .candidate-compare { display:grid; grid-template-columns:1fr 1fr; gap:19px; margin:26px 0 22px; }
+    .candidate { position:relative; padding-left:14px; border-left:3px solid var(--blue); }
+    .candidate.flavio { border-color:var(--amber); }
+    .candidate-name { color:var(--ink-2); font-size:12px; font-weight:700; margin:0 0 4px; }
+    .candidate-pct { font-size:clamp(29px,3.4vw,43px); line-height:1.2; letter-spacing:-1.6px; font-weight:780; font-variant-numeric:tabular-nums; }
+    .candidate-votes { font-size:11px; color:var(--quiet); margin-top:5px; }
+    .candidate-flash { display:inline-flex; font-size:10px; color:var(--green-700); background:#e8f3eb; border-radius:4px; padding:2px 5px; font-weight:850; margin-left:7px; vertical-align:middle; letter-spacing:0; }
+    .share-bar { height:18px; background:#eef2ef; display:flex; overflow:hidden; border-radius:5px; box-shadow:inset 0 0 0 1px #e8eae9; }
+    .share-left { height:100%; background:var(--blue); transition:width .35s ease; }
+    .share-right { height:100%; background:var(--amber); flex:1; }
+    .share-labels { display:flex; justify-content:space-between; margin:8px 0 0; color:var(--quiet); font-size:11px; }
+    .share-labels span { display:flex; align-items:center; gap:6px; }
+    .legend-dot { width:8px; height:8px; border-radius:3px; display:inline-block; background:var(--blue); }
+    .legend-dot.amber { background:var(--amber); }
+    .result-footer { margin-top:20px; border-top:1px solid var(--border); padding-top:15px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; color:var(--ink-2); font-size:12px; }
+    .lead-note { font-weight:750; color:var(--green-700); }
+    .gap-value { font-variant-numeric:tabular-nums; font-weight:750; }
+    .region-bars { display:flex; flex-direction:column; gap:17px; margin-top:3px; }
+    .region-row { display:grid; grid-template-columns:105px minmax(0,1fr) 69px; gap:12px; align-items:center; }
+    .region-name { font-size:12px; font-weight:650; color:var(--ink-2); }
+    .region-track { height:8px; border-radius:8px; background:#edf1ee; overflow:hidden; display:flex; }
+    .region-track>span { display:block; height:100%; background:var(--blue); }
+    .region-track>i { display:block; flex:1; background:var(--amber); }
+    .region-pct { font-size:11px; color:var(--ink-2); font-variant-numeric:tabular-nums; text-align:right; font-weight:750; }
+    .region-foot { display:flex; gap:8px; align-items:center; justify-content:space-between; margin-top:22px; border-top:1px solid var(--border); padding-top:17px; color:var(--quiet); font-size:11px; }
+    .region-dots { display:flex; align-items:center; gap:10px; }
+    .region-dots span { display:flex; gap:5px; align-items:center; }
+    .bottom-grid { display:grid; grid-template-columns:minmax(0,1fr) 290px; gap:18px; margin-bottom:18px; }
+    .table-panel { overflow:hidden; }
+    .table-heading { padding:19px 22px 16px; display:flex; gap:15px; justify-content:space-between; align-items:center; }
+    .table-actions { display:flex; align-items:center; gap:8px; }
+    .search-wrap { display:flex; align-items:center; gap:8px; border:1px solid var(--border); border-radius:8px; background:white; padding:0 10px; height:37px; }
+    .search-wrap svg { color:var(--quiet); width:15px; height:15px; }
+    .search-wrap input { width:160px; outline:none; border:0; font-size:12px; color:var(--ink); }
+    .btn { border:1px solid #cbdacf; color:var(--green-800); background:#fff; border-radius:8px; min-height:37px; padding:0 12px; display:inline-flex; align-items:center; justify-content:center; gap:8px; font-weight:750; font-size:12px; text-decoration:none; white-space:nowrap; }
+    .btn:hover { background:#f0f6f1; }
+    .btn svg { width:15px; height:15px; }
+    .btn-primary { background:var(--green-700); color:#fff; border-color:var(--green-700); }
+    .btn-primary:hover { background:var(--green-800); }
+    .table-scroll { max-height:442px; overflow:auto; scrollbar-color:#c6d8cc transparent; }
+    table { border-collapse:separate; border-spacing:0; width:100%; font-size:12px; }
+    thead { position:sticky; top:0; z-index:2; }
+    th { white-space:nowrap; text-align:right; background:#f7f9f7; border-top:1px solid #edf0ee; border-bottom:1px solid var(--border); padding:13px 13px; color:#667b70; font-weight:760; font-size:11px; }
+    th:first-child,td:first-child { text-align:left; padding-left:23px; }
+    td { white-space:nowrap; text-align:right; padding:13px 13px; border-bottom:1px solid #edf0ee; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+    tr:last-child td { border-bottom:0; }
+    tbody tr { cursor:pointer; }
+    tbody tr:hover, tbody tr.is-selected { background:#f3f8f4; }
+    tbody tr.is-selected td:first-child { box-shadow:inset 3px 0 var(--green-700); }
+    .uf-badge { font-size:10px; color:var(--green-700); background:#eaf3ec; border-radius:4px; padding:3px 6px; font-weight:850; margin-right:8px; }
+    .uf-name { color:#284238; font-weight:720; }
+    .text-blue { color:#D51B28; font-weight:750; }
+    .text-amber { color:#64717A; font-weight:750; }
+    .table-end { padding:12px 21px; display:flex; justify-content:space-between; border-top:1px solid var(--border); color:var(--quiet); font-size:11px; }
+    .side-card { padding:19px 20px; }
+    .info-swatch { width:37px; height:37px; display:grid; place-items:center; border-radius:11px; background:var(--green-100); color:var(--green-700); margin-bottom:16px; }
+    .info-swatch svg { width:19px; height:19px; }
+    .note-stat { font-size:24px; color:var(--green-800); font-weight:770; margin:14px 0 0; letter-spacing:-.5px; }
+    .mini-split { margin-top:15px; display:flex; flex-direction:column; gap:11px; }
+    .mini-row { display:flex; gap:8px; align-items:center; justify-content:space-between; color:var(--ink-2); font-size:12px; }
+    .mini-row strong { color:var(--ink); font-size:13px; }
+    .divider { height:1px; background:var(--border); margin:18px 0; }
+    .info-text { color:var(--quiet); font-size:11px; line-height:1.7; }
+    .info-link { display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--green-700); font-weight:800; border:0; background:none; padding:0; margin-top:14px; }
+    .info-link:hover { text-decoration:underline; }
+    .footer { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin-top:26px; color:#74867d; font-size:11px; border-top:1px solid var(--border); padding-top:22px; }
+    .footer a { text-decoration:none; color:var(--green-700); font-weight:720; }
+    .footer a:hover { text-decoration:underline; }
+    .muted-card { border:1px solid #e7ece8; background:#f9fbf9; padding:15px; border-radius:9px; }
+    .explainer { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+    .explainer .panel { padding:25px; }
+    .number { color:var(--green-700); font-size:11px; font-weight:850; letter-spacing:1.3px; margin-bottom:20px; }
+    .explainer h3 { font-size:16px; margin:0 0 10px; }
+    .explainer p { font-size:13px; color:var(--ink-2); margin:0; line-height:1.65; }
+    .method-note { padding:26px; margin-top:18px; }
+    .method-note p { color:var(--ink-2); line-height:1.7; margin:0 0 12px; }
+    .method-note code { color:#15573a; background:#edf5ee; border-radius:4px; padding:3px 5px; }
+    .view-title { margin-bottom:21px; }
+    .view-title h1 { margin-bottom:7px; }
+    .table-full .table-scroll { max-height:none; }
+    .table-full .table-actions { flex-wrap:wrap; }
+    .mobile-nav { display:none; }
+    @media(max-width:1240px){ .layout { grid-template-columns:215px minmax(0,1fr); } .bottom-grid { grid-template-columns:1fr; } .side-card { display:grid; grid-template-columns:1fr 1fr; gap:0 24px; align-items:start; } .side-card .info-swatch { display:none; } .side-card h2, .side-card .subtitle { grid-column:1/-1; } .region-row {grid-template-columns:85px minmax(0,1fr) 63px; gap:9px;} }
+    @media(max-width:1050px){ .sidebar{display:none} .layout{display:block} .mobile-nav {display:flex; background:var(--green-900); gap:5px; padding:8px 15px; justify-content:center;} .mobile-nav button { flex:1; color:#ddf0e3; padding:10px 5px; font-size:12px; border:0; background:transparent; border-radius:8px; font-weight:700; } .mobile-nav button.active {background:#326749;color:#fff;} .upper-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:800px){ .kpi-grid {grid-template-columns:repeat(2,minmax(0,1fr));} .upper-grid {grid-template-columns:1fr;} .container{padding-top:23px;} .topbar {min-height:62px;} .heading-row{align-items:start;} .filter-note{padding-bottom:0;} .explainer{grid-template-columns:1fr;} }
+    @media(max-width:560px){ .topbar{padding:13px 17px;} .time{display:none;} .container{padding:20px 15px 30px;} .heading-row {display:block;} .head-link {margin-top:13px;} .filters{padding:13px;} .fields{width:100%;} .field{flex:1;} .field select{min-width:0;width:100%;} .field.turn-field { flex-basis:40%; } .field.uf-field {flex-basis:40%;} .filter-note {text-align:left;} .kpi-grid{gap:9px;} .kpi {padding:15px 12px; min-height:120px;} .kpi-number {font-size:26px;} .panel-inner {padding:19px 16px;} .candidate-compare {gap:9px;} .candidate {padding-left:10px;} .candidate-pct{font-size:31px;} .candidate-flash{display:block;width:max-content;margin:4px 0 0;} .table-heading {display:block; padding:18px 16px;} .table-actions {margin-top:14px;} .search-wrap{flex:1;} .search-wrap input{width:100%;} .table-end {gap:15px;} .side-card {display:block;} .footer {font-size:10px;} .heading-sub{font-size:12px;} }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important; scroll-behavior:auto!important}}
+
+    /* Versão 2 — histórico como elemento principal; resultado à direita */
+    .upper-grid.main-focus { grid-template-columns:minmax(0,1.92fr) minmax(325px,.9fr); align-items:stretch; gap:16px; margin-bottom:17px; }
+    .timeline-panel,.snapshot-panel { padding:24px 26px 21px; }
+    .timeline-panel .section-top { margin-bottom:10px; }
+    .timeline-panel h2 { font-size:20px; font-weight:790; letter-spacing:-.5px; }
+    .timeline-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; }
+    .mini-time { border:1px solid #e6ebe7; background:#f8faf9; color:#52655c; border-radius:8px; padding:7px 10px; white-space:nowrap; font-size:11px; font-weight:700; }
+    .timeline-legend { display:flex; flex-wrap:wrap; gap:18px; margin:15px 0 0; align-items:center; color:#52655c; font-size:12px; }
+    .timeline-legend .series-label { display:inline-flex; align-items:center; gap:8px; font-weight:720; }
+    .series-stroke { width:23px; height:0; border-top:3px solid var(--blue); border-radius:4px; }
+    .series-stroke.gray { border-color:var(--amber); }
+    .chart-frame { position:relative; margin:8px 0 2px; min-height:338px; user-select:none; }
+    #trend-svg { width:100%; height:auto; display:block; overflow:visible; touch-action:pan-y; }
+    .chart-tip { position:absolute; z-index:8; min-width:155px; background:#20362d; border-radius:9px; padding:11px 13px; color:#fff; font-size:12px; box-shadow:0 8px 24px #192c2650; pointer-events:none; text-align:left; line-height:1.65; }
+    .chart-tip strong { font-size:12px; }
+    .chart-tip .red-n { color:#FF6A73; font-weight:800; }
+    .chart-tip .gray-n { color:#DDE2E6; font-weight:800; }
+    .trend-utilities { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; padding-top:13px; border-top:1px solid var(--border); }
+    .trend-utilities .update-status { font-size:11px; color:#6a7b72; }
+    .trend-utilities .update-status b { color:#314c3e; }
+    .timeline-buttons { display:flex; flex-wrap:wrap; gap:7px; }
+    .tool-btn { border:1px solid #d5dfd9; background:white; color:#254536; border-radius:8px; padding:8px 11px; font-size:11px; font-weight:760; min-height:34px; transition:background .13s; }
+    .tool-btn:hover { background:#edf4ef; }
+    .tool-btn.primary { color:#fff; background:var(--green-700); border-color:var(--green-700); }
+    .tool-btn.primary:hover { background:var(--green-800); }
+    .trend-explain { font-size:10px; color:#7c8b82; margin:9px 0 0; }
+    .snapshot-panel { display:flex; flex-direction:column; }
+    .snapshot-panel h2 { font-size:18px; }
+    .snapshot-time { display:inline-flex; align-items:center; color:#5c6b63; font-size:11px; margin-top:8px; }
+    .snapshot-result { display:flex; flex-direction:column; margin-top:22px; gap:0; }
+    .snapshot-candidate { border-left:4px solid var(--blue); padding:1px 0 4px 16px; margin-bottom:23px; }
+    .snapshot-candidate.flavio { border-color:var(--amber); }
+    .snapshot-candidate .candidate-name { color:#53665b; font-size:13px; margin-bottom:3px; }
+    .snapshot-candidate .candidate-pct { font-size:clamp(34px,3.6vw,54px); line-height:1.1; letter-spacing:-1.9px; }
+    .snapshot-candidate.lula .candidate-pct { color:#D71E2C; }
+    .snapshot-candidate.flavio .candidate-pct { color:#59656d; }
+    .snapshot-candidate .candidate-votes { font-size:11px; margin-top:7px; }
+    .snapshot-panel .share-bar { height:15px; margin-top:2px; }
+    .snapshot-panel .share-labels { margin-top:10px; }
+    .snapshot-panel .result-footer { display:flex; flex-direction:column; align-items:flex-start; gap:8px; font-size:12px; margin-top:auto; padding-top:19px; }
+    .snapshot-panel .lead-note { color:#355e43; }
+    .sim-status { margin:0 0 2px; font-size:10px; letter-spacing:.65px; color:#8d6534; font-weight:800; }
+    .regions-panel { margin-bottom:18px; }
+    .regions-panel .region-bars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:22px; row-gap:14px; }
+    .regions-panel .region-row { grid-template-columns:90px minmax(45px,1fr) 47px; gap:10px; }
+    .regions-panel .region-foot { padding-top:14px; margin-top:18px; }
+    .regions-panel .section-top { margin-bottom:17px; }
+    .kpi-grid { margin-bottom:18px; }
+    .data-context { border-radius:8px; background:#f4f7f5; color:#53675c; font-size:11px; padding:8px 11px; margin-bottom:14px; }
+    .section-top .small-remark {color:#89968e;font-size:11px;}
+    @media(max-width:1350px) {
+      .upper-grid.main-focus { grid-template-columns:minmax(0,1.55fr) minmax(300px,.95fr); }
+      .timeline-panel,.snapshot-panel { padding:20px 19px; }
+      .regions-panel .region-bars {grid-template-columns:repeat(2,minmax(0,1fr));}
+    }
+    @media(max-width:1050px) {
+      .upper-grid.main-focus { grid-template-columns:minmax(0,1.65fr) minmax(285px,1fr); }
+      .chart-frame{min-height:auto;}
+    }
+    @media(max-width:790px) {
+      .upper-grid.main-focus {grid-template-columns:1fr;}
+      .snapshot-panel .snapshot-result {display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+      .snapshot-candidate {margin-bottom:17px;}
+      .regions-panel .region-bars {grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:560px) {
+      .timeline-panel,.snapshot-panel {padding:19px 16px;}
+      .chart-frame {margin:9px -6px 3px;}
+      .timeline-panel h2 {font-size:18px;}
+      .mini-time {display:none;}
+      .trend-utilities{align-items:flex-start;}
+      .timeline-buttons {width:100%;}
+      .timeline-buttons .tool-btn {flex:1;min-height:40px;}
+      .regions-panel .region-bars {grid-template-columns:1fr;}
+      .snapshot-candidate .candidate-pct {font-size:35px;}
+      .snapshot-candidate .candidate-votes {font-size:10px;}
+      .snapshot-panel .snapshot-result {gap:9px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navegação do projeto">
+      <a class="brand" href="#inicio" data-goto="geral" aria-label="Monitor Eleitoral, voltar à visão geral">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V9m5 9V5m5 13v-7m5 7V8"/><path d="M3 21h18"/></svg>
+        </span>
+        <span><span class="brand-name">Monitor Eleitoral<br>2026</span><span class="brand-meta" style="display:block">Painel analítico</span></span>
+      </a>
+      <nav aria-label="Páginas do monitor">
+        <p class="nav-group-title">Análises</p>
+        <div class="nav-items">
+          <button class="nav-btn active" type="button" data-view="geral">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Visão geral
+          </button>
+          <button class="nav-btn" type="button" data-view="ufs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18h18M5 15V9m5 6V5m5 10V7m5 8V3"/></svg>
+            Análise por UF
+          </button>
+          <button class="nav-btn" type="button" data-view="metodologia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h9l4 4v14H6V5a2 2 0 0 1 2-2z"/><path d="M17 3v5h5M9 12h9M9 16h9"/></svg>
+            Metodologia
+          </button>
+        </div>
+      </nav>
+      <div class="side-bottom">
+        <p class="side-tiny">Modo de demonstração</p>
+        <span class="side-source"><span class="source-dot"></span> Dados fictícios</span>
+        <p class="sidebar-foot">Identidade inspirada em linguagem institucional. Este não é um sistema oficial do MDA ou do TSE.</p>
+      </div>
+    </aside>
+
+    <div class="main" id="inicio">
+      <header class="topbar">
+        <div class="crumb">Projetos <span aria-hidden="true">/</span> Monitor Eleitoral <span aria-hidden="true">/</span> <b id="breadcrumb">Visão geral</b></div>
+        <div class="top-actions">
+          <span class="mock-pill">● SIMULAÇÃO · DADOS FICTÍCIOS</span>
+          <span class="time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Cenário demonstrativo · 25 out 2026</span>
+        </div>
+      </header>
+      <nav class="mobile-nav" aria-label="Navegação móvel">
+        <button type="button" class="active" data-view="geral">Visão geral</button>
+        <button type="button" data-view="ufs">Por UF</button>
+        <button type="button" data-view="metodologia">Metodologia</button>
+      </nav>
+      <main class="container">
+        <div class="fake-alert" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m12 3 10 18H2L12 3z"/><path d="M12 9v5m0 3h.01"/></svg>
+          <span><strong>AMBIENTE DE SIMULAÇÃO.</strong> Todos os votos, percentuais, comparecimentos e resultados desta página foram inventados para testar o layout. Não representam apuração, pesquisa ou projeção eleitoral real.</span>
+        </div>
+
+        <section class="page-view" id="view-geral" aria-labelledby="title-geral">
+          <div class="heading-row">
+            <div>
+              <p class="eyebrow">Eleições presidenciais · 2026</p>
+              <h1 id="title-geral">Panorama do segundo turno</h1>
+              <p class="heading-sub">Evolução de percentuais fictícios entre 17h e meia-noite, com extensão automática do eixo após 00h.</p>
+            </div>
+            <a class="head-link" href="#" id="download-link" data-csv="true">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></svg>
+              Exportar CSV fictício
+            </a>
+          </div>
+          <div class="filters" role="group" aria-label="Filtros da simulação">
+            <div class="fields">
+              <div class="field turn-field"><label for="turno">Turno</label><select id="turno"><option value="2">2º turno</option></select></div>
+              <div class="field uf-field"><label for="uf">Abrangência</label><select id="uf"><option value="BR">Brasil · todas</option></select></div>
+            </div>
+            <div class="filter-note">Histórico fictício · botão +10 min simula uma nova coleta</div>
+          </div>
+          <div class="upper-grid main-focus" aria-label="Painel principal da simulação">
+            <article class="panel timeline-panel" aria-labelledby="timeline-title">
+              <div class="timeline-heading">
+                <div>
+                  <p class="eyebrow" style="margin-bottom:6px">Evolução ao longo da apuração fictícia</p>
+                  <h2 id="timeline-title">Resultado a cada atualização</h2>
+                  <p class="subtitle">Pontos a cada 10 minutos · eixo inicial de 17h a 00h</p>
+                </div>
+                <span class="mini-time" id="chart-last">25/10 · 23:50</span>
+              </div>
+              <div class="timeline-legend">
+                <span class="series-label"><span class="series-stroke"></span> Lula</span>
+                <span class="series-label"><span class="series-stroke gray"></span> Flávio Bolsonaro</span>
+                <span class="small-remark">Linhas = percentuais fictícios</span>
+              </div>
+              <div class="chart-frame" id="trend-wrapper">
+                <svg id="trend-svg" viewBox="0 0 940 400" aria-label="Evolução fictícia dos percentuais de ambos os candidatos ao longo da apuração" role="img"></svg>
+                <div class="chart-tip" id="trend-tip" hidden></div>
+              </div>
+              <div class="trend-utilities">
+                <span class="update-status"><b id="point-count">42 pontos simulados</b> · Último: <span id="last-update">23:50</span></span>
+                <div class="timeline-buttons">
+                  <button class="tool-btn primary" id="add-update" type="button" title="Acrescentar uma atualização fictícia de 10 minutos">+ 10 min</button>
+                  <button class="tool-btn" id="autoplay" type="button" aria-pressed="false" title="Reprodução acelerada, apenas demonstrativa">▶ Reproduzir</button>
+                  <button class="tool-btn" id="reset-trend" type="button">Reiniciar</button>
+                  <button class="tool-btn" id="export-trend" type="button">CSV histórico</button>
+                </div>
+              </div>
+              <p class="trend-explain">Escala vertical ampliada, indicada nos eixos, para facilitar a leitura da disputa. Reprodução acelerada é apenas visual: não consulta o TSE.</p>
+            </article>
+            <article class="panel snapshot-panel" aria-labelledby="comparison-title">
+              <div class="section-top">
+                <div>
+                  <p class="sim-status">● SIMULAÇÃO · DADOS FICTÍCIOS</p>
+                  <h2 id="comparison-title">Resultado nacional</h2>
+                  <p class="subtitle">Estimativa no último ponto do gráfico</p>
+                  <span class="snapshot-time">Atualização exibida: <strong id="snapshot-time" style="margin-left:5px">25/10 · 23:50</strong></span>
+                </div>
+              </div>
+              <div class="snapshot-result">
+                <div class="snapshot-candidate lula"><div class="candidate-name">Lula</div><div class="candidate-pct" id="lula-pct">—</div><div class="candidate-votes" id="lula-votes">— votos fictícios</div></div>
+                <div class="snapshot-candidate flavio"><div class="candidate-name">Flávio Bolsonaro</div><div class="candidate-pct" id="flavio-pct">—</div><div class="candidate-votes" id="flavio-votes">— votos fictícios</div></div>
+              </div>
+              <div class="share-bar" role="img" aria-label="Distribuição ilustrativa dos votos válidos" id="share-chart"><span class="share-left" id="share-left" style="width:50%"></span><span class="share-right"></span></div>
+              <div class="share-labels"><span><i class="legend-dot"></i> Lula</span><span>Flávio Bolsonaro <i class="legend-dot amber"></i></span></div>
+              <div class="result-footer"><span id="leader-label" class="lead-note">—</span><span>Diferença: <span class="gap-value" id="gap-pp">—</span> <span id="gap-votos">(— votos)</span></span></div>
+            </article>
+          </div>
+          <div class="kpi-grid" aria-label="Indicadores de participação eleitoral fictícios">
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Eleitorado apto</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m1 3a5 5 0 0 1 4 5"/></svg></span></div><div class="kpi-number" id="kpi-apt">—</div><div class="kpi-bottom">Base eleitoral simulada</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Comparecimento</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l4 4L19 6"/><circle cx="12" cy="12" r="10"/></svg></span></div><div class="kpi-number" id="kpi-comparecimento">—</div><div class="kpi-bottom"><span class="mini-pill" id="rate-comp">—</span> dos eleitores aptos</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Abstenção</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></span></div><div class="kpi-number" id="kpi-abst">—</div><div class="kpi-bottom"><span class="mini-pill" id="rate-abst">—</span> dos eleitores aptos</div></article>
+            <article class="panel kpi"><div class="kpi-top"><span class="kpi-label">Votos válidos</span><span class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M7 12h10M12 7v10"/></svg></span></div><div class="kpi-number" id="kpi-validos">—</div><div class="kpi-bottom">Cenário hipotético consolidado</div></article>
+          </div>
+          <article class="panel panel-inner regions-panel" aria-label="Resumo territorial do cenário fixo">
+            <div class="section-top"><div><h2>Visão por região</h2><p class="subtitle">Percentual simulado de Lula no cenário-base, sem variação temporal</p></div><span class="tiny-pill">Brasil</span></div>
+            <div class="region-bars" id="regions"></div>
+            <div class="region-foot"><span>Distribuição de votos · cenário-base</span><span class="region-dots"><span><i class="legend-dot"></i>Lula</span><span><i class="legend-dot amber"></i>Flávio</span></span></div>
+          </article>
+          <div class="data-context">A tabela e os indicadores abaixo mostram o <b>cenário-base fictício</b>; o gráfico e o placar à direita exibem cada atualização simulada.</div>
+          <div class="bottom-grid">
+            <section class="panel table-panel" aria-labelledby="table-title"><div class="table-heading"><div><h2 id="table-title">Detalhamento territorial</h2><p class="subtitle">Resultados hipotéticos das 27 UFs e exterior</p></div><div class="table-actions"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search-geral" placeholder="Buscar UF" aria-label="Buscar Unidade da Federação"></div></div></div><div class="table-scroll"><table><thead><tr><th>UF</th><th>Lula</th><th>Flávio</th><th>Aptos</th><th>Comparecimento</th></tr></thead><tbody id="tbody-geral"></tbody></table></div><div class="table-end"><span id="table-count">28 abrangências</span><span>Clique em uma UF para detalhar</span></div></section>
+            <aside class="panel side-card"><div class="info-swatch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 3v18h18M7 15l5-5 3 3 5-7"/></svg></div><h2>Leitura da simulação</h2><p class="subtitle">Diferença pequena no cenário ilustrativo</p><p class="note-stat" id="gap-card">— p.p.</p><p class="info-text">Distância entre os dois percentuais de votos válidos, calculada sobre números fictícios.</p><div class="divider"></div><div class="mini-split"><div class="mini-row"><span>UFs com Lula à frente</span><strong id="count-lula">—</strong></div><div class="mini-row"><span>UFs com Flávio à frente</span><strong id="count-flavio">—</strong></div><div class="mini-row"><span>Exterior (ZZ)</span><strong>incluído</strong></div></div><button class="info-link" type="button" data-goto="metodologia">Como calculamos? <span aria-hidden="true">↗</span></button></aside>
+          </div>
+        </section>
+
+        <section class="page-view" id="view-ufs" hidden aria-labelledby="title-ufs">
+          <div class="view-title"><p class="eyebrow">Análise territorial</p><h1 id="title-ufs">Comparação por Unidade da Federação</h1><p class="heading-sub">Pesquise e selecione qualquer UF para consultar os indicadores fictícios da simulação.</p></div>
+          <section class="panel table-panel table-full"><div class="table-heading"><div><h2>As 28 abrangências eleitorais</h2><p class="subtitle">Votos válidos fictícios · clique em uma linha para exibir na visão geral</p></div><div class="table-actions"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search-ufs" placeholder="Buscar estado / sigla" aria-label="Filtrar tabela de UFs"></div><button class="btn btn-primary" type="button" data-csv="true">Exportar CSV</button></div></div><div class="table-scroll"><table><thead><tr><th>UF</th><th>Lula (%)</th><th>Flávio (%)</th><th>Eleitorado apto</th><th>Comparecimento</th><th>Abstenção</th><th>Votos válidos</th></tr></thead><tbody id="tbody-ufs"></tbody></table></div><div class="table-end"><span id="full-count">28 abrangências</span><span>Simulação independente · dados inteiramente fictícios</span></div></section>
+        </section>
+
+        <section class="page-view" id="view-metodologia" hidden aria-labelledby="title-metodologia">
+          <div class="view-title"><p class="eyebrow">Transparência e método</p><h1 id="title-metodologia">Metodologia do protótipo</h1><p class="heading-sub">Como os dados fictícios foram gerados e como será a integração com a fonte oficial.</p></div>
+          <div class="explainer"><article class="panel"><div class="number">01 / DADOS</div><h3>Cenário 100% fictício</h3><p>Os volumes, percentuais e os pontos históricos de 10 em 10 minutos foram gerados localmente por regras determinísticas para simular uma disputa apertada. Não são resultado eleitoral, pesquisa ou projeção baseada em dados observados.</p></article><article class="panel"><div class="number">02 / CÁLCULOS</div><h3>Totais ponderados</h3><p>Comparecimento + abstenção = eleitorado apto. Os votos válidos são uma fração simulada dos presentes. O cenário-base nacional decorre da soma ponderada das 28 abrangências; o histórico visual usa pequenas oscilações determinísticas em torno desse cenário.</p></article><article class="panel"><div class="number">03 / PRÓXIMA FASE</div><h3>API e homologação</h3><p>A integração futura será em Python, com JSON oficial do TSE, validações e atualização via GitHub Actions. A publicação real dependerá da aprovação dos testes e da metodologia.</p></article></div>
+          <div class="panel method-note"><h2>Regras de leitura</h2><p>Este painel é uma demonstração independente de interface. A curva temporal também é inteiramente inventada, com pontos espaçados a cada 10 minutos e extensão além de 00h. A vantagem simulada de Lula não deve ser interpretada como divulgação de vencedor, tendência, intenção de voto ou contagem realizada pelo TSE. A identidade remete a princípios de design institucional, sem usar logotipos ou afirmar endosso do MDA.</p><p><strong>Fórmulas ilustrativas:</strong> <code>comparecimento = eleitorado_apto × taxa_sintética</code> · <code>abstenção = aptos − comparecimento</code> · <code>% candidato = votos_do_candidato / votos_válidos × 100</code></p><p><strong>Origem futura dos dados reais:</strong> <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">Portal de resultados do TSE</a>. Nenhuma requisição externa é realizada por este protótipo.</p><button type="button" class="btn" data-goto="geral">Voltar à visão geral</button></div>
+        </section>
+
+        <footer class="footer" id="footer"><span>Monitor Eleitoral 2026 · Protótipo independente · Todos os resultados são fictícios.</span><span><a href="https://www.gov.br/mda/pt-br" target="_blank" rel="noopener noreferrer">MDA (referência visual)</a> · <a href="https://resultados.tse.jus.br/oficial/app/index.html" target="_blank" rel="noopener noreferrer">TSE (fonte futura)</a></span></footer>
+      </main>
+    </div>
+  </div>
+  <script>
+    'use strict';
+    // Arquivo demonstrativo: todas as entradas e resultados abaixo são inventados.
+    // Valores em milhões são pesos sintéticos, não uma cópia de estatísticas oficiais.
+    const territories = [
+      ['AC','Acre','Norte',.58,.49,.800],['AL','Alagoas','Nordeste',2.36,.62,.810],['AP','Amapá','Norte',.57,.53,.800],
+      ['AM','Amazonas','Norte',2.68,.51,.803],['BA','Bahia','Nordeste',11.00,.67,.816],['CE','Ceará','Nordeste',6.83,.68,.828],
+      ['DF','Distrito Federal','Centro-Oeste',2.22,.43,.824],['ES','Espírito Santo','Sudeste',3.05,.48,.813],['GO','Goiás','Centro-Oeste',5.10,.42,.821],
+      ['MA','Maranhão','Nordeste',5.01,.66,.805],['MT','Mato Grosso','Centro-Oeste',2.45,.41,.821],['MS','Mato Grosso do Sul','Centro-Oeste',2.02,.43,.816],
+      ['MG','Minas Gerais','Sudeste',16.12,.506,.822],['PA','Pará','Norte',6.13,.54,.813],['PB','Paraíba','Nordeste',3.13,.65,.822],
+      ['PR','Paraná','Sul',8.48,.405,.820],['PE','Pernambuco','Nordeste',7.10,.66,.806],['PI','Piauí','Nordeste',2.57,.69,.815],
+      ['RJ','Rio de Janeiro','Sudeste',12.82,.49,.800],['RN','Rio Grande do Norte','Nordeste',2.55,.64,.824],['RS','Rio Grande do Sul','Sul',8.60,.45,.818],
+      ['RO','Rondônia','Norte',1.34,.39,.809],['RR','Roraima','Norte',.39,.38,.802],['SC','Santa Catarina','Sul',5.50,.36,.813],
+      ['SP','São Paulo','Sudeste',34.80,.47,.820],['SE','Sergipe','Nordeste',1.70,.64,.823],['TO','Tocantins','Norte',1.18,.47,.816],
+      ['ZZ','Exterior','Exterior',.72,.52,.765]
+    ];
+    const raw = territories.map(([uf,name,region,weight,lean,turnout],index)=>{
+      const aptos=Math.round(weight*1000000);
+      const comparecimento=Math.round(aptos*turnout);
+      const abstencao=aptos-comparecimento;
+      const rate=0.946+(index%6)*0.004;
+      const validos=Math.round(comparecimento*rate);
+      return {uf,name,region,aptos,comparecimento,abstencao,validos,lean};
+    });
+    // Recentrar as participações estaduais para que o agregado ponderado represente uma disputa apertada.
+    const targetShare=0.5064;
+    const weightedBase=raw.reduce((a,r)=>a+r.validos*r.lean,0)/raw.reduce((a,r)=>a+r.validos,0);
+    const shift=targetShare-weightedBase;
+    const records=raw.map(r=>{
+      const lula=Math.round(r.validos*(r.lean+shift));
+      const flavio=r.validos-lula;
+      return {...r,lula,flavio,lulaPct:100*lula/r.validos,flavioPct:100*flavio/r.validos};
+    });
+    const regionOrder=['Norte','Nordeste','Centro-Oeste','Sudeste','Sul','Exterior'];
+    const fmtNum = n => Number(n).toLocaleString('pt-BR',{maximumFractionDigits:0});
+    const fmtPct = (n,d=2) => Number(n).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%';
+    const fmtCompact = n => n >= 1e6 ? (n/1e6).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+' mi' : n>=1e3 ? (n/1e3).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})+' mil' : fmtNum(n);
+    const aggregate = list=>{
+      const s=list.reduce((a,r)=>{for(const key of ['aptos','comparecimento','abstencao','validos','lula','flavio'])a[key]+=r[key];return a;},{aptos:0,comparecimento:0,abstencao:0,validos:0,lula:0,flavio:0});
+      s.lulaPct=s.validos?100*s.lula/s.validos:0;s.flavioPct=s.validos?100*s.flavio/s.validos:0;return s;
+    };
+    const country=aggregate(records);
+
+    // Histórico completamente sintético: não representa apuração nem trajetória real.
+    const START_MIN = 17 * 60;
+    const BASE_END_MIN = 23 * 60 + 50;
+    const STEP_MIN = 10;
+    let historyMinutes = Array.from({length:(BASE_END_MIN-START_MIN)/STEP_MIN+1},(_,i)=>START_MIN+i*STEP_MIN);
+    let playTimer = null;
+    const hourLabel = minute => String(Math.floor(minute/60)%24).padStart(2,'0')+':'+String(minute%60).padStart(2,'0');
+    const dateLabel = minute => (minute >= 24*60 ? '26/10' : '25/10')+' · '+hourLabel(minute);
+    // Reprodutível e converge para 50,64% no último ponto predefinido.
+    function chartShare(basePct, minute) {
+      if(minute <= BASE_END_MIN) {
+        const remaining = (BASE_END_MIN-minute)/(BASE_END_MIN-START_MIN);
+        const t = (minute-START_MIN)/60;
+        const drift = remaining*(-1.18 + .55*Math.sin(t*2.25+.4)+.27*Math.sin(t*5.3));
+        return Math.min(99.5,Math.max(.5,basePct+drift));
+      }
+      const steps = (minute-BASE_END_MIN)/STEP_MIN;
+      return Math.min(99.5,Math.max(.5,basePct+.12*Math.sin(steps*.75)+.045*Math.sin(steps*1.83)));
+    }
+    function currentData() {
+      const base=selected==='BR'?country:aggregate(records.filter(r=>r.uf===selected));
+      const minute=historyMinutes[historyMinutes.length-1];
+      const lulaPct=chartShare(base.lulaPct,minute);
+      const flavioPct=100-lulaPct;
+      const lula=Math.round(base.validos*lulaPct/100);
+      return {...base,lulaPct,flavioPct,lula,flavio:base.validos-lula,minute};
+    }
+    // Draw in pure SVG: offline, responsive, no external libraries.
+    function renderTimeline() {
+      const svg=$('trend-svg');
+      const base=selected==='BR'?country:aggregate(records.filter(r=>r.uf===selected));
+      const values=historyMinutes.map(minute=>({minute,lula:chartShare(base.lulaPct,minute)}));
+      const W=940,H=400,L=53,R=22,T=24,B=51;
+      const toMinute=minute=>(minute-START_MIN)/(Math.max(24*60,Math.ceil(values.at(-1).minute/60)*60)-START_MIN)*(W-L-R)+L;
+      const endMin=Math.max(24*60,Math.ceil(values.at(-1).minute/60)*60);
+      const all=values.flatMap(p=>[p.lula,100-p.lula]);
+      const low=Math.max(0,Math.floor((Math.min(...all)-1.65)/2)*2);
+      const high=Math.min(100,Math.ceil((Math.max(...all)+1.65)/2)*2);
+      const minY=Math.min(low,high-4),maxY=Math.max(high,minY+4);
+      const Y=p=>T+(maxY-p)/(maxY-minY)*(H-T-B);
+      const X=toMinute;
+      const chunks=[];
+      for(let i=0;i<=4;i++){
+        const pct=minY+(maxY-minY)*i/4,yy=Y(pct);
+        chunks.push(`<line x1="${L}" y1="${yy.toFixed(2)}" x2="${W-R}" y2="${yy.toFixed(2)}" stroke="#E5EBE7" stroke-width="1"/><text x="${L-9}" y="${(yy+4).toFixed(2)}" text-anchor="end" fill="#7C8982" font-size="13">${pct.toFixed(pct%1?1:0)}%</text>`);
+      }
+      for(let minute=START_MIN;minute<=endMin;minute+=60){
+        const xx=X(minute);
+        chunks.push(`<line x1="${xx.toFixed(2)}" y1="${T}" x2="${xx.toFixed(2)}" y2="${H-B}" stroke="#F0F3F1" stroke-width="1"/>`);
+        chunks.push(`<text x="${xx.toFixed(2)}" y="${H-20}" text-anchor="middle" fill="#7C8982" font-size="13">${hourLabel(minute).slice(0,2)}h</text>`);
+        if(minute===24*60) chunks.push(`<text x="${xx.toFixed(2)}" y="${H-4}" text-anchor="middle" fill="#A18459" font-size="10">26/10</text>`);
+      }
+      if(minY<=50 && maxY>=50)chunks.push(`<line x1="${L}" y1="${Y(50)}" x2="${W-R}" y2="${Y(50)}" stroke="#8CA49A" stroke-width="1" stroke-dasharray="6 5"/><text x="${W-R-4}" y="${Y(50)-7}" text-anchor="end" fill="#819189" font-size="11">50%</text>`);
+      const lineA=values.map((p,i)=>(i?'L':'M')+X(p.minute).toFixed(2)+','+Y(p.lula).toFixed(2)).join(' ');
+      const lineB=values.map((p,i)=>(i?'L':'M')+X(p.minute).toFixed(2)+','+Y(100-p.lula).toFixed(2)).join(' ');
+      const latest=values.at(-1);
+      chunks.push(`<path d="${lineB}" fill="none" stroke="#A6AFB5" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>`);
+      chunks.push(`<path d="${lineA}" fill="none" stroke="#E52532" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>`);
+      chunks.push(`<circle cx="${X(latest.minute)}" cy="${Y(latest.lula)}" r="6" fill="#E52532" stroke="white" stroke-width="3"/>`);
+      chunks.push(`<circle cx="${X(latest.minute)}" cy="${Y(100-latest.lula)}" r="6" fill="#A6AFB5" stroke="white" stroke-width="3"/>`);
+      // Interactive inspection: lightweight invisible slots over the chart.
+      chunks.push(`<rect x="${L}" y="${T}" width="${W-R-L}" height="${H-B-T}" fill="transparent" id="chart-hit" style="cursor:crosshair"/>`);
+      svg.innerHTML=chunks.join('');
+      svg.setAttribute('aria-label',`Gráfico sintético de ${values.length} pontos entre ${hourLabel(START_MIN)} e ${hourLabel(latest.minute)}. Último valor: Lula ${fmtPct(latest.lula)}, Flávio Bolsonaro ${fmtPct(100-latest.lula)}. Eixo vertical ampliado entre ${minY}% e ${maxY}%.`);
+      $('point-count').textContent=values.length+' atualizações fictícias';
+      $('last-update').textContent=dateLabel(latest.minute);
+      $('chart-last').textContent=dateLabel(latest.minute);
+      const tooltip=$('trend-tip');
+      svg.onpointermove=event=>{
+        const bounds=svg.getBoundingClientRect();
+        const pixel=(event.clientX-bounds.left)*W/bounds.width;
+        const index=Math.max(0,Math.min(values.length-1,Math.round((pixel-L)/(W-R-L)*(endMin-START_MIN)/STEP_MIN)));
+        const point=values[index];
+        tooltip.hidden=false;
+        tooltip.innerHTML=`<strong>${dateLabel(point.minute)} · fictício</strong><br><span class="red-n">Lula ${fmtPct(point.lula)}</span><br><span class="gray-n">Flávio ${fmtPct(100-point.lula)}</span>`;
+        const x=event.clientX-bounds.left;
+        const y=event.clientY-bounds.top;
+        tooltip.style.left=Math.min(Math.max(6,x-68),Math.max(6,bounds.width-170))+'px';
+        tooltip.style.top=Math.max(12,y-101)+'px';
+      };
+      svg.onpointerleave=()=>{tooltip.hidden=true};
+    }
+    function pauseDemo(){
+      if(playTimer!==null){clearInterval(playTimer);playTimer=null;}
+      $('autoplay').textContent='▶ Reproduzir';
+      $('autoplay').setAttribute('aria-pressed','false');
+    }
+    function nextDemoPoint(){
+      historyMinutes.push(historyMinutes.at(-1)+STEP_MIN);
+      renderHeader();renderTimeline();
+    }
+    function toggleAutoplay(){
+      if(playTimer!==null){pauseDemo();return;}
+      $('autoplay').textContent='Ⅱ Pausar';
+      $('autoplay').setAttribute('aria-pressed','true');
+      // Reprodução fictícia acelerada: cada segundo representa 10 minutos.
+      playTimer=setInterval(nextDemoPoint,1100);
+    }
+    function resetDemo(){
+      pauseDemo();
+      historyMinutes=Array.from({length:(BASE_END_MIN-START_MIN)/STEP_MIN+1},(_,i)=>START_MIN+i*STEP_MIN);
+      renderHeader();renderTimeline();
+    }
+    function exportHistoricalCSV(){
+      const base=selected==='BR'?country:aggregate(records.filter(r=>r.uf===selected));
+      const lines=['abrangencia;data;hora;percentual_lula;percentual_flavio;natureza',...historyMinutes.map(m=>{
+        const v=chartShare(base.lulaPct,m);
+        return [selected,m>=24*60?'26/10/2026':'25/10/2026',hourLabel(m),v.toFixed(4).replace('.',','),(100-v).toFixed(4).replace('.',','),'SIMULACAO_FICTICIA'].join(';');
+      })];
+      const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
+      const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='historico_SIMULADO_'+selected+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);
+    }
+
+    const $=id=>document.getElementById(id);
+    let selected='BR';
+    let view='geral';
+    const setText=(id,text)=>{$(id).textContent=text};
+    const escapeHTML=(s)=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const col=(n,kind)=>kind==='blue'?'text-blue':'text-amber';
+    function setRegionBars(){
+      $('regions').innerHTML=regionOrder.map(region=>{
+        const agg=aggregate(records.filter(r=>r.region===region));
+        return `<div class="region-row"><span class="region-name">${escapeHTML(region)}</span><div class="region-track" aria-label="${region}: Lula ${fmtPct(agg.lulaPct)}"><span style="width:${agg.lulaPct.toFixed(3)}%"></span><i></i></div><span class="region-pct">${fmtPct(agg.lulaPct,1)}</span></div>`;
+      }).join('');
+    }
+    function renderHeader(){
+      const item=records.find(x=>x.uf===selected);
+      const base=selected==='BR'?country:aggregate([item]);
+      const d=currentData();
+      setText('kpi-apt',fmtCompact(base.aptos));
+      setText('kpi-comparecimento',fmtCompact(base.comparecimento));
+      setText('kpi-abst',fmtCompact(base.abstencao));
+      setText('kpi-validos',fmtCompact(base.validos));
+      setText('rate-comp',fmtPct(100*base.comparecimento/base.aptos,1));
+      setText('rate-abst',fmtPct(100*base.abstencao/base.aptos,1));
+      setText('comparison-title',selected==='BR'?'Resultado nacional':'Resultado · '+item.name);
+      setText('snapshot-time',dateLabel(d.minute));
+      setText('lula-pct',fmtPct(d.lulaPct));setText('flavio-pct',fmtPct(d.flavioPct));
+      setText('lula-votes',fmtNum(d.lula)+' votos fictícios');setText('flavio-votes',fmtNum(d.flavio)+' votos fictícios');
+      const leader=d.lula>=d.flavio?'Lula':'Flávio Bolsonaro';
+      const margin=Math.abs(d.lulaPct-d.flavioPct);
+      setText('leader-label',leader+' à frente na simulação');
+      setText('gap-pp',fmtPct(margin));
+      setText('gap-votos','('+fmtNum(Math.abs(d.lula-d.flavio))+' votos fictícios)');
+      setText('gap-card',margin.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' p.p.');
+      $('share-left').style.width=d.lulaPct.toFixed(4)+'%';
+      $('share-chart').setAttribute('aria-label','Simulação '+(selected==='BR'?'nacional':item.name)+': Lula '+fmtPct(d.lulaPct)+' e Flávio Bolsonaro '+fmtPct(d.flavioPct));
+      $('uf').value=selected;
+      setText('count-lula',fmtNum(records.filter(r=>r.uf!=='ZZ'&&r.lula>r.flavio).length));
+      setText('count-flavio',fmtNum(records.filter(r=>r.uf!=='ZZ'&&r.flavio>r.lula).length));
+    }
+    function makeRow(r,full){
+      const selectedClass=selected===r.uf?' is-selected':'';
+      return `<tr tabindex="0" role="button" data-select="${r.uf}" class="${selectedClass.trim()}" aria-label="Mostrar detalhes de ${escapeHTML(r.name)}"><td><span class="uf-badge">${r.uf}</span><span class="uf-name">${escapeHTML(r.name)}</span></td><td class="text-blue">${fmtPct(r.lulaPct)}</td><td class="text-amber">${fmtPct(r.flavioPct)}</td><td>${fmtCompact(r.aptos)}</td><td>${fmtCompact(r.comparecimento)}</td>${full?`<td>${fmtCompact(r.abstencao)}</td><td>${fmtCompact(r.validos)}</td>`:''}</tr>`;
+    }
+    function renderTable(type){
+      const input=type==='geral'?$('search-geral'):$('search-ufs');
+      const needle=input.value.trim().toLocaleLowerCase('pt-BR');
+      const list=records.filter(r=>r.uf.toLowerCase().includes(needle)||r.name.toLocaleLowerCase('pt-BR').includes(needle));
+      $(type==='geral'?'tbody-geral':'tbody-ufs').innerHTML=list.map(r=>makeRow(r,type==='ufs')).join('')||`<tr><td colspan="${type==='ufs'?7:5}" style="text-align:center;padding:25px">Nenhuma UF encontrada</td></tr>`;
+      setText(type==='geral'?'table-count':'full-count',list.length+' de 28 abrangências');
+    }
+    function setView(next){
+      view=next;
+      for(const page of ['geral','ufs','metodologia'])$('view-'+page).hidden=page!==next;
+      document.querySelectorAll('[data-view]').forEach(b=>{
+        const on=b.dataset.view===next;
+        b.classList.toggle('active',on);
+        b.setAttribute('aria-current',on?'page':'false');
+      });
+      setText('breadcrumb',({geral:'Visão geral',ufs:'Análise por UF',metodologia:'Metodologia'})[next]);
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function selectUF(uf){
+      selected=uf;renderHeader();renderTimeline();renderTable('geral');renderTable('ufs');setView('geral');
+    }
+    function downloadCSV(){
+      const header=['uf','nome','regiao','eleitorado_apto','comparecimento','abstencao','votos_validos','votos_lula','votos_flavio','percentual_lula','percentual_flavio','natureza'];
+      const lines=[header.join(';'),...records.map(r=>[r.uf,r.name,r.region,r.aptos,r.comparecimento,r.abstencao,r.validos,r.lula,r.flavio,r.lulaPct.toFixed(4).replace('.',','),r.flavioPct.toFixed(4).replace('.',','),'SIMULADO_FICTICIO'].join(';'))];
+      const content='\ufeff'+lines.join('\r\n');
+      const blob=new Blob([content],{type:'text/csv;charset=utf-8'});
+      const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='monitor_eleitoral_2026_SIMULACAO.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }
+    function init(){
+      const select=$('uf');
+      records.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+      records.forEach(r=>{const option=document.createElement('option');option.value=r.uf;option.textContent=r.uf+' · '+r.name;select.appendChild(option)});
+      select.addEventListener('change',e=>{selected=e.target.value;renderHeader();renderTimeline();renderTable('geral');renderTable('ufs')});
+      document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+      document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();setView(b.dataset.goto)}));
+      document.querySelectorAll('[data-csv]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();downloadCSV()}));
+      $('search-geral').addEventListener('input',()=>renderTable('geral'));
+      $('search-ufs').addEventListener('input',()=>renderTable('ufs'));
+      document.addEventListener('click',e=>{const row=e.target.closest('tr[data-select]');if(row)selectUF(row.dataset.select)});
+      document.addEventListener('keydown',e=>{const row=e.target.closest('tr[data-select]');if(row&&(e.key==='Enter'||e.key===' ')){e.preventDefault();selectUF(row.dataset.select)}});
+      $('add-update').addEventListener('click',nextDemoPoint);
+      $('autoplay').addEventListener('click',toggleAutoplay);
+      $('reset-trend').addEventListener('click',resetDemo);
+      $('export-trend').addEventListener('click',exportHistoricalCSV);
+      setRegionBars();renderHeader();renderTimeline();renderTable('geral');renderTable('ufs');
+      console.info('Dados de SIMULAÇÃO apenas. Votos nacionais fictícios:',country.lulaPct.toFixed(3),country.flavioPct.toFixed(3),'Total de UFs:',records.length);
+    }
+    init();
+  </script>
+</body>
+</html>
