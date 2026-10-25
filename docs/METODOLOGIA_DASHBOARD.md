@@ -105,3 +105,19 @@ A metodologia fictícia será substituída/adequada conforme contrato de dados o
 A barra lateral, acima de **Modo de demonstração**, identifica **Marcelo Cabreira Bastos** (desenvolvimento e análise) e **Ernesto Galindo** (colaborador). Os links ORCID, LinkedIn, site pessoal e GitHub são apresentados somente para Marcelo. ORCID confirmado pelo próprio usuário: https://orcid.org/0009-0002-4215-3446.
 
 **Privacidade:** não exibir e-mail, telefone ou outros dados pessoais/profissionais de Ernesto. O projeto é pessoal e independente; a referência estética ao MDA não significa endosso institucional. Aviso solicitado no painel: **“Este não é um sistema oficial do TSE”**.
+
+## 8. Selo de margem de cenário (produção)
+
+Exibido no cabeçalho da coluna "Nossa estimativa" do placar, ao lado do selo de estado. Calculado no navegador (`margemCenario`, em `site/dashboard.js`) a partir da `cobertura` já publicada (seções totalizadas ÷ total de seções). Não altera dados, fórmulas da planilha nem valores oficiais.
+
+| Seções apuradas | Selo | Margem (δ = 10 p.p.) |
+|---|---|---|
+| menos de 25% | Apuração inicial · sem margem | — |
+| 25% a 50% | faixa ampla | ± 7,5 p.p. |
+| 50% a 75% | moderada | ± 5,0 p.p. |
+| 75% a 99,99% | estreita | ± 2,5 p.p. |
+| 100% | Apuração completa | — |
+
+Regra: margem = (1 − piso da faixa) × δ. Usar o piso da faixa dá o pior caso dentro dela e evita que o número oscile a cada coleta. Estimativa parcial do Brasil (nem todas as UFs com dados): "Sem margem". Sem estimativa ou sem cobertura: o selo não aparece.
+
+Limites: δ é uma suposição explícita (quanto o restante a apurar pode divergir do já apurado), não um valor medido; não é intervalo de confiança estatístico; a fração por seções ignora que elas têm eleitorados diferentes; não corrige o viés da fórmula da planilha. A calibração de δ e das faixas com o histórico de coletas fica para depois da apuração (issue #21).

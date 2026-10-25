@@ -38,3 +38,35 @@ test('escala padrão 30–70% amplia em passos de 10 sem esconder pontos',()=>{
  assert.deepEqual(escala(['100','0']),{lo:0,hi:100,ampliada:true});
  assert.deepEqual(escala([]),{lo:30,hi:70,ampliada:false});
 });
+test('margem de cenário: faixas 25/50/75, valor do piso da faixa e limites exatos',()=>{
+ const {margemCenario,DELTA_CENARIO}=require('../site/dashboard.js');
+ assert.equal(DELTA_CENARIO,10);
+ assert.equal(margemCenario(null),null);assert.equal(margemCenario('x'),null);assert.equal(margemCenario(undefined),null);
+ for(const c of [0,1,24.99])assert.equal(margemCenario(c).estado,'inicial');
+ assert.equal(margemCenario(24.99).margem,undefined);
+ for(const [c,estado,m] of [[25,'ampla',7.5],[49.99,'ampla',7.5],[50,'moderada',5],[74.99,'moderada',5],[75,'estreita',2.5],[99.99,'estreita',2.5]]){
+  const r=margemCenario(c);assert.equal(r.estado,estado,String(c));assert.equal(r.margem,m,String(c));}
+ assert.equal(margemCenario(100).estado,'completa');assert.equal(margemCenario(100).margem,undefined);
+ assert.equal(margemCenario('62.5').estado,'moderada');
+ assert.equal(margemCenario(80,true).estado,'sem');
+});
+test('selo de margem não aparece sem estimativa e nunca derruba o placar',()=>{
+ const {seloMargem,placar}=require('../site/dashboard.js');
+ assert.equal(seloMargem(undefined,undefined),'');
+ assert.equal(seloMargem({cobertura:60},{lula:null}),'');
+ assert.equal(seloMargem({cobertura:null},{lula:'50'}),'');
+ assert.equal(seloMargem(null,{lula:'50'}),'');
+ const h=seloMargem({cobertura:60},{lula:'50',flavio:'50'});
+ assert.match(h,/± 5,0 p\.p\./);assert.match(h,/data-method="margem"/);assert.match(h,/moderada/);
+ assert.match(seloMargem({cobertura:10},{lula:'50'}),/Apuração inicial · sem margem/);
+ assert.match(seloMargem({cobertura:100},{lula:'50'}),/Apuração completa/);
+ assert.match(seloMargem({cobertura:90},{lula:'50',parcial:true,ufs_com_dados:20,ufs_total:28}),/Sem margem/);
+});
+test('placar renderiza com e sem dados e inclui o selo de margem quando há estimativa',()=>{
+ const {placar}=require('../site/dashboard.js');
+ assert.doesNotThrow(()=>placar(undefined));
+ assert.doesNotThrow(()=>placar({cobertura:null,estimativa:null}));
+ assert.doesNotMatch(placar(undefined),/margem-btn/);
+ const v={lula:'48.3',flavio:'51.7',votos_lula:1,votos_flavio:2,cobertura:62,estimativa:{lula:'48.9',flavio:'51.1',votos_lula:1,votos_flavio:2}};
+ assert.match(placar(v),/margem-btn moderada/);
+});
