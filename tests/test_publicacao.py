@@ -53,4 +53,33 @@ class Publicacao(unittest.TestCase):
         self.assertIsNone(v['votos_lula'])
         self.assertIsNone(v['estimativa']['lula'])
 
+    def test_brasil_preserva_votos_disponiveis_com_uf_sem_concorrentes(self):
+        from monitor.publicacao import compilar
+        with tempfile.TemporaryDirectory(dir=BASE/'tests') as t:
+            dados=Path(t)/'dados'
+            executar('6257',dados,abrir=resposta)
+            conjunto=json.loads((dados/'conjunto_6257.json').read_text(encoding='utf-8'))
+        zz=next(r for r in conjunto['abrangencias'] if r['oficial']['uf']=='ZZ')['oficial']
+        zz['votos_concorrentes']=0
+        for c in zz['candidatos'].values():c['votos']=0
+        v=compilar(conjunto)
+        self.assertGreater(v['ZZ']['totalizadas'],0)
+        self.assertFalse(v['ZZ']['apurado'])
+        self.assertIsNone(v['ZZ']['lula'])
+        self.assertTrue(v['BR']['apurado'])
+        self.assertEqual(v['BR']['votos_lula'],134770*27)
+        self.assertEqual(v['BR']['concorrentes'],v['AC']['concorrentes']*27)
+        self.assertIsNotNone(v['BR']['lula'])
+
+    def test_brasil_indisponivel_se_uf_com_votos_nao_e_divulgada(self):
+        from monitor.publicacao import compilar
+        with tempfile.TemporaryDirectory(dir=BASE/'tests') as t:
+            dados=Path(t)/'dados'
+            executar('6257',dados,abrir=resposta)
+            conjunto=json.loads((dados/'conjunto_6257.json').read_text(encoding='utf-8'))
+        next(r for r in conjunto['abrangencias'] if r['oficial']['uf']=='SP')['oficial']['divulga_votacao']='n'
+        v=compilar(conjunto)
+        self.assertIsNone(v['BR']['lula'])
+        self.assertIsNone(v['BR']['votos_lula'])
+
 if __name__=='__main__':unittest.main()
