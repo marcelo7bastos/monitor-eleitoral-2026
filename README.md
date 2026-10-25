@@ -9,6 +9,7 @@ MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma 
 - [Protocolo de testes](docs/TESTES.md)
 - [Decisões](docs/DECISOES.md)
 - [Backlog](docs/BACKLOG.md)
+- [Identidade visual do dashboard — proposta v1.0](docs/IDENTIDADE_VISUAL.md)
 - [Diagnóstico Python do Acre](scripts/teste_t2_acre.py)
 
 ## Execução local
