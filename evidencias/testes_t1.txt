@@ -1,0 +1,10 @@
+test_rejeita_cargo_incorreto (test_validacao_t1.IdentidadeTSE.test_rejeita_cargo_incorreto) ... ok
+test_rejeita_data_hora_ausentes (test_validacao_t1.IdentidadeTSE.test_rejeita_data_hora_ausentes) ... ok
+test_rejeita_identificadores_incorretos (test_validacao_t1.IdentidadeTSE.test_rejeita_identificadores_incorretos) ... ok
+test_rejeita_objeto_vazio_raiz_invalida_e_cargos_ausentes (test_validacao_t1.IdentidadeTSE.test_rejeita_objeto_vazio_raiz_invalida_e_cargos_ausentes) ... ok
+test_respostas_reais_dos_dois_turnos (test_validacao_t1.IdentidadeTSE.test_respostas_reais_dos_dois_turnos) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK

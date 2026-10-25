@@ -1,0 +1,5325 @@
+{
+  "motor": "@oai/artifact-tool 2.8.58+ (não Excel nativo)",
+  "formula_sha256": "800597732267e423bce09308647a2a8d0ea8fdecd67828b27e552216c894331e",
+  "formulas_restauradas": 118,
+  "comparacoes": 590,
+  "falhas": 0,
+  "denominador_zero": [
+    "#DIV/0!",
+    "#DIV/0!",
+    "#DIV/0!",
+    "#DIV/0!"
+  ],
+  "linhas": [
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I2",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J2",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K2",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L2",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I3",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J3",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K3",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L3",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I4",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J4",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K4",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L4",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I5",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J5",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K5",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L5",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I6",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J6",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K6",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L6",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I7",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J7",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K7",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L7",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I8",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J8",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K8",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L8",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I9",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J9",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K9",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L9",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I10",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J10",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K10",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L10",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I11",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J11",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K11",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L11",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I12",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J12",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K12",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L12",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I13",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J13",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K13",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L13",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I14",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J14",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K14",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L14",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I15",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J15",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K15",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L15",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I16",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J16",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K16",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L16",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I17",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J17",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K17",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L17",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I18",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J18",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K18",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L18",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I19",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J19",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K19",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L19",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I20",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J20",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K20",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L20",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I21",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J21",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K21",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L21",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I22",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J22",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K22",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L22",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I23",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J23",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K23",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L23",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I24",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J24",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K24",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L24",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I25",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J25",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K25",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L25",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I26",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J26",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K26",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L26",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I27",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J27",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K27",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L27",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I28",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J28",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K28",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L28",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "I29",
+      "python": "0.8",
+      "planilha": 0.8,
+      "delta": 0,
+      "tolerancia": 1.8e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J29",
+      "python": "32.00",
+      "planilha": 32,
+      "delta": 0,
+      "tolerancia": 0.000001000032,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K29",
+      "python": "48.00",
+      "planilha": 48,
+      "delta": 0,
+      "tolerancia": 0.000001000048,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L29",
+      "python": "80.0",
+      "planilha": 80,
+      "delta": 0,
+      "tolerancia": 0.00000100008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "H30",
+      "python": "2800",
+      "planilha": 2800,
+      "delta": 0,
+      "tolerancia": 0.0000010028,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "J30",
+      "python": "896.00",
+      "planilha": 896,
+      "delta": 0,
+      "tolerancia": 0.000001000896,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "K30",
+      "python": "1344.00",
+      "planilha": 1344,
+      "delta": 0,
+      "tolerancia": 0.000001001344,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "L30",
+      "python": "2240.0",
+      "planilha": 2240,
+      "delta": 0,
+      "tolerancia": 0.00000100224,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "M30",
+      "python": "0.4",
+      "planilha": 0.4,
+      "delta": 0,
+      "tolerancia": 1.4e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_uniforme",
+      "celula": "N30",
+      "python": "0.6",
+      "planilha": 0.6,
+      "delta": 0,
+      "tolerancia": 1.6e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I2",
+      "python": "0.8601398601398601398601398601",
+      "planilha": 0.8601398601398601,
+      "delta": 0,
+      "tolerancia": 1.86013986013986e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J2",
+      "python": "8.601398601398601398601398601",
+      "planilha": 8.6013986013986,
+      "delta": 1.7763568394002505e-15,
+      "tolerancia": 0.0000010000086013986013,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K2",
+      "python": "688.1118881118881118881118881",
+      "planilha": 688.1118881118881,
+      "delta": 0,
+      "tolerancia": 0.000001000688111888112,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L2",
+      "python": "860.1398601398601398601398601",
+      "planilha": 860.13986013986,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010008601398601399,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I3",
+      "python": "0.8839779005524861878453038674",
+      "planilha": 0.8839779005524862,
+      "delta": 0,
+      "tolerancia": 1.883977900552486e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J3",
+      "python": "19.44751381215469613259668508",
+      "planilha": 19.447513812154696,
+      "delta": 0,
+      "tolerancia": 0.0000010000194475138122,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K3",
+      "python": "768.1767955801104972375690607",
+      "planilha": 768.1767955801105,
+      "delta": 0,
+      "tolerancia": 0.0000010007681767955801,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L3",
+      "python": "972.3756906077348066298342541",
+      "planilha": 972.3756906077348,
+      "delta": 0,
+      "tolerancia": 0.0000010009723756906076,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I4",
+      "python": "0.8995433789954337899543378995",
+      "planilha": 0.8995433789954338,
+      "delta": 0,
+      "tolerancia": 1.8995433789954335e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J4",
+      "python": "32.38356164383561643835616437",
+      "planilha": 32.38356164383561,
+      "delta": 7.105427357601002e-15,
+      "tolerancia": 0.0000010000323835616438,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K4",
+      "python": "841.9726027397260273972602736",
+      "planilha": 841.9726027397261,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010008419726027398,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L4",
+      "python": "1079.452054794520547945205479",
+      "planilha": 1079.4520547945206,
+      "delta": 0,
+      "tolerancia": 0.0000010010794520547944,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I5",
+      "python": "0.9105058365758754863813229572",
+      "planilha": 0.9105058365758755,
+      "delta": 0,
+      "tolerancia": 1.9105058365758754e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J5",
+      "python": "47.34630350194552529182879376",
+      "planilha": 47.34630350194552,
+      "delta": 7.105427357601002e-15,
+      "tolerancia": 0.0000010000473463035018,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K5",
+      "python": "911.4163424124513618677042799",
+      "planilha": 911.4163424124513,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010009114163424124,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L5",
+      "python": "1183.657587548638132295719844",
+      "planilha": 1183.657587548638,
+      "delta": 0,
+      "tolerancia": 0.0000010011836575875486,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I6",
+      "python": "0.9186440677966101694915254237",
+      "planilha": 0.9186440677966101,
+      "delta": 0,
+      "tolerancia": 1.91864406779661e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J6",
+      "python": "64.30508474576271186440677965",
+      "planilha": 64.30508474576271,
+      "delta": 0,
+      "tolerancia": 0.0000010000643050847456,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K6",
+      "python": "977.4372881355932203389830507",
+      "planilha": 977.4372881355932,
+      "delta": 0,
+      "tolerancia": 0.0000010009774372881356,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L6",
+      "python": "1286.101694915254237288135593",
+      "planilha": 1286.1016949152543,
+      "delta": 0,
+      "tolerancia": 0.0000010012861016949153,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I7",
+      "python": "0.9249249249249249249249249249",
+      "planilha": 0.924924924924925,
+      "delta": 0,
+      "tolerancia": 1.9249249249249247e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J7",
+      "python": "83.24324324324324324324324322",
+      "planilha": 83.24324324324324,
+      "delta": 0,
+      "tolerancia": 0.0000010000832432432431,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K7",
+      "python": "1040.540540540540540540540540",
+      "planilha": 1040.5405405405406,
+      "delta": 0,
+      "tolerancia": 0.0000010010405405405406,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L7",
+      "python": "1387.387387387387387387387387",
+      "planilha": 1387.3873873873874,
+      "delta": 0,
+      "tolerancia": 0.0000010013873873873873,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I8",
+      "python": "0.9299191374663072776280323450",
+      "planilha": 0.9299191374663073,
+      "delta": 0,
+      "tolerancia": 1.929919137466307e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J8",
+      "python": "104.1509433962264150943396226",
+      "planilha": 104.15094339622642,
+      "delta": 1.4210854715202004e-14,
+      "tolerancia": 0.0000010001041509433963,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K8",
+      "python": "1101.024258760107816711590296",
+      "planilha": 1101.0242587601078,
+      "delta": 0,
+      "tolerancia": 0.00000100110102425876,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L8",
+      "python": "1487.870619946091644204851752",
+      "planilha": 1487.8706199460917,
+      "delta": 0,
+      "tolerancia": 0.000001001487870619946,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I9",
+      "python": "0.9339853300733496332518337408",
+      "planilha": 0.9339853300733496,
+      "delta": 0,
+      "tolerancia": 1.9339853300733496e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J9",
+      "python": "127.0220048899755501222493887",
+      "planilha": 127.02200488997555,
+      "delta": 0,
+      "tolerancia": 0.0000010001270220048899,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K9",
+      "python": "1159.075794621026894865525672",
+      "planilha": 1159.0757946210267,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.000001001159075794621,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L9",
+      "python": "1587.775061124694376528117359",
+      "planilha": 1587.7750611246943,
+      "delta": 0,
+      "tolerancia": 0.0000010015877750611247,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I10",
+      "python": "0.9373601789709172259507829978",
+      "planilha": 0.9373601789709173,
+      "delta": 0,
+      "tolerancia": 1.9373601789709175e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J10",
+      "python": "151.8523489932885906040268456",
+      "planilha": 151.8523489932886,
+      "delta": 0,
+      "tolerancia": 0.0000010001518523489933,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K10",
+      "python": "1214.818791946308724832214765",
+      "planilha": 1214.8187919463087,
+      "delta": 0,
+      "tolerancia": 0.0000010012148187919462,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L10",
+      "python": "1687.248322147651006711409396",
+      "planilha": 1687.2483221476512,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010016872483221476,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I11",
+      "python": "0.9402061855670103092783505155",
+      "planilha": 0.9402061855670103,
+      "delta": 0,
+      "tolerancia": 1.9402061855670103e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J11",
+      "python": "178.6391752577319587628865979",
+      "planilha": 178.63917525773195,
+      "delta": 0,
+      "tolerancia": 0.0000010001786391752578,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K11",
+      "python": "1268.338144329896907216494845",
+      "planilha": 1268.3381443298967,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.00000100126833814433,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L11",
+      "python": "1786.391752577319587628865979",
+      "planilha": 1786.3917525773195,
+      "delta": 0,
+      "tolerancia": 0.0000010017863917525773,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I12",
+      "python": "0.9426386233269598470363288719",
+      "planilha": 0.9426386233269598,
+      "delta": 0,
+      "tolerancia": 1.9426386233269597e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J12",
+      "python": "207.3804971319311663479923518",
+      "planilha": 207.38049713193115,
+      "delta": 2.842170943040401e-14,
+      "tolerancia": 0.000001000207380497132,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K12",
+      "python": "1319.694072657743785850860421",
+      "planilha": 1319.6940726577436,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010013196940726578,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L12",
+      "python": "1885.277246653919694072657744",
+      "planilha": 1885.2772466539195,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010018852772466538,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I13",
+      "python": "0.9447415329768270944741532977",
+      "planilha": 0.9447415329768271,
+      "delta": 0,
+      "tolerancia": 1.944741532976827e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J13",
+      "python": "238.0748663101604278074866310",
+      "planilha": 238.0748663101604,
+      "delta": 2.842170943040401e-14,
+      "tolerancia": 0.0000010002380748663102,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K13",
+      "python": "1368.930481283422459893048128",
+      "planilha": 1368.9304812834223,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010013689304812833,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L13",
+      "python": "1983.957219251336898395721925",
+      "planilha": 1983.9572192513367,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010019839572192513,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I14",
+      "python": "0.9465776293823038397328881469",
+      "planilha": 0.9465776293823038,
+      "delta": 0,
+      "tolerancia": 1.9465776293823037e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J14",
+      "python": "270.7212020033388981636060100",
+      "planilha": 270.7212020033389,
+      "delta": 0,
+      "tolerancia": 0.0000010002707212020033,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K14",
+      "python": "1416.080133555926544240400668",
+      "planilha": 1416.0801335559265,
+      "delta": 0,
+      "tolerancia": 0.0000010014160801335559,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L14",
+      "python": "2082.470784641068447412353923",
+      "planilha": 2082.4707846410683,
+      "delta": 0,
+      "tolerancia": 0.000001002082470784641,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I15",
+      "python": "0.9481946624803767660910518053",
+      "planilha": 0.9481946624803768,
+      "delta": 0,
+      "tolerancia": 1.948194662480377e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J15",
+      "python": "305.3186813186813186813186813",
+      "planilha": 305.31868131868134,
+      "delta": 0,
+      "tolerancia": 0.0000010003053186813186,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K15",
+      "python": "1461.167974882260596546310832",
+      "planilha": 1461.1679748822605,
+      "delta": 0,
+      "tolerancia": 0.0000010014611679748823,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L15",
+      "python": "2180.847723704866562009419152",
+      "planilha": 2180.8477237048664,
+      "delta": 0,
+      "tolerancia": 0.0000010021808477237047,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I16",
+      "python": "0.9496296296296296296296296296",
+      "planilha": 0.9496296296296296,
+      "delta": 0,
+      "tolerancia": 1.9496296296296295e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J16",
+      "python": "341.8666666666666666666666666",
+      "planilha": 341.8666666666666,
+      "delta": 5.684341886080802e-14,
+      "tolerancia": 0.0000010003418666666666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K16",
+      "python": "1504.213333333333333333333333",
+      "planilha": 1504.2133333333331,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010015042133333333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L16",
+      "python": "2279.111111111111111111111111",
+      "planilha": 2279.111111111111,
+      "delta": 4.547473508864641e-13,
+      "tolerancia": 0.000001002279111111111,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I17",
+      "python": "0.9509116409537166900420757363",
+      "planilha": 0.9509116409537167,
+      "delta": 0,
+      "tolerancia": 1.950911640953717e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J17",
+      "python": "380.3646563814866760168302946",
+      "planilha": 380.3646563814867,
+      "delta": 5.684341886080802e-14,
+      "tolerancia": 0.0000010003803646563814,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K17",
+      "python": "1545.231416549789621318373072",
+      "planilha": 1545.2314165497899,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010015452314165498,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L17",
+      "python": "2377.279102384291725105189341",
+      "planilha": 2377.279102384292,
+      "delta": 0,
+      "tolerancia": 0.0000010023772791023842,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I18",
+      "python": "0.9520639147802929427430093209",
+      "planilha": 0.952063914780293,
+      "delta": 0,
+      "tolerancia": 1.952063914780293e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J18",
+      "python": "420.8122503328894806924101198",
+      "planilha": 420.8122503328895,
+      "delta": 0,
+      "tolerancia": 0.0000010004208122503328,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K18",
+      "python": "1584.234354194407456724367510",
+      "planilha": 1584.2343541944074,
+      "delta": 0,
+      "tolerancia": 0.0000010015842343541943,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L18",
+      "python": "2475.366178428761651131824234",
+      "planilha": 2475.3661784287615,
+      "delta": 0,
+      "tolerancia": 0.0000010024753661784287,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I19",
+      "python": "0.9531051964512040557667934094",
+      "planilha": 0.9531051964512041,
+      "delta": 0,
+      "tolerancia": 1.953105196451204e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J19",
+      "python": "463.2091254752851711026615969",
+      "planilha": 463.20912547528513,
+      "delta": 5.684341886080802e-14,
+      "tolerancia": 0.0000010004632091254753,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K19",
+      "python": "1621.231939163498098859315589",
+      "planilha": 1621.231939163498,
+      "delta": 0,
+      "tolerancia": 0.0000010016212319391634,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L19",
+      "python": "2573.384030418250950570342205",
+      "planilha": 2573.384030418251,
+      "delta": 0,
+      "tolerancia": 0.0000010025733840304182,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I20",
+      "python": "0.9540507859733978234582829504",
+      "planilha": 0.9540507859733979,
+      "delta": 0,
+      "tolerancia": 1.9540507859733976e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J20",
+      "python": "507.5550181378476420798065296",
+      "planilha": 507.55501813784764,
+      "delta": 0,
+      "tolerancia": 0.0000010005075550181377,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K20",
+      "python": "1656.232164449818621523579202",
+      "planilha": 1656.2321644498186,
+      "delta": 0,
+      "tolerancia": 0.0000010016562321644497,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L20",
+      "python": "2671.342200725513905683192261",
+      "planilha": 2671.342200725514,
+      "delta": 0,
+      "tolerancia": 0.0000010026713422007254,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I21",
+      "python": "0.9549132947976878612716763006",
+      "planilha": 0.9549132947976878,
+      "delta": 0,
+      "tolerancia": 1.954913294797688e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J21",
+      "python": "553.8497109826589595375722544",
+      "planilha": 553.849710982659,
+      "delta": 0,
+      "tolerancia": 0.0000010005538497109827,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K21",
+      "python": "1689.241618497109826589595376",
+      "planilha": 1689.2416184971098,
+      "delta": 0,
+      "tolerancia": 0.000001001689241618497,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L21",
+      "python": "2769.248554913294797687861272",
+      "planilha": 2769.248554913295,
+      "delta": 0,
+      "tolerancia": 0.0000010027692485549133,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I22",
+      "python": "0.9557032115171650055370985604",
+      "planilha": 0.955703211517165,
+      "delta": 0,
+      "tolerancia": 1.955703211517165e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J22",
+      "python": "602.0930232558139534883720930",
+      "planilha": 602.0930232558139,
+      "delta": 0,
+      "tolerancia": 0.0000010006020930232558,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K22",
+      "python": "1720.265780730897009966777409",
+      "planilha": 1720.2657807308967,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010017202657807308,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L22",
+      "python": "2867.109634551495016611295681",
+      "planilha": 2867.1096345514948,
+      "delta": 4.547473508864641e-13,
+      "tolerancia": 0.0000010028671096345515,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I23",
+      "python": "0.9564293304994686503719447396",
+      "planilha": 0.9564293304994687,
+      "delta": 0,
+      "tolerancia": 1.9564293304994687e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J23",
+      "python": "652.2848034006376195536663125",
+      "planilha": 652.2848034006377,
+      "delta": 0,
+      "tolerancia": 0.0000010006522848034005,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K23",
+      "python": "1749.309245483528161530286929",
+      "planilha": 1749.309245483528,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010017493092454834,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L23",
+      "python": "2964.930924548352816153028693",
+      "planilha": 2964.930924548353,
+      "delta": 0,
+      "tolerancia": 0.0000010029649309245483,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I24",
+      "python": "0.9570990806945863125638406537",
+      "planilha": 0.9570990806945863,
+      "delta": 0,
+      "tolerancia": 1.9570990806945865e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J24",
+      "python": "704.4249233912155260469867212",
+      "planilha": 704.4249233912154,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010007044249233912,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K24",
+      "python": "1776.375893769152196118488253",
+      "planilha": 1776.3758937691518,
+      "delta": 4.547473508864641e-13,
+      "tolerancia": 0.000001001776375893769,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L24",
+      "python": "3062.717058222676200204290092",
+      "planilha": 3062.717058222676,
+      "delta": 4.547473508864641e-13,
+      "tolerancia": 0.0000010030627170582227,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I25",
+      "python": "0.9577187807276302851524090462",
+      "planilha": 0.9577187807276303,
+      "delta": 0,
+      "tolerancia": 1.95771878072763e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J25",
+      "python": "758.5132743362831858407079645",
+      "planilha": 758.5132743362831,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010007585132743362,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K25",
+      "python": "1801.469026548672566371681416",
+      "planilha": 1801.4690265486722,
+      "delta": 4.547473508864641e-13,
+      "tolerancia": 0.0000010018014690265486,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L25",
+      "python": "3160.471976401179941002949852",
+      "planilha": 3160.4719764011797,
+      "delta": 0,
+      "tolerancia": 0.0000010031604719764012,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I26",
+      "python": "0.9582938388625592417061611374",
+      "planilha": 0.9582938388625593,
+      "delta": 0,
+      "tolerancia": 1.9582938388625595e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J26",
+      "python": "814.5497630331753554502369668",
+      "planilha": 814.5497630331754,
+      "delta": 0,
+      "tolerancia": 0.000001000814549763033,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K26",
+      "python": "1824.591469194312796208530806",
+      "planilha": 1824.591469194313,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010018245914691942,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L26",
+      "python": "3258.199052132701421800947867",
+      "planilha": 3258.1990521327016,
+      "delta": 0,
+      "tolerancia": 0.0000010032581990521326,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I27",
+      "python": "0.9588289112534309240622140897",
+      "planilha": 0.958828911253431,
+      "delta": 0,
+      "tolerancia": 1.958828911253431e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J27",
+      "python": "872.5343092406221408966148216",
+      "planilha": 872.5343092406222,
+      "delta": 0,
+      "tolerancia": 0.0000010008725343092406,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K27",
+      "python": "1845.745654162854528819762123",
+      "planilha": 1845.7456541628546,
+      "delta": 0,
+      "tolerancia": 0.0000010018457456541628,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L27",
+      "python": "3355.901189387008234217749314",
+      "planilha": 3355.9011893870083,
+      "delta": 0,
+      "tolerancia": 0.000001003355901189387,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I28",
+      "python": "0.9593280282935455349248452697",
+      "planilha": 0.9593280282935456,
+      "delta": 0,
+      "tolerancia": 1.9593280282935456e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J28",
+      "python": "932.4668435013262599469496022",
+      "planilha": 932.4668435013264,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010009324668435013,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K28",
+      "python": "1864.933687002652519893899204",
+      "planilha": 1864.9336870026527,
+      "delta": 2.2737367544323206e-13,
+      "tolerancia": 0.0000010018649336870026,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L28",
+      "python": "3453.580901856763925729442971",
+      "planilha": 3453.5809018567643,
+      "delta": 4.547473508864641e-13,
+      "tolerancia": 0.0000010034535809018567,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "I29",
+      "python": "0.9597946963216424294268605646",
+      "planilha": 0.9597946963216424,
+      "delta": 0,
+      "tolerancia": 1.9597946963216425e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J29",
+      "python": "994.3473053892215568862275449",
+      "planilha": 994.3473053892217,
+      "delta": 1.1368683772161603e-13,
+      "tolerancia": 0.0000010009943473053892,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K29",
+      "python": "1882.157399486740804106073567",
+      "planilha": 1882.1573994867408,
+      "delta": 0,
+      "tolerancia": 0.0000010018821573994866,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L29",
+      "python": "3551.240376390076988879384089",
+      "planilha": 3551.240376390077,
+      "delta": 0,
+      "tolerancia": 0.00000100355124037639,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "H30",
+      "python": "65800",
+      "planilha": 65800,
+      "delta": 0,
+      "tolerancia": 0.0000010658,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "J30",
+      "python": "10837.35849837480491415864868",
+      "planilha": 10837.358498374804,
+      "delta": 0,
+      "tolerancia": 0.0000010108373584983748,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "K30",
+      "python": "39602.01809212377103079067851",
+      "planilha": 39602.01809212377,
+      "delta": 0,
+      "tolerancia": 0.0000010396020180921238,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "L30",
+      "python": "62270.83529691182215425842860",
+      "planilha": 62270.83529691183,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010622708352969117,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "M30",
+      "python": "0.1740358620002686652181846639",
+      "planilha": 0.17403586200026863,
+      "delta": 2.7755575615628914e-17,
+      "tolerancia": 1.1740358620002686e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_heterogeneo_parcial",
+      "celula": "N30",
+      "python": "0.6359641379997313347818153364",
+      "planilha": 0.6359641379997313,
+      "delta": 0,
+      "tolerancia": 1.6359641379997312e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I2",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J2",
+      "python": "33333.66666633333",
+      "planilha": 33333.66666633333,
+      "delta": 0,
+      "tolerancia": 0.0000010333336666663334,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K2",
+      "python": "66667.33333366667",
+      "planilha": 66667.33333366667,
+      "delta": 0,
+      "tolerancia": 0.0000010666673333336667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L2",
+      "python": "100001",
+      "planilha": 100001,
+      "delta": 0,
+      "tolerancia": 0.0000011000009999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I3",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J3",
+      "python": "33333.99999966666",
+      "planilha": 33333.99999966666,
+      "delta": 0,
+      "tolerancia": 0.0000010333339999996667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K3",
+      "python": "66668.00000033334",
+      "planilha": 66668.00000033334,
+      "delta": 0,
+      "tolerancia": 0.0000010666680000003334,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L3",
+      "python": "100002",
+      "planilha": 100002,
+      "delta": 0,
+      "tolerancia": 0.000001100002,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I4",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J4",
+      "python": "33334.33333299999",
+      "planilha": 33334.33333299999,
+      "delta": 0,
+      "tolerancia": 0.000001033334333333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K4",
+      "python": "66668.66666700001",
+      "planilha": 66668.66666700001,
+      "delta": 0,
+      "tolerancia": 0.000001066668666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L4",
+      "python": "100003",
+      "planilha": 100003,
+      "delta": 0,
+      "tolerancia": 0.000001100003,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I5",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J5",
+      "python": "33334.66666633332",
+      "planilha": 33334.666666333316,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333346666663334,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K5",
+      "python": "66669.33333366668",
+      "planilha": 66669.33333366667,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.0000010666693333336665,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L5",
+      "python": "100004",
+      "planilha": 100004,
+      "delta": 0,
+      "tolerancia": 0.000001100004,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I6",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J6",
+      "python": "33334.99999966665",
+      "planilha": 33334.999999666645,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333349999996665,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K6",
+      "python": "66670.00000033335",
+      "planilha": 66670.00000033334,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.0000010666700000003332,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L6",
+      "python": "100005",
+      "planilha": 100005,
+      "delta": 0,
+      "tolerancia": 0.000001100005,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I7",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J7",
+      "python": "33335.33333299998",
+      "planilha": 33335.33333299998,
+      "delta": 0,
+      "tolerancia": 0.0000010333353333329999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K7",
+      "python": "66670.66666700002",
+      "planilha": 66670.66666700001,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.000001066670666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L7",
+      "python": "100006",
+      "planilha": 100006,
+      "delta": 0,
+      "tolerancia": 0.000001100006,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I8",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J8",
+      "python": "33335.66666633331",
+      "planilha": 33335.66666633331,
+      "delta": 0,
+      "tolerancia": 0.0000010333356666663332,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K8",
+      "python": "66671.33333366669",
+      "planilha": 66671.33333366668,
+      "delta": 0,
+      "tolerancia": 0.0000010666713333336666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L8",
+      "python": "100007",
+      "planilha": 100007,
+      "delta": 0,
+      "tolerancia": 0.000001100007,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I9",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J9",
+      "python": "33335.99999966664",
+      "planilha": 33335.99999966664,
+      "delta": 0,
+      "tolerancia": 0.0000010333359999996665,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K9",
+      "python": "66672.00000033336",
+      "planilha": 66672.00000033336,
+      "delta": 0,
+      "tolerancia": 0.0000010666720000003333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L9",
+      "python": "100008",
+      "planilha": 100008,
+      "delta": 0,
+      "tolerancia": 0.0000011000079999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I10",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J10",
+      "python": "33336.33333299997",
+      "planilha": 33336.333332999966,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333363333329999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K10",
+      "python": "66672.66666700003",
+      "planilha": 66672.66666700003,
+      "delta": 0,
+      "tolerancia": 0.000001066672666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L10",
+      "python": "100009",
+      "planilha": 100009,
+      "delta": 0,
+      "tolerancia": 0.0000011000089999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I11",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J11",
+      "python": "33336.66666633330",
+      "planilha": 33336.6666663333,
+      "delta": 0,
+      "tolerancia": 0.0000010333366666663332,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K11",
+      "python": "66673.33333366670",
+      "planilha": 66673.3333336667,
+      "delta": 0,
+      "tolerancia": 0.0000010666733333336666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L11",
+      "python": "100010",
+      "planilha": 100010,
+      "delta": 0,
+      "tolerancia": 0.00000110001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I12",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J12",
+      "python": "33336.99999966663",
+      "planilha": 33336.99999966663,
+      "delta": 0,
+      "tolerancia": 0.0000010333369999996666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K12",
+      "python": "66674.00000033337",
+      "planilha": 66674.00000033337,
+      "delta": 0,
+      "tolerancia": 0.0000010666740000003333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L12",
+      "python": "100011",
+      "planilha": 100011,
+      "delta": 0,
+      "tolerancia": 0.000001100011,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I13",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J13",
+      "python": "33337.33333299996",
+      "planilha": 33337.33333299996,
+      "delta": 0,
+      "tolerancia": 0.000001033337333333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K13",
+      "python": "66674.66666700004",
+      "planilha": 66674.66666700004,
+      "delta": 0,
+      "tolerancia": 0.000001066674666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L13",
+      "python": "100012",
+      "planilha": 100012,
+      "delta": 0,
+      "tolerancia": 0.000001100012,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I14",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J14",
+      "python": "33337.66666633329",
+      "planilha": 33337.66666633329,
+      "delta": 0,
+      "tolerancia": 0.0000010333376666663333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K14",
+      "python": "66675.33333366671",
+      "planilha": 66675.33333366671,
+      "delta": 0,
+      "tolerancia": 0.0000010666753333336667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L14",
+      "python": "100013",
+      "planilha": 100013,
+      "delta": 0,
+      "tolerancia": 0.000001100013,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I15",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J15",
+      "python": "33337.99999966662",
+      "planilha": 33337.999999666616,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333379999996666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K15",
+      "python": "66676.00000033338",
+      "planilha": 66676.00000033337,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.0000010666760000003334,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L15",
+      "python": "100014",
+      "planilha": 100014,
+      "delta": 0,
+      "tolerancia": 0.000001100014,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I16",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J16",
+      "python": "33338.33333299995",
+      "planilha": 33338.33333299995,
+      "delta": 0,
+      "tolerancia": 0.000001033338333333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K16",
+      "python": "66676.66666700005",
+      "planilha": 66676.66666700004,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.000001066676666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L16",
+      "python": "100015",
+      "planilha": 100015,
+      "delta": 0,
+      "tolerancia": 0.000001100015,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I17",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J17",
+      "python": "33338.66666633328",
+      "planilha": 33338.66666633328,
+      "delta": 0,
+      "tolerancia": 0.0000010333386666663333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K17",
+      "python": "66677.33333366672",
+      "planilha": 66677.33333366671,
+      "delta": 0,
+      "tolerancia": 0.0000010666773333336667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L17",
+      "python": "100016",
+      "planilha": 100016,
+      "delta": 0,
+      "tolerancia": 0.0000011000159999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I18",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J18",
+      "python": "33338.99999966661",
+      "planilha": 33338.99999966661,
+      "delta": 0,
+      "tolerancia": 0.0000010333389999996666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K18",
+      "python": "66678.00000033339",
+      "planilha": 66678.00000033338,
+      "delta": 0,
+      "tolerancia": 0.0000010666780000003334,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L18",
+      "python": "100017",
+      "planilha": 100017,
+      "delta": 0,
+      "tolerancia": 0.0000011000169999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I19",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J19",
+      "python": "33339.33333299994",
+      "planilha": 33339.33333299994,
+      "delta": 0,
+      "tolerancia": 0.000001033339333333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K19",
+      "python": "66678.66666700006",
+      "planilha": 66678.66666700006,
+      "delta": 0,
+      "tolerancia": 0.0000010666786666670001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L19",
+      "python": "100018",
+      "planilha": 100018,
+      "delta": 0,
+      "tolerancia": 0.000001100018,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I20",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J20",
+      "python": "33339.66666633327",
+      "planilha": 33339.666666333265,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333396666663333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K20",
+      "python": "66679.33333366673",
+      "planilha": 66679.33333366673,
+      "delta": 0,
+      "tolerancia": 0.0000010666793333336666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L20",
+      "python": "100019",
+      "planilha": 100019,
+      "delta": 0,
+      "tolerancia": 0.000001100019,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I21",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J21",
+      "python": "33339.99999966660",
+      "planilha": 33339.9999996666,
+      "delta": 0,
+      "tolerancia": 0.0000010333399999996667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K21",
+      "python": "66680.00000033340",
+      "planilha": 66680.0000003334,
+      "delta": 0,
+      "tolerancia": 0.0000010666800000003333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L21",
+      "python": "100020",
+      "planilha": 100020,
+      "delta": 0,
+      "tolerancia": 0.00000110002,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I22",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J22",
+      "python": "33340.33333299993",
+      "planilha": 33340.33333299993,
+      "delta": 0,
+      "tolerancia": 0.0000010333403333329998,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K22",
+      "python": "66680.66666700007",
+      "planilha": 66680.66666700007,
+      "delta": 0,
+      "tolerancia": 0.000001066680666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L22",
+      "python": "100021",
+      "planilha": 100021,
+      "delta": 0,
+      "tolerancia": 0.000001100021,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I23",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J23",
+      "python": "33340.66666633326",
+      "planilha": 33340.66666633326,
+      "delta": 0,
+      "tolerancia": 0.0000010333406666663331,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K23",
+      "python": "66681.33333366674",
+      "planilha": 66681.33333366674,
+      "delta": 0,
+      "tolerancia": 0.0000010666813333336666,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L23",
+      "python": "100022",
+      "planilha": 100022,
+      "delta": 0,
+      "tolerancia": 0.000001100022,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I24",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J24",
+      "python": "33340.99999966659",
+      "planilha": 33340.99999966659,
+      "delta": 0,
+      "tolerancia": 0.0000010333409999996665,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K24",
+      "python": "66682.00000033341",
+      "planilha": 66682.00000033341,
+      "delta": 0,
+      "tolerancia": 0.0000010666820000003333,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L24",
+      "python": "100023",
+      "planilha": 100023,
+      "delta": 0,
+      "tolerancia": 0.000001100023,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I25",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J25",
+      "python": "33341.33333299992",
+      "planilha": 33341.333332999915,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333413333329998,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K25",
+      "python": "66682.66666700008",
+      "planilha": 66682.66666700007,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.000001066682666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L25",
+      "python": "100024",
+      "planilha": 100024,
+      "delta": 0,
+      "tolerancia": 0.0000011000239999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I26",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J26",
+      "python": "33341.66666633325",
+      "planilha": 33341.66666633325,
+      "delta": 0,
+      "tolerancia": 0.0000010333416666663332,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K26",
+      "python": "66683.33333366675",
+      "planilha": 66683.33333366674,
+      "delta": 1.4551915228366852e-11,
+      "tolerancia": 0.0000010666833333336667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L26",
+      "python": "100025",
+      "planilha": 100025,
+      "delta": 0,
+      "tolerancia": 0.000001100025,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I27",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J27",
+      "python": "33341.99999966658",
+      "planilha": 33341.99999966658,
+      "delta": 0,
+      "tolerancia": 0.0000010333419999996665,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K27",
+      "python": "66684.00000033342",
+      "planilha": 66684.00000033341,
+      "delta": 0,
+      "tolerancia": 0.0000010666840000003334,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L27",
+      "python": "100026",
+      "planilha": 100026,
+      "delta": 0,
+      "tolerancia": 0.000001100026,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I28",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J28",
+      "python": "33342.33333299991",
+      "planilha": 33342.33333299991,
+      "delta": 0,
+      "tolerancia": 0.0000010333423333329998,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K28",
+      "python": "66684.66666700009",
+      "planilha": 66684.66666700008,
+      "delta": 0,
+      "tolerancia": 0.000001066684666667,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L28",
+      "python": "100027",
+      "planilha": 100027,
+      "delta": 0,
+      "tolerancia": 0.000001100027,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "I29",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J29",
+      "python": "33342.66666633324",
+      "planilha": 33342.666666333236,
+      "delta": 7.275957614183426e-12,
+      "tolerancia": 0.0000010333426666663332,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K29",
+      "python": "66685.33333366676",
+      "planilha": 66685.33333366676,
+      "delta": 0,
+      "tolerancia": 0.0000010666853333336668,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L29",
+      "python": "100028",
+      "planilha": 100028,
+      "delta": 0,
+      "tolerancia": 0.000001100028,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "H30",
+      "python": "2800406",
+      "planilha": 2800406,
+      "delta": 0,
+      "tolerancia": 0.000003800406,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "J30",
+      "python": "933468.66665733198",
+      "planilha": 933468.6666573319,
+      "delta": 1.1641532182693481e-10,
+      "tolerancia": 0.000001933468666657332,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "K30",
+      "python": "1866937.33334266802",
+      "planilha": 1866937.3333426681,
+      "delta": 0,
+      "tolerancia": 0.0000028669373333426683,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "L30",
+      "python": "2800406",
+      "planilha": 2800406,
+      "delta": 0,
+      "tolerancia": 0.000003800406,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "M30",
+      "python": "0.33333333333",
+      "planilha": 0.33333333333,
+      "delta": 0,
+      "tolerancia": 1.33333333333e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_comparecimento_total",
+      "celula": "N30",
+      "python": "0.66666666667",
+      "planilha": 0.6666666666700001,
+      "delta": 1.1102230246251565e-16,
+      "tolerancia": 1.66666666667e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I2",
+      "python": "0.009900990099009900990099009901",
+      "planilha": 0.009900990099009901,
+      "delta": 0,
+      "tolerancia": 1.0099009900990099e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J2",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K2",
+      "python": "1.000000000000000000000000000",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 0.000001000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L2",
+      "python": "1.000000000000000000000000000",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 0.000001000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I3",
+      "python": "0.01960784313725490196078431373",
+      "planilha": 0.0196078431372549,
+      "delta": 0,
+      "tolerancia": 1.019607843137255e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J3",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K3",
+      "python": "2.000000000000000000000000000",
+      "planilha": 2,
+      "delta": 0,
+      "tolerancia": 0.000001000002,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L3",
+      "python": "2.000000000000000000000000000",
+      "planilha": 2,
+      "delta": 0,
+      "tolerancia": 0.000001000002,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I4",
+      "python": "0.02912621359223300970873786408",
+      "planilha": 0.02912621359223301,
+      "delta": 0,
+      "tolerancia": 1.029126213592233e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J4",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K4",
+      "python": "3.000000000000000000000000000",
+      "planilha": 3,
+      "delta": 0,
+      "tolerancia": 0.000001000003,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L4",
+      "python": "3.000000000000000000000000000",
+      "planilha": 3,
+      "delta": 0,
+      "tolerancia": 0.000001000003,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I5",
+      "python": "0.03846153846153846153846153846",
+      "planilha": 0.038461538461538464,
+      "delta": 0,
+      "tolerancia": 1.0384615384615384e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J5",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K5",
+      "python": "4.000000000000000000000000000",
+      "planilha": 4,
+      "delta": 0,
+      "tolerancia": 0.0000010000039999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L5",
+      "python": "4.000000000000000000000000000",
+      "planilha": 4,
+      "delta": 0,
+      "tolerancia": 0.0000010000039999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I6",
+      "python": "0.04761904761904761904761904762",
+      "planilha": 0.047619047619047616,
+      "delta": 0,
+      "tolerancia": 1.0476190476190476e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J6",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K6",
+      "python": "5.000000000000000000000000000",
+      "planilha": 5,
+      "delta": 0,
+      "tolerancia": 0.0000010000049999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L6",
+      "python": "5.000000000000000000000000000",
+      "planilha": 5,
+      "delta": 0,
+      "tolerancia": 0.0000010000049999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I7",
+      "python": "0.05660377358490566037735849057",
+      "planilha": 0.05660377358490566,
+      "delta": 0,
+      "tolerancia": 1.0566037735849057e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J7",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K7",
+      "python": "6.000000000000000000000000000",
+      "planilha": 6,
+      "delta": 0,
+      "tolerancia": 0.000001000006,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L7",
+      "python": "6.000000000000000000000000000",
+      "planilha": 6,
+      "delta": 0,
+      "tolerancia": 0.000001000006,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I8",
+      "python": "0.06542056074766355140186915888",
+      "planilha": 0.06542056074766354,
+      "delta": 0,
+      "tolerancia": 1.0654205607476636e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J8",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K8",
+      "python": "7.000000000000000000000000000",
+      "planilha": 6.999999999999999,
+      "delta": 8.881784197001252e-16,
+      "tolerancia": 0.000001000007,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L8",
+      "python": "7.000000000000000000000000000",
+      "planilha": 6.999999999999999,
+      "delta": 8.881784197001252e-16,
+      "tolerancia": 0.000001000007,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I9",
+      "python": "0.07407407407407407407407407407",
+      "planilha": 0.07407407407407407,
+      "delta": 0,
+      "tolerancia": 1.0740740740740741e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J9",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K9",
+      "python": "8.000000000000000000000000000",
+      "planilha": 8,
+      "delta": 0,
+      "tolerancia": 0.000001000008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L9",
+      "python": "8.000000000000000000000000000",
+      "planilha": 8,
+      "delta": 0,
+      "tolerancia": 0.000001000008,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I10",
+      "python": "0.08256880733944954128440366972",
+      "planilha": 0.08256880733944955,
+      "delta": 0,
+      "tolerancia": 1.0825688073394496e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J10",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K10",
+      "python": "8.999999999999999999999999999",
+      "planilha": 9,
+      "delta": 0,
+      "tolerancia": 0.000001000009,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L10",
+      "python": "8.999999999999999999999999999",
+      "planilha": 9,
+      "delta": 0,
+      "tolerancia": 0.000001000009,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I11",
+      "python": "0.09090909090909090909090909091",
+      "planilha": 0.09090909090909091,
+      "delta": 0,
+      "tolerancia": 1.090909090909091e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J11",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K11",
+      "python": "10.00000000000000000000000000",
+      "planilha": 10,
+      "delta": 0,
+      "tolerancia": 0.00000100001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L11",
+      "python": "10.00000000000000000000000000",
+      "planilha": 10,
+      "delta": 0,
+      "tolerancia": 0.00000100001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I12",
+      "python": "0.09909909909909909909909909910",
+      "planilha": 0.0990990990990991,
+      "delta": 0,
+      "tolerancia": 1.099099099099099e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J12",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K12",
+      "python": "11.00000000000000000000000000",
+      "planilha": 11,
+      "delta": 0,
+      "tolerancia": 0.000001000011,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L12",
+      "python": "11.00000000000000000000000000",
+      "planilha": 11,
+      "delta": 0,
+      "tolerancia": 0.000001000011,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I13",
+      "python": "0.1071428571428571428571428571",
+      "planilha": 0.10714285714285714,
+      "delta": 0,
+      "tolerancia": 1.1071428571428572e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J13",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K13",
+      "python": "12.00000000000000000000000000",
+      "planilha": 12,
+      "delta": 0,
+      "tolerancia": 0.0000010000119999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L13",
+      "python": "12.00000000000000000000000000",
+      "planilha": 12,
+      "delta": 0,
+      "tolerancia": 0.0000010000119999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I14",
+      "python": "0.1150442477876106194690265487",
+      "planilha": 0.11504424778761062,
+      "delta": 0,
+      "tolerancia": 1.1150442477876106e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J14",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K14",
+      "python": "13.00000000000000000000000000",
+      "planilha": 13,
+      "delta": 0,
+      "tolerancia": 0.0000010000129999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L14",
+      "python": "13.00000000000000000000000000",
+      "planilha": 13,
+      "delta": 0,
+      "tolerancia": 0.0000010000129999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I15",
+      "python": "0.1228070175438596491228070175",
+      "planilha": 0.12280701754385964,
+      "delta": 0,
+      "tolerancia": 1.1228070175438596e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J15",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K15",
+      "python": "14.00000000000000000000000000",
+      "planilha": 14,
+      "delta": 0,
+      "tolerancia": 0.000001000014,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L15",
+      "python": "14.00000000000000000000000000",
+      "planilha": 14,
+      "delta": 0,
+      "tolerancia": 0.000001000014,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I16",
+      "python": "0.1304347826086956521739130435",
+      "planilha": 0.13043478260869565,
+      "delta": 0,
+      "tolerancia": 1.1304347826086956e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J16",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K16",
+      "python": "15.00000000000000000000000000",
+      "planilha": 15,
+      "delta": 0,
+      "tolerancia": 0.000001000015,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L16",
+      "python": "15.00000000000000000000000000",
+      "planilha": 15,
+      "delta": 0,
+      "tolerancia": 0.000001000015,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I17",
+      "python": "0.1379310344827586206896551724",
+      "planilha": 0.13793103448275862,
+      "delta": 0,
+      "tolerancia": 1.1379310344827585e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J17",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K17",
+      "python": "16.00000000000000000000000000",
+      "planilha": 16,
+      "delta": 0,
+      "tolerancia": 0.000001000016,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L17",
+      "python": "16.00000000000000000000000000",
+      "planilha": 16,
+      "delta": 0,
+      "tolerancia": 0.000001000016,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I18",
+      "python": "0.1452991452991452991452991453",
+      "planilha": 0.1452991452991453,
+      "delta": 0,
+      "tolerancia": 1.1452991452991454e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J18",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K18",
+      "python": "17.00000000000000000000000000",
+      "planilha": 17,
+      "delta": 0,
+      "tolerancia": 0.000001000017,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L18",
+      "python": "17.00000000000000000000000000",
+      "planilha": 17,
+      "delta": 0,
+      "tolerancia": 0.000001000017,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I19",
+      "python": "0.1525423728813559322033898305",
+      "planilha": 0.15254237288135594,
+      "delta": 0,
+      "tolerancia": 1.152542372881356e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J19",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K19",
+      "python": "18.00000000000000000000000000",
+      "planilha": 18,
+      "delta": 0,
+      "tolerancia": 0.000001000018,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L19",
+      "python": "18.00000000000000000000000000",
+      "planilha": 18,
+      "delta": 0,
+      "tolerancia": 0.000001000018,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I20",
+      "python": "0.1596638655462184873949579832",
+      "planilha": 0.15966386554621848,
+      "delta": 0,
+      "tolerancia": 1.1596638655462184e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J20",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K20",
+      "python": "19.00000000000000000000000000",
+      "planilha": 19,
+      "delta": 0,
+      "tolerancia": 0.000001000019,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L20",
+      "python": "19.00000000000000000000000000",
+      "planilha": 19,
+      "delta": 0,
+      "tolerancia": 0.000001000019,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I21",
+      "python": "0.1666666666666666666666666667",
+      "planilha": 0.16666666666666666,
+      "delta": 0,
+      "tolerancia": 1.1666666666666667e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J21",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K21",
+      "python": "20.00000000000000000000000000",
+      "planilha": 20,
+      "delta": 0,
+      "tolerancia": 0.0000010000199999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L21",
+      "python": "20.00000000000000000000000000",
+      "planilha": 20,
+      "delta": 0,
+      "tolerancia": 0.0000010000199999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I22",
+      "python": "0.1735537190082644628099173554",
+      "planilha": 0.17355371900826447,
+      "delta": 0,
+      "tolerancia": 1.1735537190082644e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J22",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K22",
+      "python": "21.00000000000000000000000000",
+      "planilha": 21,
+      "delta": 0,
+      "tolerancia": 0.000001000021,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L22",
+      "python": "21.00000000000000000000000000",
+      "planilha": 21,
+      "delta": 0,
+      "tolerancia": 0.000001000021,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I23",
+      "python": "0.1803278688524590163934426230",
+      "planilha": 0.18032786885245902,
+      "delta": 0,
+      "tolerancia": 1.180327868852459e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J23",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K23",
+      "python": "22.00000000000000000000000001",
+      "planilha": 22,
+      "delta": 0,
+      "tolerancia": 0.000001000022,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L23",
+      "python": "22.00000000000000000000000001",
+      "planilha": 22,
+      "delta": 0,
+      "tolerancia": 0.000001000022,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I24",
+      "python": "0.1869918699186991869918699187",
+      "planilha": 0.18699186991869918,
+      "delta": 0,
+      "tolerancia": 1.1869918699186992e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J24",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K24",
+      "python": "23.00000000000000000000000000",
+      "planilha": 23,
+      "delta": 0,
+      "tolerancia": 0.000001000023,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L24",
+      "python": "23.00000000000000000000000000",
+      "planilha": 23,
+      "delta": 0,
+      "tolerancia": 0.000001000023,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I25",
+      "python": "0.1935483870967741935483870968",
+      "planilha": 0.1935483870967742,
+      "delta": 0,
+      "tolerancia": 1.1935483870967743e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J25",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K25",
+      "python": "24.00000000000000000000000000",
+      "planilha": 24,
+      "delta": 0,
+      "tolerancia": 0.000001000024,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L25",
+      "python": "24.00000000000000000000000000",
+      "planilha": 24,
+      "delta": 0,
+      "tolerancia": 0.000001000024,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I26",
+      "python": "0.2",
+      "planilha": 0.2,
+      "delta": 0,
+      "tolerancia": 1.2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J26",
+      "python": "0.0",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K26",
+      "python": "25.0",
+      "planilha": 25,
+      "delta": 0,
+      "tolerancia": 0.000001000025,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L26",
+      "python": "25.0",
+      "planilha": 25,
+      "delta": 0,
+      "tolerancia": 0.000001000025,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I27",
+      "python": "0.2063492063492063492063492063",
+      "planilha": 0.20634920634920634,
+      "delta": 0,
+      "tolerancia": 1.2063492063492063e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J27",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K27",
+      "python": "25.99999999999999999999999999",
+      "planilha": 26,
+      "delta": 0,
+      "tolerancia": 0.000001000026,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L27",
+      "python": "25.99999999999999999999999999",
+      "planilha": 26,
+      "delta": 0,
+      "tolerancia": 0.000001000026,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I28",
+      "python": "0.2125984251968503937007874016",
+      "planilha": 0.2125984251968504,
+      "delta": 0,
+      "tolerancia": 1.2125984251968504e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J28",
+      "python": "0E-26",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K28",
+      "python": "27.00000000000000000000000000",
+      "planilha": 27,
+      "delta": 0,
+      "tolerancia": 0.0000010000269999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L28",
+      "python": "27.00000000000000000000000000",
+      "planilha": 27,
+      "delta": 0,
+      "tolerancia": 0.0000010000269999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "I29",
+      "python": "0.21875",
+      "planilha": 0.21875,
+      "delta": 0,
+      "tolerancia": 1.21875e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J29",
+      "python": "0.00000",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K29",
+      "python": "28.00000",
+      "planilha": 28,
+      "delta": 0,
+      "tolerancia": 0.0000010000279999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L29",
+      "python": "28.00000",
+      "planilha": 28,
+      "delta": 0,
+      "tolerancia": 0.0000010000279999999999,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "H30",
+      "python": "3206",
+      "planilha": 3206,
+      "delta": 0,
+      "tolerancia": 0.000001003206,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "J30",
+      "python": "0E-27",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 0.000001,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "K30",
+      "python": "406.0000000000000000000000000",
+      "planilha": 406,
+      "delta": 0,
+      "tolerancia": 0.000001000406,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "L30",
+      "python": "406.0000000000000000000000000",
+      "planilha": 406,
+      "delta": 0,
+      "tolerancia": 0.000001000406,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "M30",
+      "python": "0.00",
+      "planilha": 0,
+      "delta": 0,
+      "tolerancia": 1e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "ficticio_candidato_zero",
+      "celula": "N30",
+      "python": "1",
+      "planilha": 1,
+      "delta": 0,
+      "tolerancia": 2e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I2",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J2",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K2",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L2",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I3",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J3",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K3",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L3",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I4",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J4",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K4",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L4",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I5",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J5",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K5",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L5",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I6",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J6",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K6",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L6",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I7",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J7",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K7",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L7",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I8",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J8",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K8",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L8",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I9",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J9",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K9",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L9",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I10",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J10",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K10",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L10",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I11",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J11",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K11",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L11",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I12",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J12",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K12",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L12",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I13",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J13",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K13",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L13",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I14",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J14",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K14",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L14",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I15",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J15",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K15",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L15",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I16",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J16",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K16",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L16",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I17",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J17",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K17",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L17",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I18",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J18",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K18",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L18",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I19",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J19",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K19",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L19",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I20",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J20",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K20",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L20",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I21",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J21",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K21",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L21",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I22",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J22",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K22",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L22",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I23",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J23",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K23",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L23",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I24",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J24",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K24",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L24",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I25",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J25",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K25",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L25",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I26",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J26",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K26",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L26",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I27",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J27",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K27",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L27",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I28",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J28",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K28",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L28",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "I29",
+      "python": "0.7956600656301833669522372593",
+      "planilha": 0.7956600656301833,
+      "delta": 0,
+      "tolerancia": 1.7956600656301832e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J29",
+      "python": "140304.8485712524000000000000",
+      "planilha": 140304.8485712524,
+      "delta": 0,
+      "tolerancia": 0.0000011403048485712523,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K29",
+      "python": "315242.9344918406000000000000",
+      "planilha": 315242.9344918406,
+      "delta": 0,
+      "tolerancia": 0.0000013152429344918405,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L29",
+      "python": "488330.0000000000000000000000",
+      "planilha": 488330,
+      "delta": 0,
+      "tolerancia": 0.00000148833,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "H30",
+      "python": "17184776",
+      "planilha": 17184776,
+      "delta": 0,
+      "tolerancia": 0.000018184776,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "J30",
+      "python": "3928535.759995067200000000000",
+      "planilha": 3928535.7599950684,
+      "delta": 1.3969838619232178e-9,
+      "tolerancia": 0.0000049285357599950665,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "K30",
+      "python": "8826802.165771536800000000000",
+      "planilha": 8826802.165771533,
+      "delta": 3.725290298461914e-9,
+      "tolerancia": 0.000009826802165771537,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "L30",
+      "python": "13673240.00000000000000000000",
+      "planilha": 13673240,
+      "delta": 0,
+      "tolerancia": 0.00001467324,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "M30",
+      "python": "0.28731564428",
+      "planilha": 0.2873156442800001,
+      "delta": 1.1102230246251565e-16,
+      "tolerancia": 1.28731564428e-12,
+      "aprovado": true
+    },
+    {
+      "caso": "acre_1T_replicado_28_vezes_APENAS_TESTE",
+      "celula": "N30",
+      "python": "0.64555307782",
+      "planilha": 0.6455530778199997,
+      "delta": 3.3306690738754696e-16,
+      "tolerancia": 1.64555307782e-12,
+      "aprovado": true
+    }
+  ]
+}

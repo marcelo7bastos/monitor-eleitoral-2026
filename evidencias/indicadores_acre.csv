@@ -1,0 +1,11 @@
+eleicao;turno;uf;indicador;campo;unidade;tse;python;conferencia;data_fonte;hora_fonte;sha256
+6257;1;AC;comparecimento;e.c;pessoas;488330;488330;exato;05/10/2026;12:51:40;c67559bc6e31b503162fcdd74604f00ce877efc4b90d7fdea8b48a0e634b4b0e
+6257;1;AC;abstencao;e.a;pessoas;125412;125412;exato;05/10/2026;12:51:40;c67559bc6e31b503162fcdd74604f00ce877efc4b90d7fdea8b48a0e634b4b0e
+6257;1;AC;eleitorado_apto;e.te;pessoas;613742;613742;exato;05/10/2026;12:51:40;c67559bc6e31b503162fcdd74604f00ce877efc4b90d7fdea8b48a0e634b4b0e
+6257;1;AC;percentual_lula;carg[].agr[].par[].cand[].pvap;percentual 0..100;28.73;28.73;conferido com votos/v.vvc quando denominador > 0;05/10/2026;12:51:40;c67559bc6e31b503162fcdd74604f00ce877efc4b90d7fdea8b48a0e634b4b0e
+6257;1;AC;percentual_flavio;carg[].agr[].par[].cand[].pvap;percentual 0..100;64.56;64.56;conferido com votos/v.vvc quando denominador > 0;05/10/2026;12:51:40;c67559bc6e31b503162fcdd74604f00ce877efc4b90d7fdea8b48a0e634b4b0e
+6258;2;AC;comparecimento;e.c;pessoas;0;0;exato;13/10/2026;17:42:47;a7e2cd664292bf75d6e2688069bf077c6b47799c00624c95e2f1d90ddbfbd79a
+6258;2;AC;abstencao;e.a;pessoas;0;0;exato;13/10/2026;17:42:47;a7e2cd664292bf75d6e2688069bf077c6b47799c00624c95e2f1d90ddbfbd79a
+6258;2;AC;eleitorado_apto;e.te;pessoas;613715;613715;exato;13/10/2026;17:42:47;a7e2cd664292bf75d6e2688069bf077c6b47799c00624c95e2f1d90ddbfbd79a
+6258;2;AC;percentual_lula;carg[].agr[].par[].cand[].pvap;percentual 0..100;0.00;0.00;conferido com votos/v.vvc quando denominador > 0;13/10/2026;17:42:47;a7e2cd664292bf75d6e2688069bf077c6b47799c00624c95e2f1d90ddbfbd79a
+6258;2;AC;percentual_flavio;carg[].agr[].par[].cand[].pvap;percentual 0..100;0.00;0.00;conferido com votos/v.vvc quando denominador > 0;13/10/2026;17:42:47;a7e2cd664292bf75d6e2688069bf077c6b47799c00624c95e2f1d90ddbfbd79a

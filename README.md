@@ -2,7 +2,7 @@
 
 MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma planilha de estimativa eleitoral em Python, geração de CSV e futura publicação de HTML no GitHub Pages.
 
-**Estado:** protótipo; nenhum teste ponta a ponta homologado. **Próxima ação:** T1, testar conexão programática ao JSON do Acre.
+**Estado local:** coleta do Acre, cálculos equivalentes à planilha e logs implementados e testados. A homologação ponta a ponta permanece pendente. **Etapa atual:** validar o workflow manual completo nas 28 abrangências.
 
 ## Referências
 - [Projeto Master](PROJETO_MASTER.md): escopo, fases, critérios de sucesso, evidências e situação.
@@ -10,19 +10,22 @@ MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma 
 - [Decisões](docs/DECISOES.md)
 - [Backlog](docs/BACKLOG.md)
 - [Identidade visual do dashboard — proposta v1.0](docs/IDENTIDADE_VISUAL.md)
+- [Implementação T2/T3, auditoria e logs](docs/IMPLEMENTACAO_T2_T3.md)
 - [Diagnóstico Python do Acre](scripts/teste_t2_acre.py)
-
-## Protótipo visual (dados inteiramente fictícios)
-- [Dashboard HTML — versão 2](site/prototipo-simulacao.html): linha do tempo de 17h a 00h, extensão após meia-noite, percentuais simulados e placar à direita.
-- Não está publicado em GitHub Pages nem conectado à API do TSE. Para testar, baixar o HTML e abrir no navegador.
 
 ## Execução local
 Requer Python 3.9+; sem dependências externas para o diagnóstico inicial.
 
 ```bash
-python scripts/teste_t2_acre.py
+python -m monitor.pipeline --eleicao 6258
+python -m unittest discover -s tests -v
 ```
 
-O script tenta baixar um JSON do TSE e grava `tse_acre_6257.json` localmente. O arquivo de resposta não é versionado. **A URL e o esquema ainda precisam de validação programática.** Não confundir resultado oficial com estimativa. Não ativar agendamento antes da homologação da coleta e dos cálculos.
+A coleta grava `dados/acre_6258.json`, snapshots por hash e a tabela `dados/logs/atualizacoes.csv` com data, hora, minuto e situação de cada tentativa. Use `--eleicao 6257` para primeiro turno e `--entrada caminho.json` para reprocessar um arquivo local, identificado como tal no log.
+
+Os resultados oficiais e o modelo da planilha ficam separados. Denominador zero ou entradas ausentes deixam a estimativa indisponível. A resposta do segundo turno verificada estava sem totalização; não a interpretar como apuração atual. Não ativar agendamento antes da validação das próximas etapas.
 
 Fonte: https://resultados.tse.jus.br/oficial/app/index.html
+
+## Falhas e execução manual
+A metodologia da planilha está aceita; a saída L chama-se **PRESENTES ESTIMADOS**. O monitor coleta 27 UFs + exterior, preserva o último conjunto válido em falha e sinaliza desatualização em um arquivo de estado separado. [Procedimento, logs e evidências de Actions](docs/FALHAS_E_ACTIONS.md). Disparo apenas manual, sem agendamento ou deploy.

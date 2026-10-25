@@ -1,0 +1,22 @@
+{
+  "coleta_utc": "2026-10-25T17:04:30.720549+00:00",
+  "url": "https://resultados.tse.jus.br/oficial/ele2026/6258/dados/ac/ac-c0001-e006258-u.json",
+  "python": "3.12.4",
+  "aprovado": true,
+  "http": 200,
+  "url_final": "https://resultados.tse.jus.br/oficial/ele2026/6258/dados/ac/ac-c0001-e006258-u.json",
+  "content_type": "application/json",
+  "identidade": {
+    "eleicao": "6258",
+    "turno": "2",
+    "tipo_abrangencia": "uf",
+    "uf": "ac",
+    "cargo_codigo": "1",
+    "cargo_nome": "Presidente",
+    "data_fonte": "13/10/2026",
+    "hora_fonte": "17:42:47"
+  },
+  "sha256": "a7e2cd664292bf75d6e2688069bf077c6b47799c00624c95e2f1d90ddbfbd79a",
+  "bytes": 2867,
+  "arquivo": "tse_acre_6258.json"
+}

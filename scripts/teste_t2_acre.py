@@ -1,66 +1,67 @@
-"""Diagnóstico inicial do JSON oficial do TSE para Acre (T1/T2).
-Python 3.9+, sem dependências externas.
-Uso: python scripts/teste_t2_acre.py
-"""
+"""Validação T1 do JSON do TSE. Python 3.9+, sem dependências externas."""
+import argparse
+import hashlib
 import json
+import platform
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-URL = "https://resultados.tse.jus.br/oficial/ele2026/6257/dados/ac/ac-c0001-e006257-u.json"
-DESTINO = Path("tse_acre_6257.json")
+
+def validar_identidade(dados, eleicao, turno):
+    if not isinstance(dados, dict):
+        raise ValueError("Raiz deve ser objeto JSON")
+    for campo, esperado in {"ele": eleicao, "t": turno, "tpabr": "uf", "cdabr": "ac"}.items():
+        if dados.get(campo) != esperado:
+            raise ValueError(f"{campo}: esperado {esperado!r}, recebido {dados.get(campo)!r}")
+    cargos = dados.get("carg")
+    if not isinstance(cargos, list) or len(cargos) != 1:
+        raise ValueError("Esperado exatamente um cargo em carg")
+    cargo = cargos[0]
+    if not isinstance(cargo, dict) or cargo.get("cd") != "1" or cargo.get("nmn") != "Presidente":
+        raise ValueError("Cargo deve ser 1 / Presidente")
+    for campo in ("dg", "hg"):
+        if not isinstance(dados.get(campo), str) or not dados[campo]:
+            raise ValueError(f"Data/hora da fonte ausente: {campo}")
+    return {"eleicao": dados["ele"], "turno": dados["t"], "tipo_abrangencia": dados["tpabr"],
+            "uf": dados["cdabr"], "cargo_codigo": cargo["cd"], "cargo_nome": cargo["nmn"],
+            "data_fonte": dados["dg"], "hora_fonte": dados["hg"]}
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--eleicao", choices=("6257", "6258"), default="6257")
+    parser.add_argument("--turno", choices=("1", "2"), default="1")
+    parser.add_argument("--saida", type=Path, default=Path("evidencias"))
+    args = parser.parse_args()
+    url = (f"https://resultados.tse.jus.br/oficial/ele2026/{args.eleicao}/dados/ac/"
+           f"ac-c0001-e{int(args.eleicao):06d}-u.json")
+    relatorio = {"coleta_utc": datetime.now(timezone.utc).isoformat(), "url": url,
+                 "python": platform.python_version(), "aprovado": False}
+    args.saida.mkdir(parents=True, exist_ok=True)
+    destino = args.saida / f"tse_acre_{args.eleicao}.json"
     try:
-        req = Request(URL, headers={"User-Agent": "MonitorEleitoral2026/0.1", "Accept": "application/json"})
-        with urlopen(req, timeout=25) as response:
-            raw = response.read()
-            print("HTTP:", response.status)
-            print("Content-Type:", response.headers.get("Content-Type"))
-            if response.status != 200:
-                return 1
-    except (HTTPError, URLError, TimeoutError) as exc:
-        print("FALHA DE CONEXAO:", exc)
-        return 1
-
-    try:
+        req = Request(url, headers={"User-Agent": "MonitorEleitoral2026/0.2", "Accept": "application/json"})
+        with urlopen(req, timeout=25) as resposta:
+            raw = resposta.read()
+            relatorio.update(http=resposta.status, url_final=resposta.url,
+                             content_type=resposta.headers.get("Content-Type"))
+            if resposta.status != 200:
+                raise ValueError(f"HTTP inesperado: {resposta.status}")
         dados = json.loads(raw)
-    except (ValueError, UnicodeDecodeError) as exc:
-        print("FALHA: resposta nao e JSON valido:", exc)
-        return 1
-
-    if not isinstance(dados, dict):
-        print("FALHA: raiz do JSON nao e objeto")
-        return 1
-
-    print("Chaves da raiz:", ", ".join(sorted(dados)))
-    for chave in ("ele", "uf", "abr", "cdabr", "car", "dg", "hg"):
-        if chave in dados:
-            valor = dados[chave]
-            if chave == "car":
-                print("car: lista com", len(valor) if isinstance(valor, list) else "formato inesperado", "itens")
-            else:
-                print(f"{chave}: {valor}")
-    for chave in ("e", "c", "a", "te", "tc", "ta", "v", "vap", "pvap", "vv"):
-        if chave in dados:
-            print(f"Campo {chave}: {dados[chave]}")
-
-    for cargo in dados.get("car", []):
-        if not isinstance(cargo, dict):
-            continue
-        print("Cargo:", cargo.get("nm"), "codigo:", cargo.get("cd"))
-        for agrupamento in cargo.get("agr", []):
-            for partido in agrupamento.get("par", []):
-                for candidato in partido.get("cand", []):
-                    nome = candidato.get("nm") or candidato.get("nmu")
-                    if nome and ("LULA" in nome.upper() or "FLAVIO" in nome.upper() or "FLÁVIO" in nome.upper()):
-                        print("Candidato encontrado:", json.dumps(candidato, ensure_ascii=False))
-
-    DESTINO.write_text(json.dumps(dados, ensure_ascii=False, indent=2), encoding="utf-8")
-    print("JSON salvo em:", DESTINO.resolve())
-    print("T1 parcialmente verificável; T2 requer mapeamento e conferência dos cinco indicadores.")
-    return 0
+        relatorio["identidade"] = validar_identidade(dados, args.eleicao, args.turno)
+        destino.write_bytes(raw)
+        relatorio.update(aprovado=True, sha256=hashlib.sha256(raw).hexdigest(),
+                         bytes=len(raw), arquivo=destino.name)
+    except (HTTPError, URLError, TimeoutError, ValueError, OSError) as exc:
+        relatorio["erro"] = str(exc)
+        if isinstance(exc, HTTPError):
+            relatorio["http"] = exc.code
+    texto = json.dumps(relatorio, ensure_ascii=False, indent=2)
+    (args.saida / f"validacao_t1_{args.eleicao}.json").write_text(texto + "\n", encoding="utf-8")
+    print(texto)
+    return 0 if relatorio["aprovado"] else 1
 
 
 if __name__ == "__main__":
