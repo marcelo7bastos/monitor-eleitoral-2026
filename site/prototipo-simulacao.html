@@ -703,7 +703,7 @@ const METHODS = {
   },
   timeline: {
     title:'Histórico temporal e curva simulada',
-    formula:'17h00 ≤ horário inicial ≤ 23h50; passo = 10 min\nparticipação_Lula(t) = participação_base + oscilação_sintética(t)\nparticipação_Flávio(t) = 100 − participação_Lula(t)\napós 23h50: oscilação = 0,12 × sen(0,75k) + 0,045 × sen(1,83k)',
+    formula:'m = minutos desde 00h; t = (m − 1020) / 60; R = (1430 − m) / 410\nAntes de 23h50: Δ = R × [−1,18 + 0,55×sen(2,25t+0,4) + 0,27×sen(5,3t)]\nApós 23h50: k=(m−1430)/10; Δ = 0,12×sen(0,75k) + 0,045×sen(1,83k)\n% Lula(t) = % Lula_base + Δ; % Flávio(t) = 100 − % Lula(t)',
     description:'O histórico contém 42 pontos predefinidos de 17h00 a 23h50. Antes desse horário, a função usa senos e um termo de aproximação ao cenário-base. Depois, cada clique adiciona um ponto de 10 minutos com oscilação matemática. O eixo horizontal inicia em 17h e vai até 00h, estendendo-se ao avançar além de meia-noite. A escala vertical é ampliada automaticamente.',
     warning:'Todos os pontos são sintéticos. O botão “Reproduzir” simula 10 minutos por segundo, sem acessar o TSE. Essas curvas não são tendência ou histórico real de apuração.'
   },
