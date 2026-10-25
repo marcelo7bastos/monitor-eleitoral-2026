@@ -9,6 +9,7 @@ from decimal import Decimal
 from pathlib import Path
 from .atualizacao import atomico, json_texto
 from .pipeline import UFS
+from .planilha import gerar_xlsx
 
 
 def n(x):
@@ -79,6 +80,7 @@ def gerar(pasta=Path('dados'), destino=Path('dist'), site=Path('site')):
             atomico(destino/'data'/arq.name, arq.read_bytes())
             csvpath=pasta/f'conjunto_{eleicao}.csv'
             if csvpath.exists(): shutil.copyfile(csvpath,destino/'data'/csvpath.name)
+            atomico(destino/'data'/f'conjunto_{eleicao}.xlsx',gerar_xlsx(conjunto))
         publicacao['eleicoes'][eleicao]={'estado':s,'coleta_utc':conjunto['coleta_utc'] if conjunto else None,'vistas':vistas,
             'historico':[h for h in historico if h['eleicao']==eleicao]}
     historico.sort(key=lambda h:(h['coleta_utc'],h['eleicao']))
