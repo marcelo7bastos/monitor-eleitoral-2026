@@ -32,4 +32,13 @@ Para disparar: Actions → Monitor eleitoral - manual → Run workflow → escol
 
 ## Evidências de execução remota
 
-Em validação. Não considerar a existência do YAML como aprovação da execução.
+Validado em 25/10/2026, com inspeção dos artefatos reais:
+
+| Execução | Eleição | Abrangências | Registros acumulados | Resultado |
+|---|---|---:|---:|---|
+| [40217703133](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40217703133) | 6258 / 2º turno | 28 | 28 | Sucesso; consolidação indisponível, fonte sem totalização |
+| [40217771870](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40217771870) | 6257 / 1º turno | 28 | 56 | Sucesso; consolidação calculada |
+
+Ambas executaram 19 testes de implementação/resiliência e cinco de identidade T1, todos aprovados. A segunda registrou recuperação do artefato da primeira. O conjunto 6258 foi preservado byte a byte; os hashes dos snapshots das 28 abrangências foram conferidos nos dois artefatos. Todos os arquivos de estado sinalizaram horário antigo da fonte; sucesso do job confirma coleta/cálculo, não apuração atualizada de hoje.
+
+[Validação dos artefatos](../evidencias/validacao_actions.json). As duas execuções usaram o commit `6716171421fd787f52cb97d786e261e74a096c07`. A documentação de evidências foi atualizada posteriormente, sem alteração do workflow. Somente disparo manual; agendamento e Pages continuam desativados.

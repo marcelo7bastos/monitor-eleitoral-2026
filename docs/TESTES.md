@@ -36,3 +36,6 @@ Simular timeout, JSON inválido e ausência de dados; preservar último snapshot
 - T3: [inventário de 118 fórmulas](../evidencias/auditoria/inventario_formulas.csv) e [590 comparações](../evidencias/auditoria/equivalencia.csv), sem divergências acima das tolerâncias documentadas. Motor independente, sem Excel nativo.
 - Testes de implementação: `python -m unittest discover -s tests -v`. Cobrem entradas inválidas, zero e ausência, parciais, pesos nacionais, logs e preservação em falha. Evidência: [testes_monitor.txt](../evidencias/testes_monitor.txt).
 - A equivalência não homologa premissas estatísticas da estimativa nem demonstra atualização atual da apuração. Detalhes em [IMPLEMENTACAO_T2_T3](IMPLEMENTACAO_T2_T3.md).
+
+## Falhas e Actions — 25/10/2026
+19 testes de implementação/resiliência + 5 testes T1 aprovados em dois runners reais. A matriz cobre timeout, DNS, HTTP 503, JSON inválido, campos ausentes, identidade incorreta, regressão e falha parcial do conjunto nacional. Artefatos reais com 28 abrangências conferidos; persistência de histórico entre execuções passou de 28 a 56 linhas. Detalhes: [FALHAS_E_ACTIONS](FALHAS_E_ACTIONS.md). T8 geral continua pendente.

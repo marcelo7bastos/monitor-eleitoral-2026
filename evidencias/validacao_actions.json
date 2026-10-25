@@ -1,0 +1,24 @@
+{
+  "execucoes": [
+    {
+      "execucao": 40217703133,
+      "eleicao": "6258",
+      "abrangencias": 28,
+      "logs": 28,
+      "status": "sucesso",
+      "desatualizado": true,
+      "consolidacao": "indisponivel"
+    },
+    {
+      "execucao": 40217771870,
+      "eleicao": "6257",
+      "abrangencias": 28,
+      "logs": 56,
+      "status": "sucesso",
+      "desatualizado": true,
+      "consolidacao": "calculado"
+    }
+  ],
+  "historico_restaurado": true,
+  "conjunto_6258_preservado_byte_a_byte": true
+}

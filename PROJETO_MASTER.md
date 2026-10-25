@@ -29,7 +29,7 @@ Uma etapa só está **concluída** se houver evidência verificável (log, arqui
 | T2 | Cinco indicadores do Acre | Cinco valores mapeados e conferidos contra TSE | evidencias/indicadores_acre.csv; conferência programática | Implementado e verificado localmente; visual pendente |
 | T3 | Fórmulas Excel → Python | Fórmulas auditadas, paridade nos casos de teste | 118 fórmulas; 590 comparações; docs/IMPLEMENTACAO_T2_T3.md | Equivalência matemática aprovada localmente |
 | T4 | 28 abrangências | 28 identificadores únicos, dados consistentes, CSV gerado | 28/28 nos dois turnos, execução local; docs/FALHAS_E_ACTIONS.md | Validado tecnicamente |
-| T5 | Actions manual | Workflow manual executa coleta/cálculo com sucesso | docs/FALHAS_E_ACTIONS.md | Em validação remota |
+| T5 | Actions manual | Workflow manual executa coleta/cálculo com sucesso | Execuções 40217703133 e 40217771870; artefatos inspecionados | Aprovado tecnicamente |
 | T6 | Agendamento | Cron de 10 minutos habilitado, duas execuções verificadas | URLs e horários | Pendente |
 | T7 | GitHub Pages | HTML público, acessível e distinguindo estimativa de apuração | URL e conferência visual | Pendente |
 | T8 | Homologação geral | Falha da API não substitui último snapshot válido | Testes de falha e relatório | Pendente |
@@ -46,7 +46,7 @@ Uma etapa só está **concluída** se houver evidência verificável (log, arqui
 **25/10/2026:** criado o repositório público e publicada a estrutura inicial. T1 segue em andamento; T2 ainda não homologado. O script de diagnóstico está em `scripts/teste_t2_acre.py`. Nenhum workflow foi habilitado.
 
 ## Próximo passo
-Validar a execução manual completa no GitHub Actions e a restauração do histórico entre execuções. A metodologia da planilha está aceita pelo usuário; no modelo apenas o rótulo L foi corrigido para PRESENTES ESTIMADOS. Sem cron ou Pages nesta etapa.
+Execução manual completa validada no GitHub Actions, incluindo restauração e crescimento do histórico de 28 para 56 registros. Próxima etapa do plano: preparar painel e sua indicação de atualização antes de avaliar agendamento. A metodologia da planilha está aceita pelo usuário; no modelo apenas o rótulo L foi corrigido para PRESENTES ESTIMADOS. Sem cron ou Pages nesta etapa.
 
 Ver também [TESTES](docs/TESTES.md), [DECISOES](docs/DECISOES.md) e [BACKLOG](docs/BACKLOG.md).
 
@@ -59,3 +59,6 @@ T1 aprovado localmente; o registro inicial acima descreve o estado histórico da
 
 ## Falhas, 28 abrangências e Actions manual — 25/10/2026
 Metodologia aceita pelo usuário. Fórmulas preservadas; rótulo L corrigido apenas nos produtos do monitor. Coleta real local passou em 28/28 abrangências nos dois turnos. Testes controlados preservaram o último conjunto e sinalizaram desatualização. Workflow manual criado com persistência por artefatos e execução remota em validação. Consulte [FALHAS_E_ACTIONS](docs/FALHAS_E_ACTIONS.md). Os registros anteriores descrevem os estados históricos das etapas.
+
+## Resultado da execução manual — 25/10/2026
+T5 aprovado tecnicamente: execuções [40217703133](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40217703133) e [40217771870](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40217771870), 28 abrangências em cada uma, 24 testes por execução, artefatos conferidos e histórico restaurado com 56 linhas. Testes de falhas controladas aprovados; T8 geral permanece pendente por envolver painel e operação ainda não implementados. Nenhuma issue foi fechada nesta entrega.
