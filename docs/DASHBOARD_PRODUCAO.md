@@ -35,3 +35,13 @@ Evidências: [testes](../evidencias/testes_dashboard.txt), [desktop](../evidenci
 
 ## Publicação e agendamento
 Em implementação: o workflow manual existente foi estendido para gerar o dashboard, preservar o histórico por artefatos e publicar o Pages. Em falha da coleta, a versão anterior é publicada com o estado de erro atualizado, e o job termina como falha. Testes inválidos ou restauração incompleta impedem publicação. O agendamento somente será habilitado após comprovar o deploy manual e o acesso público. Não considerar esta seção como comprovação de deploy ou cron.
+
+## Deploy manual e conferência pública — 25/10/2026
+- [PR #9](https://github.com/marcelo7bastos/monitor-eleitoral-2026/pull/9) integrado após checks aprovados.
+- [Execução manual 40223454439](https://github.com/marcelo7bastos/monitor-eleitoral-2026/actions/runs/40223454439) concluiu testes, restauração, coleta de 28 abrangências, geração e implantação com sucesso.
+- [Dashboard público](https://marcelo7bastos.github.io/monitor-eleitoral-2026/): HTTP 200, JSON público conferido, data da publicação informada por Last-Modified.
+- Desktop e celular sem overflow da página; alternância de turno/UF/modelo, busca e navegação, metodologia e Escape testados. Nenhum erro JavaScript observado no site público.
+- Brasil/1º turno: Lula 45,16% / 53.879.538 votos; Flávio 47,03% / 56.104.503 votos, coincidindo com o portal oficial observado. Acre também conferido. Segundo turno sem totalização é exibido como indisponível eleitoralmente.
+- [Captura desktop pública](../evidencias/visual/pages_desktop.png) e [celular público](../evidencias/visual/pages_mobile.png).
+
+Após essa validação, cron de dez minutos preparado em branch da issue #6. As duas execuções automáticas reais e a preservação do histórico ainda precisam ser registradas. O cron do GitHub usa UTC e não garante início pontual; atrasos serão documentados.

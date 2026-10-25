@@ -65,3 +65,6 @@ T5 aprovado tecnicamente: execuções [40217703133](https://github.com/marcelo7b
 
 ## Dashboard de produção — andamento em 25/10/2026
 Branch `codex/dashboard-producao`, vinculada à issue #7. Conferência visual T2 concluída no TSE para os dois turnos do Acre. Frontend segue o protótipo aprovado, com dados reais, histórico persistente e avisos de falha. Testes locais passaram. Pages e cron ainda em validação, sem conclusão antecipada. Detalhes: [DASHBOARD_PRODUCAO](docs/DASHBOARD_PRODUCAO.md).
+
+## Pages validado — 25/10/2026
+Dashboard disponível em https://marcelo7bastos.github.io/monitor-eleitoral-2026/ após PR #9 e execução manual 40223454439 aprovada. Conferência pública desktop/celular e indicadores oficiais passaram. Etapa seguinte: habilitar cron e observar duas execuções automáticas com restauração do histórico. Evidências em docs/DASHBOARD_PRODUCAO.md.
