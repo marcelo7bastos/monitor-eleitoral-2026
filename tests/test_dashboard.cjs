@@ -1,6 +1,6 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {numero,pontos,periodo,status}=require('../site/dashboard.js');
+const {numero,pontos,periodo,status,parcial}=require('../site/dashboard.js');
 test('ausência não se torna zero eleitoral',()=>{assert.equal(numero(null),null);assert.equal(numero('0'),0);});
 test('histórico não inventa pontos, filtra intervalo e ausência de apuração',()=>{
  const h=[{coleta_utc:'2026-10-25T19:00:00Z',vistas:{AC:{lula:40,flavio:60}}},{coleta_utc:'2026-10-25T21:00:00Z',vistas:{AC:{lula:null,flavio:null}}}];
@@ -18,4 +18,9 @@ test('falha, indisponibilidade e atraso aparecem no painel',()=>{
  assert.match(status({apurado:true},{status:'sucesso'},'2026-10-25T21:00:00Z',agora).texto,/Coleta desatualizada/);
  assert.match(status({apurado:false},{status:'sucesso'},'2026-10-25T21:59:00Z',agora).texto,/Sem apuração/);
  assert.match(status(null,{},null,agora).texto,/Indisponível/);
+});
+test('estimativa parcial do Brasil sempre informa N de 28',()=>{
+ assert.equal(parcial({parcial:true,ufs_com_dados:5,ufs_total:28}),'parcial · 5 de 28 UFs');
+ assert.equal(parcial({parcial:false,ufs_com_dados:28,ufs_total:28}),'');
+ assert.equal(parcial(null),'');
 });
