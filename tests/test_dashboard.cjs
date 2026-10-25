@@ -31,3 +31,10 @@ test('placar mostra diferença estimativa − oficial com sinal e sem inventar v
  assert.equal(delta(null,'65.36'),null);
  assert.equal(pp(null),'');
 });
+test('escala padrão 30–70% amplia em passos de 10 sem esconder pontos',()=>{
+ const {escala}=require('../site/dashboard.js');
+ assert.deepEqual(escala(['65.36','34.64']),{lo:30,hi:70,ampliada:false});
+ assert.deepEqual(escala(['72.1','27.9']),{lo:20,hi:80,ampliada:true});
+ assert.deepEqual(escala(['100','0']),{lo:0,hi:100,ampliada:true});
+ assert.deepEqual(escala([]),{lo:30,hi:70,ampliada:false});
+});
