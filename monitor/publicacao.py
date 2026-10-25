@@ -37,6 +37,19 @@ def vista(registro):
             'andamento':d['andamento']}
 
 
+def estimativa_parcial(vistas):
+    """Brasil enquanto faltam UFs: soma(J)/soma(L) só das abrangências com estimativa calculada.
+
+    Diverge de M30/N30 (que exigem as 28 linhas) e por isso sempre informa N de 28.
+    """
+    com=[v['estimativa'] for uf,v in vistas.items() if uf in UFS and v['estimativa']['status']=='calculado']
+    j,k,l=(sum((n(x[c]) for x in com),Decimal(0)) for c in ('votos_lula','votos_flavio','presentes'))
+    ok=bool(com) and l>0
+    return {'lula':j/l*100 if ok else None,'flavio':k/l*100 if ok else None,
+            'votos_lula':j if ok else None,'votos_flavio':k if ok else None,'presentes':l if ok else None,'taxa_presenca':None,
+            'status':'parcial' if ok else 'indisponivel','parcial':True,'ufs_com_dados':len(com),'ufs_total':len(UFS)}
+
+
 def compilar(conjunto):
     registros=conjunto['abrangencias']
     if len(registros)!=28 or {r['oficial']['uf'] for r in registros}!=set(UFS):
@@ -52,7 +65,9 @@ def compilar(conjunto):
         br[nome]=Decimal(br['votos_'+nome])*100/br['concorrentes'] if br['apurado'] else None
     e=conjunto['consolidado_planilha']; valido=e['status']=='calculado'
     br['estimativa']={'lula':n(e.get('M30'))*100 if valido else None,'flavio':n(e.get('N30'))*100 if valido else None,
-        'votos_lula':e.get('J30'),'votos_flavio':e.get('K30'),'presentes':e.get('L30'),'taxa_presenca':None,'status':e['status']}
+        'votos_lula':e.get('J30'),'votos_flavio':e.get('K30'),'presentes':e.get('L30'),'taxa_presenca':None,'status':e['status'],
+        'parcial':False,'ufs_com_dados':len(UFS) if valido else 0,'ufs_total':len(UFS)}
+    if not valido: br['estimativa']=estimativa_parcial(vistas)
     br.update(data_fonte='Varia por UF',hora_fonte='Consultar tabela',coleta_utc=conjunto['coleta_utc'],
               fonte='Agregado dos arquivos oficiais das 27 UFs + ZZ',sha256=hashlib.sha256(json_texto(conjunto).encode()).hexdigest(),
               idg='Consultar cada UF',andamento='f' if all(v['andamento']=='f' for v in vistas.values()) else 'p' if br['totalizadas'] else 'n')
@@ -67,6 +82,11 @@ def gerar(pasta=Path('dados'), destino=Path('dist'), site=Path('site')):
     agora=datetime.now(timezone.utc).isoformat()
     histpath=pasta/'historico_dashboard.json'
     historico=json.loads(histpath.read_text(encoding='utf-8')) if histpath.exists() else []
+    for h in historico:  # coletas anteriores à regra parcial: recalcula só o Brasil a partir das UFs gravadas
+        b=h['vistas'].get('BR')
+        if b and 'ufs_total' not in b['estimativa']:
+            b['estimativa']=json.loads(json_texto(estimativa_parcial(h['vistas']) if b['estimativa']['lula'] is None else
+                {**b['estimativa'],'parcial':False,'ufs_com_dados':len(UFS),'ufs_total':len(UFS)}))
     publicacao={'gerado_utc':agora,'inicio_eixo':'2026-10-25T17:00:00-03:00','fim_eixo_inicial':'2026-10-26T00:00:00-03:00','eleicoes':{}}
     for eleicao in ('6257','6258'):
         arq=pasta/f'conjunto_{eleicao}.json'; estado=pasta/f'estado_conjunto_{eleicao}.json'

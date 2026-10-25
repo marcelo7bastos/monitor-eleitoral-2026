@@ -82,4 +82,45 @@ class Publicacao(unittest.TestCase):
         self.assertIsNone(v['BR']['lula'])
         self.assertIsNone(v['BR']['votos_lula'])
 
+    def test_brasil_estimativa_parcial_informa_n_de_28(self):
+        from decimal import Decimal
+        from monitor.publicacao import compilar
+        with tempfile.TemporaryDirectory(dir=BASE/'tests') as t:
+            dados=Path(t)/'dados'
+            executar('6257',dados,abrir=resposta)
+            conjunto=json.loads((dados/'conjunto_6257.json').read_text(encoding='utf-8'))
+        completo=compilar(conjunto)['BR']['estimativa']
+        self.assertFalse(completo['parcial'])
+        self.assertEqual(completo['ufs_com_dados'],28)
+        self.assertEqual(completo['lula'],Decimal(str(conjunto['consolidado_planilha']['M30']))*100)
+        for r in conjunto['abrangencias'][:3]:
+            r['estimativa_planilha']={'status':'indisponivel','I':None,'J':None,'K':None,'L':None}
+        conjunto['consolidado_planilha']={'status':'indisponivel','motivo':'linha_indisponivel'}
+        v=compilar(conjunto)
+        p=v['BR']['estimativa']
+        self.assertTrue(p['parcial'])
+        self.assertEqual((p['ufs_com_dados'],p['ufs_total'],p['status']),(25,28,'parcial'))
+        self.assertEqual(p['lula'],v['SP']['estimativa']['lula'])
+        for r in conjunto['abrangencias']:
+            r['estimativa_planilha']={'status':'indisponivel','I':None,'J':None,'K':None,'L':None}
+        vazio=compilar(conjunto)['BR']['estimativa']
+        self.assertIsNone(vazio['lula'])
+        self.assertEqual(vazio['ufs_com_dados'],0)
+
+    def test_historico_antigo_recebe_estimativa_parcial(self):
+        with tempfile.TemporaryDirectory(dir=BASE/'tests') as t:
+            dados=Path(t)/'dados';dist=Path(t)/'dist'
+            executar('6257',dados,abrir=resposta)
+            gerar(dados,dist,BASE/'site')
+            h=json.loads((dados/'historico_dashboard.json').read_text(encoding='utf-8'))
+            for k in ('parcial','ufs_com_dados','ufs_total'):h[0]['vistas']['BR']['estimativa'].pop(k)
+            h[0]['vistas']['BR']['estimativa']['lula']=None
+            h[0]['id']='antigo';h[0]['coleta_utc']='2026-10-25T20:00:00+00:00'
+            (dados/'historico_dashboard.json').write_text(json.dumps(h),encoding='utf-8')
+            r=gerar(dados,dist,BASE/'site')
+            antigo=next(x for x in r['eleicoes']['6257']['historico'] if x['id']=='antigo')['vistas']['BR']['estimativa']
+            self.assertTrue(antigo['parcial'])
+            self.assertEqual(antigo['ufs_com_dados'],28)
+            self.assertIsNotNone(antigo['lula'])
+
 if __name__=='__main__':unittest.main()
