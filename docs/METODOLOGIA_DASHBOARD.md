@@ -102,7 +102,7 @@ A metodologia fictícia será substituída/adequada conforme contrato de dados o
 
 ## 7. Colaboradores e natureza do projeto
 
-A barra lateral, acima de **Modo de demonstração**, identifica **Marcelo Cabreira Bastos** (desenvolvimento e análise) e **Ernesto Galindo** (colaborador). Os links ORCID, LinkedIn, site pessoal e GitHub são apresentados somente para Marcelo. ORCID confirmado pelo próprio usuário: https://orcid.org/0009-0002-4215-3446.
+A barra lateral, acima de **Modo de demonstração**, identifica **Marcelo Cabreira Bastos** (desenvolvimento e análise) e **Ernesto Galindo** (analista). Os links ORCID, LinkedIn, site pessoal e GitHub são apresentados somente para Marcelo. ORCID confirmado pelo próprio usuário: https://orcid.org/0009-0002-4215-3446.
 
 **Privacidade:** não exibir e-mail, telefone ou outros dados pessoais/profissionais de Ernesto. O projeto é pessoal e independente; a referência estética ao MDA não significa endosso institucional. Aviso solicitado no painel: **“Este não é um sistema oficial do TSE”**.
 
