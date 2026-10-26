@@ -86,3 +86,8 @@ test('apuração por região soma as UFs, não arredonda para 100% antes da hora
  assert.match(seloRegiao('Norte',['AC'],{AC:{totalizadas:20,secoes:100}}),/--p:20\.00/);
  assert.match(seloRegiao('Norte',['SE'],{}),/reg-cob vazio/);
 });
+
+test('acervo encerrado não acusa atraso, mas preserva indisponibilidade',()=>{
+ assert.match(status({apurado:true},{status:'erro'},'2026-10-25T21:00:00Z',Date.now(),true).texto,/Projeto encerrado em 26\/10\/2026/);
+ assert.match(status(null,{},null,Date.now(),true).texto,/Indisponível/);
+});

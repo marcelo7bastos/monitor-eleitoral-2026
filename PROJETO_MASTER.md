@@ -1,6 +1,8 @@
 # PROJETO MASTER — Monitor Eleitoral 2026
 
-**Versão:** 1.3 · **Atualização:** 25/10/2026 · **Status:** protótipo em homologação · **Repositório:** https://github.com/marcelo7bastos/monitor-eleitoral-2026
+**Versão:** 1.3 · **Atualização:** 26/10/2026 · **Status:** encerrado · **Repositório:** https://github.com/marcelo7bastos/monitor-eleitoral-2026
+
+Registro de encerramento em [docs/ENCERRAMENTO.md](docs/ENCERRAMENTO.md). As etapas abaixo descrevem o histórico do projeto; pendências não equivalem a aprovação.
 
 ## Objetivo
 Coletar resultados oficiais das eleições presidenciais de 2026 do TSE, reproduzir em Python os cálculos de estimativa da planilha de referência, produzir CSV/JSON validados e publicar HTML no GitHub Pages, com atualização planejada a cada dez minutos.

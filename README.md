@@ -6,7 +6,7 @@
 
 MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma planilha de estimativa eleitoral em Python, geração de CSV e futura publicação de HTML no GitHub Pages.
 
-**Estado:** coleta de 27 UFs + exterior, cálculos da planilha e logs implementados. Workflow manual validado em duas execuções reais, com histórico preservado. A homologação geral e o painel permanecem pendentes.
+**Estado:** encerrado em 26/10/2026. Painel mantido para consulta histórica, sem novas coletas ou atualizações automáticas. Dados, horários e logs preservados. O encerramento não certifica o resultado eleitoral final nem altera os registros de homologação anteriores. Consulte [o registro de encerramento](docs/ENCERRAMENTO.md).
 
 ## Referências
 - [Projeto Master](PROJETO_MASTER.md): escopo, fases, critérios de sucesso, evidências e situação.
