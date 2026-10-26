@@ -6,6 +6,6 @@ Encerramento solicitado pelo responsável pelo projeto. Site preservado para con
 
 O agendamento de coleta e o workflow Relógio da apuração foram desativados no GitHub. O workflow de publicação passa a ser exclusivamente manual e publica o arquivo preservado, sem consultar o TSE. O relógio fica sem comandos de coleta ou reativação.
 
-O painel não consulta atualizações periodicamente e o eixo temporal usa a última coleta preservada. O aviso de atraso é substituído pela mensagem de encerramento. Falhas de carregamento e dados indisponíveis continuam identificados.
+O painel não consulta atualizações periodicamente e o eixo temporal termina na primeira coleta com pelo menos 99,9% das seções totalizadas da abrangência selecionada (ou na última coleta, se o limiar não foi observado). O aviso de atraso é substituído pela mensagem de encerramento. Falhas de carregamento e dados indisponíveis continuam identificados.
 
 O acervo representa os últimos dados coletados, não uma certificação de resultado final. O encerramento não aprova automaticamente pendências de homologação anteriores. Código e documentos históricos permanecem disponíveis.

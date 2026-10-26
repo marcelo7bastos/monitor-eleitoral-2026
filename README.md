@@ -8,6 +8,8 @@ MVP para coleta de resultados oficiais do TSE, reprodução de cálculos de uma 
 
 **Estado:** encerrado em 26/10/2026. Painel mantido para consulta histórica, sem novas coletas ou atualizações automáticas. Dados, horários e logs preservados. O encerramento não certifica o resultado eleitoral final nem altera os registros de homologação anteriores. Consulte [o registro de encerramento](docs/ENCERRAMENTO.md).
 
+Avaliação posterior: [acerto observado e composição por UF](docs/AVALIACAO_RETROSPECTIVA.md).
+
 ## Referências
 - [Projeto Master](PROJETO_MASTER.md): escopo, fases, critérios de sucesso, evidências e situação.
 - [Protocolo de testes](docs/TESTES.md)

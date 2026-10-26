@@ -91,3 +91,13 @@ test('acervo encerrado não acusa atraso, mas preserva indisponibilidade',()=>{
  assert.match(status({apurado:true},{status:'erro'},'2026-10-25T21:00:00Z',Date.now(),true).texto,/Projeto encerrado em 26\/10\/2026/);
  assert.match(status(null,{},null,Date.now(),true).texto,/Indisponível/);
 });
+
+
+test('recorte usa primeira coleta >=99,9%, sem arredondar nem apagar acervo',()=>{
+ const {janelaHistorico}=require('../site/dashboard.js');
+ const h=[99.899,99.901,100].map((v,i)=>({coleta_utc:`2026-10-25T21:${10+i*5}:00Z`,vistas:{BR:{secoes:100000,totalizadas:v*1000},AC:{secoes:100,totalizadas:50}}}));
+ const r=janelaHistorico(h,'BR',h[0].coleta_utc);
+ assert.equal(r.atingiu,true);assert.equal(r.historico.length,2);assert.equal(r.fim,h[1].coleta_utc);assert.equal(h.length,3);
+ const uf=janelaHistorico(h,'AC',h[0].coleta_utc);assert.equal(uf.atingiu,false);assert.equal(uf.historico.length,3);
+ assert.equal(janelaHistorico([],'BR','2026-10-25T20:00:00Z').fim,'2026-10-25T20:00:00Z');
+});
